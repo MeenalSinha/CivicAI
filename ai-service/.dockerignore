@@ -1,0 +1,14 @@
+# Training data and scripts — only needed for fine-tuning, not runtime
+training/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# Dev files
+*.md
+.env*
+lora-*/
+models/

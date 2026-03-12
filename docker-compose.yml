@@ -1,0 +1,109 @@
+version: '3.9'
+
+# ============================================================
+# CivicAI — Full Stack with Open-Source AI
+# Services: ai-service (Mistral-7B + YOLOv8 + Whisper) | backend | frontend
+#
+# REQUIRED before first run:
+#   cp backend/.env.example backend/.env   (then fill in HF_TOKEN, JWT_SECRET)
+#   docker-compose --env-file backend/.env up --build
+# ============================================================
+
+services:
+
+  ai-service:
+    build:
+      context: ./ai-service
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - models:/app/models   # Named volume — persists ~14GB Mistral weights across rebuilds
+    environment:
+      - MISTRAL_MODEL_ID=${MISTRAL_MODEL_ID:-mistralai/Mistral-7B-Instruct-v0.3}
+      - WHISPER_MODEL_SIZE=${WHISPER_MODEL_SIZE:-base}
+      - YOLO_MODEL_PATH=${YOLO_MODEL_PATH:-yolov8n.pt}
+      - LORA_ADAPTER_PATH=${LORA_ADAPTER_PATH:-}
+      - PRELOAD_MISTRAL=true
+      - PRELOAD_YOLO=${PRELOAD_YOLO:-false}
+      - PRELOAD_WHISPER=${PRELOAD_WHISPER:-false}
+      - HF_TOKEN=${HF_TOKEN:?HF_TOKEN is required to download Mistral-7B. Set it in backend/.env}
+    restart: unless-stopped
+    networks:
+      - civicai
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 60s
+      timeout: 30s
+      retries: 5
+      # First run downloads ~14GB model — allow 10 minutes. Subsequent runs use cache.
+      start_period: 600s
+    # Uncomment for NVIDIA GPU:
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: 1
+    #           capabilities: [gpu]
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"
+    volumes:
+      - db-data:/app/data   # Persist SQLite DB outside container
+    environment:
+      - PORT=3001
+      - NODE_ENV=production
+      - DB_PATH=/app/data/civicai.db
+      - AI_SERVICE_URL=http://ai-service:8000
+      - AI_SERVICE_TIMEOUT=${AI_SERVICE_TIMEOUT:-30000}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-}
+      # JWT_SECRET has NO default — must be set in .env (fail-fast on misconfiguration)
+      - JWT_SECRET=${JWT_SECRET:?JWT_SECRET must be set in .env — generate with: openssl rand -hex 64}
+      - JWT_EXPIRES=${JWT_EXPIRES:-8h}
+      - DEFAULT_OFFICER_PASSWORD=${DEFAULT_OFFICER_PASSWORD:-CivicAI@2024}
+      - ALLOWED_ORIGINS=${ALLOWED_ORIGINS:-http://localhost:3000}
+      - DEFAULT_LAT=${DEFAULT_LAT:-28.6139}
+      - DEFAULT_LNG=${DEFAULT_LNG:-77.2090}
+    depends_on:
+      ai-service:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - civicai
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://localhost:3001/api/health').then(r=>r.ok||process.exit(1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        # CRA REACT_APP_* vars are baked at BUILD time, not runtime.
+        # Pass them as build args so the bundle has the correct API URL.
+        - REACT_APP_API_URL=${REACT_APP_API_URL:-http://localhost:3001/api}
+        - REACT_APP_WS_URL=${REACT_APP_WS_URL:-ws://localhost:3001}
+    ports:
+      - "3000:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - civicai
+
+networks:
+  civicai:
+    driver: bridge
+
+volumes:
+  models:    # AI model weights — survives container rebuilds
+  db-data:   # SQLite database — survives container rebuilds

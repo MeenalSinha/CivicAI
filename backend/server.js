@@ -1,0 +1,579 @@
+// ============================================================
+// CivicAI Backend Server — Production Grade
+// Express REST API + WebSocket + JWT Auth + SQLite + Worker
+// ============================================================
+
+import express from 'express';
+import cors from 'cors';
+import helmet from 'helmet';
+import rateLimit from 'express-rate-limit';
+import { createServer } from 'http';
+import { WebSocketServer } from 'ws';
+import { v4 as uuidv4 } from 'uuid';
+import dotenv from 'dotenv';
+import jwt from 'jsonwebtoken';
+import bcrypt from 'bcryptjs';
+
+import {
+  initDatabase,
+  getAllComplaints,
+  getComplaintById,
+  addComplaint,
+  updateComplaint,
+  upvoteComplaint,
+  runEscalationWorker,
+  getAnalytics,
+  getPredictions,
+  getNotifications,
+  markNotificationRead,
+  findOfficerByUsername,
+  getDbStats
+} from './database/db.js';
+
+import {
+  processComplaint,
+  chatResponse,
+  detectImageIssue,
+  generateInsights,
+  generatePredictionNarratives,
+  transcribeVoice
+} from './ai/aiService.js';
+
+dotenv.config();
+
+const JWT_SECRET = process.env.JWT_SECRET || 'civicai-jwt-secret-change-in-production';
+const JWT_EXPIRES = process.env.JWT_EXPIRES || '8h';
+
+// Default city center coordinates — set DEFAULT_LAT / DEFAULT_LNG in .env for your deployment city.
+// These are used when a complaint does not include GPS coordinates.
+// Delhi defaults: 28.6139, 77.2090 | Bengaluru: 12.9716, 77.5946
+const DEFAULT_LAT = parseFloat(process.env.DEFAULT_LAT) || 28.6139;
+const DEFAULT_LNG = parseFloat(process.env.DEFAULT_LNG) || 77.2090;
+const COORD_SPREAD = parseFloat(process.env.COORD_SPREAD) || 0.06; // ~3km radius jitter
+
+/** Return approximate coords near the city center when no GPS is provided */
+function approximateCoords() {
+  return {
+    lat: DEFAULT_LAT + (Math.random() - 0.5) * COORD_SPREAD,
+    lng: DEFAULT_LNG + (Math.random() - 0.5) * COORD_SPREAD,
+  };
+}
+
+// ---- Sanitize input ----
+function sanitize(text, maxLen = 2000) {
+  if (typeof text !== 'string') return '';
+  return text.trim().slice(0, maxLen).replace(/<[^>]*>/g, '');
+}
+
+const app = express();
+
+// ---- Security ----
+app.use(helmet({ crossOriginResourcePolicy: { policy: 'cross-origin' } }));
+app.disable('x-powered-by');
+
+const allowedOrigins = process.env.ALLOWED_ORIGINS
+  ? process.env.ALLOWED_ORIGINS.split(',').map(o => o.trim())
+  : ['http://localhost:3000', 'http://127.0.0.1:3000'];
+
+app.use(cors({
+  origin: allowedOrigins,
+  methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
+// ---- Rate Limiting ----
+const globalLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, max: 300,
+  standardHeaders: true, legacyHeaders: false,
+  message: { error: 'Too many requests. Please try again later.' }
+});
+const aiLimiter = rateLimit({
+  windowMs: 60 * 1000, max: 20,
+  standardHeaders: true, legacyHeaders: false,
+  message: { error: 'AI rate limit reached. Please wait a moment.' }
+});
+const authLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, max: 10,
+  standardHeaders: true, legacyHeaders: false,
+  message: { error: 'Too many login attempts. Please try again in 15 minutes.' }
+});
+
+app.use('/api', globalLimiter);
+app.use('/api/chat', aiLimiter);
+app.use('/api/analyze-image', aiLimiter);
+app.use('/api/voice-complaint', aiLimiter);
+app.use('/api/transcribe-audio', aiLimiter);
+app.use('/api/auth/login', authLimiter);
+
+app.use(express.json({ limit: '10mb' }));
+app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+
+// ---- Request Logger ----
+app.use((req, _res, next) => {
+  if (req.path !== '/api/health') {
+    console.log(`[${new Date().toISOString()}] ${req.method} ${req.path}`);
+  }
+  next();
+});
+
+// ---- JWT Auth Middleware ----
+function requireAuth(req, res, next) {
+  const authHeader = req.headers.authorization;
+  if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    return res.status(401).json({ error: 'Authentication required. Please log in.' });
+  }
+  const token = authHeader.slice(7);
+  try {
+    req.officer = jwt.verify(token, JWT_SECRET);
+    next();
+  } catch {
+    return res.status(401).json({ error: 'Session expired or invalid. Please log in again.' });
+  }
+}
+
+// ---- HTTP + WebSocket ----
+const httpServer = createServer(app);
+const wss = new WebSocketServer({ server: httpServer });
+const wsClients = new Set();
+
+wss.on('connection', (ws) => {
+  wsClients.add(ws);
+  try {
+    ws.send(JSON.stringify({
+      event: 'connected',
+      data: { message: 'Connected to CivicAI real-time feed' },
+      timestamp: new Date().toISOString()
+    }));
+  } catch {}
+  ws.on('close', () => wsClients.delete(ws));
+  ws.on('error', () => wsClients.delete(ws));
+});
+
+function broadcast(event, data) {
+  const payload = JSON.stringify({ event, data, timestamp: new Date().toISOString() });
+  wsClients.forEach(client => {
+    if (client.readyState === 1) { try { client.send(payload); } catch {} }
+  });
+}
+
+// ============================================================
+// HEALTH CHECK
+// ============================================================
+app.get('/api/health', (_req, res) => {
+  const stats = getDbStats();
+  res.json({
+    status: 'ok', version: '3.0.0',
+    db: 'sqlite-persistent',
+    ...stats,
+    wsClients: wsClients.size,
+    aiServiceUrl: process.env.AI_SERVICE_URL || 'http://ai-service:8000',
+    anthropicFallback: !!process.env.ANTHROPIC_API_KEY,
+    uptime: Math.floor(process.uptime()),
+    timestamp: new Date().toISOString()
+  });
+});
+
+// ============================================================
+// AUTH ROUTES
+// ============================================================
+
+app.post('/api/auth/login', async (req, res) => {
+  const username = sanitize(req.body.username || '', 50).toLowerCase();
+  const password = sanitize(req.body.password || '', 100);
+
+  if (!username || !password) {
+    return res.status(400).json({ error: 'Username and password are required.' });
+  }
+
+  const officer = findOfficerByUsername(username);
+  if (!officer) {
+    // Constant-time delay even for unknown users to prevent user enumeration
+    await bcrypt.compare(password, '$2a$12$invalidhashpaddingtomatchcost00000000000000000000000000');
+    return res.status(401).json({ error: 'Invalid credentials.' });
+  }
+
+  const valid = await bcrypt.compare(password, officer.passwordHash);
+  if (!valid) {
+    return res.status(401).json({ error: 'Invalid credentials.' });
+  }
+
+  const token = jwt.sign(
+    { id: officer.id, username: officer.username, name: officer.name, role: officer.role },
+    JWT_SECRET,
+    { expiresIn: JWT_EXPIRES }
+  );
+
+  res.json({
+    success: true,
+    token,
+    officer: { id: officer.id, username: officer.username, name: officer.name, role: officer.role },
+    expiresIn: JWT_EXPIRES
+  });
+});
+
+app.get('/api/auth/me', requireAuth, (req, res) => {
+  res.json({ success: true, officer: req.officer });
+});
+
+// ============================================================
+// CITIZEN ROUTES
+// ============================================================
+
+app.post('/api/chat', async (req, res) => {
+  const message = sanitize(req.body.message || '', 1000);
+  const history = Array.isArray(req.body.history) ? req.body.history.slice(-10) : [];
+  // Sanitize and validate sessionId — must be a short alphanumeric string or null
+  const rawSession = req.body.sessionId;
+  const sessionId = (typeof rawSession === 'string' && /^[a-zA-Z0-9_-]{1,64}$/.test(rawSession))
+    ? rawSession : null;
+
+  if (!message) return res.status(400).json({ error: 'Message is required.' });
+
+  try {
+    const complaintKeywords = /pothole|garbage|light|water|leakage|broken|damaged|road|sewage|pipe|overflow|flood|gadda|kachra|paani|bijli|nali|naali/i;
+    const isComplaint = complaintKeywords.test(message) && message.length > 10;
+
+    const reply = await chatResponse(message, history);
+    let complaint = null;
+
+    if (isComplaint) {
+      const processed = await processComplaint(message);
+      const newComplaint = addComplaint({
+        issueType: processed.issueType,
+        description: message,
+        location: {
+          text: processed.location !== 'Location not specified' ? processed.location : 'Location pending confirmation',
+          ...approximateCoords(),
+        },
+        department: processed.department, priority: processed.priority,
+        citizenName: 'Chat User', citizenPhone: 'Not provided',
+        aiConfidence: processed.aiConfidence, detectedLanguage: processed.detectedLanguage,
+        keywords: processed.keywords, sentiment: processed.sentiment, channel: 'chat'
+      });
+      complaint = newComplaint;
+      broadcast('new_complaint', newComplaint);
+    }
+
+    res.json({ success: true, reply, complaint, sessionId: sessionId || uuidv4() });
+  } catch (err) {
+    console.error('Chat error:', err);
+    res.status(500).json({
+      error: 'AI processing failed',
+      reply: 'I am unable to process your request at the moment. Please try the direct complaint form.',
+      complaint: null
+    });
+  }
+});
+
+app.post('/api/complaints', async (req, res) => {
+  const text = sanitize(req.body.text || '', 2000);
+  const location = sanitize(req.body.location || '', 300);
+  const citizenName = sanitize(req.body.citizenName || 'Anonymous Citizen', 100);
+  const citizenPhone = sanitize(req.body.citizenPhone || 'Not provided', 20);
+
+  if (!text) return res.status(400).json({ error: 'Complaint text is required.' });
+
+  try {
+    const processed = await processComplaint(text);
+    const newComplaint = addComplaint({
+      issueType: processed.issueType, description: text,
+      location: {
+        text: location || processed.location,
+        ...approximateCoords(),
+      },
+      department: processed.department, priority: processed.priority,
+      citizenName, citizenPhone,
+      aiConfidence: processed.aiConfidence, detectedLanguage: processed.detectedLanguage,
+      keywords: processed.keywords, sentiment: processed.sentiment, channel: 'manual'
+    });
+    broadcast('new_complaint', newComplaint);
+    res.status(201).json({ success: true, complaint: newComplaint, message: `Complaint ${newComplaint.ticketId} registered successfully` });
+  } catch (err) {
+    console.error('Submit error:', err);
+    res.status(500).json({ error: 'Failed to process complaint. Please try again.' });
+  }
+});
+
+app.get('/api/complaints/:id', (req, res) => {
+  const id = sanitize(req.params.id, 50);
+  if (!id || id.length > 50) return res.status(400).json({ error: 'Invalid complaint ID.' });
+  const complaint = getComplaintById(id);
+  if (!complaint) return res.status(404).json({ error: `Complaint ${id} not found. Please check your ticket ID.` });
+  res.json(complaint);
+});
+
+app.post('/api/complaints/:id/upvote', (req, res) => {
+  const id = sanitize(req.params.id, 50);
+  const updated = upvoteComplaint(id);
+  if (!updated) return res.status(404).json({ error: `Complaint ${id} not found.` });
+  broadcast('complaint_updated', { id: updated.id, ticketId: updated.ticketId, upvotes: updated.upvotes });
+  res.json({ success: true, upvotes: updated.upvotes });
+});
+
+app.post('/api/analyze-image', async (req, res) => {
+  const { image, location, citizenName } = req.body;
+  if (!image || typeof image !== 'string') return res.status(400).json({ error: 'Image data is required.' });
+  const mimeMatch = image.match(/^data:(image\/(?:jpeg|png|webp|gif));base64,/);
+  if (!mimeMatch) return res.status(400).json({ error: 'Invalid image format. Supported: JPEG, PNG, WebP, GIF.' });
+  if (image.length > 8 * 1024 * 1024) return res.status(400).json({ error: 'Image too large. Maximum 6MB.' });
+
+  try {
+    const base64 = image.replace(/^data:image\/\w+;base64,/, '');
+    const mimeType = mimeMatch[1];
+    const visionResult = await detectImageIssue(base64, mimeType);
+    const deptMap = { 'Pothole': 'Road Maintenance', 'Garbage Overflow': 'Sanitation', 'Broken Streetlight': 'Electrical Department', 'Water Leakage': 'Water Supply', 'Damaged Infrastructure': 'Road Maintenance' };
+    const newComplaint = addComplaint({
+      issueType: visionResult.issueType, description: visionResult.description,
+      location: { text: sanitize(location || 'Location from uploaded image', 300), ...approximateCoords() },
+      department: deptMap[visionResult.issueType] || 'General Administration',
+      priority: visionResult.priority,
+      citizenName: sanitize(citizenName || 'Anonymous Citizen', 100),
+      citizenPhone: 'Not provided', aiConfidence: visionResult.confidence,
+      detectedLanguage: 'Image', keywords: [visionResult.issueType.toLowerCase()],
+      sentiment: 'neutral', channel: 'image'
+    });
+    broadcast('new_complaint', newComplaint);
+    res.status(201).json({ success: true, vision: visionResult, complaint: newComplaint, message: `Image analyzed. Complaint ${newComplaint.ticketId} registered.` });
+  } catch (err) {
+    console.error('Image error:', err);
+    res.status(500).json({ error: 'Image analysis failed. Please try again.' });
+  }
+});
+
+app.post('/api/voice-complaint', async (req, res) => {
+  const transcript = sanitize(req.body.transcript || '', 2000);
+  const location = sanitize(req.body.location || '', 300);
+  const citizenName = sanitize(req.body.citizenName || 'Voice Citizen', 100);
+  if (!transcript) return res.status(400).json({ error: 'Voice transcript is required.' });
+
+  try {
+    const processed = await processComplaint(transcript);
+    const newComplaint = addComplaint({
+      issueType: processed.issueType, description: transcript,
+      location: { text: location || processed.location, ...approximateCoords() },
+      department: processed.department, priority: processed.priority,
+      citizenName, citizenPhone: 'Not provided',
+      aiConfidence: processed.aiConfidence, detectedLanguage: processed.detectedLanguage,
+      keywords: processed.keywords, sentiment: processed.sentiment, channel: 'voice'
+    });
+    broadcast('new_complaint', newComplaint);
+    res.status(201).json({ success: true, complaint: newComplaint, message: `Voice complaint ${newComplaint.ticketId} registered successfully` });
+  } catch (err) {
+    console.error('Voice error:', err);
+    res.status(500).json({ error: 'Failed to process voice complaint.' });
+  }
+});
+
+// Raw audio → Whisper transcription → complaint classification (uses ai-service Whisper model)
+app.post('/api/transcribe-audio', async (req, res) => {
+  const { audio, mimeType, location, citizenName } = req.body;
+  if (!audio || typeof audio !== 'string') return res.status(400).json({ error: 'Base64 audio data is required.' });
+
+  try {
+    const audioBase64 = audio.replace(/^data:[^;]+;base64,/, '');
+    const mime = mimeType || 'audio/wav';
+
+    const transcription = await transcribeVoice(audioBase64, mime);
+    const transcript = transcription.transcript;
+    const detectedLang = transcription.language || 'unknown';
+
+    const processed = await processComplaint(transcript);
+    const newComplaint = addComplaint({
+      issueType: processed.issueType, description: transcript,
+      location: { text: sanitize(location || processed.location, 300), ...approximateCoords() },
+      department: processed.department, priority: processed.priority,
+      citizenName: sanitize(citizenName || 'Voice Citizen', 100), citizenPhone: 'Not provided',
+      aiConfidence: processed.aiConfidence, detectedLanguage: processed.detectedLanguage || detectedLang,
+      keywords: processed.keywords, sentiment: processed.sentiment, channel: 'voice'
+    });
+    broadcast('new_complaint', newComplaint);
+    res.status(201).json({
+      success: true,
+      transcript,
+      detectedLanguage: detectedLang,
+      complaint: newComplaint,
+      message: `Audio transcribed and complaint ${newComplaint.ticketId} registered successfully`
+    });
+  } catch (err) {
+    console.error('Transcribe-audio error:', err);
+    // Do not leak internal error details (model paths, stack traces) to clients
+    const isWhisperUnavailable = err.message && err.message.includes('PRELOAD_WHISPER');
+    res.status(isWhisperUnavailable ? 503 : 500).json({
+      error: isWhisperUnavailable
+        ? 'Voice transcription service is not enabled. Please use the text voice complaint form instead.'
+        : 'Audio transcription failed. Please try again or use the text form.'
+    });
+  }
+});
+
+// ============================================================
+// OFFICER ROUTES — JWT Protected
+// ============================================================
+
+app.get('/api/officer/complaints', requireAuth, (req, res) => {
+  const { status, priority, department, search, page = 1, limit = 50 } = req.query;
+  const filtered = getAllComplaints({ status, priority, department, search });
+  const pageNum = Math.max(1, parseInt(page) || 1);
+  const limitNum = Math.min(200, Math.max(1, parseInt(limit) || 50));
+  const start = (pageNum - 1) * limitNum;
+  res.json({
+    success: true,
+    complaints: filtered.slice(start, start + limitNum),
+    total: filtered.length,
+    page: pageNum,
+    totalPages: Math.ceil(filtered.length / limitNum)
+  });
+});
+
+app.patch('/api/officer/complaints/:id', requireAuth, (req, res) => {
+  const id = sanitize(req.params.id, 50);
+  const { status, notes, officerName, priority } = req.body;
+
+  const validStatuses = ['pending', 'in_progress', 'resolved'];
+  if (status && !validStatuses.includes(status)) {
+    return res.status(400).json({ error: `Invalid status. Must be one of: ${validStatuses.join(', ')}` });
+  }
+  const validPriorities = ['CRITICAL', 'HIGH', 'MEDIUM', 'LOW'];
+  if (priority && !validPriorities.includes(priority)) {
+    return res.status(400).json({ error: `Invalid priority.` });
+  }
+
+  const updates = {};
+  if (status) updates.status = status;
+  if (notes !== undefined) updates.notes = sanitize(String(notes), 1000);
+  if (officerName) updates.officerName = sanitize(String(officerName || req.officer.name), 100);
+  if (priority) updates.priority = priority;
+
+  const updated = updateComplaint(id, updates);
+  if (!updated) return res.status(404).json({ error: `Complaint ${id} not found.` });
+
+  broadcast('complaint_updated', updated);
+  res.json({ success: true, complaint: updated, message: `Complaint ${updated.ticketId} updated` });
+});
+
+app.get('/api/officer/analytics', requireAuth, (_req, res) => {
+  res.json({ success: true, ...getAnalytics() });
+});
+
+app.get('/api/officer/insights', requireAuth, async (_req, res) => {
+  try {
+    const analytics = getAnalytics();
+    const insights = await generateInsights(analytics.recentComplaints);
+    res.json({ success: true, ...insights });
+  } catch (err) {
+    console.error('Insights error:', err);
+    res.status(500).json({ error: 'Failed to generate insights.' });
+  }
+});
+
+app.get('/api/officer/predictions', requireAuth, async (_req, res) => {
+  try {
+    const statistical = getPredictions();
+
+    if (!statistical.predictions || statistical.predictions.length === 0) {
+      return res.json({ success: true, ...statistical });
+    }
+
+    // Enrich statistical predictions with Mistral-narrated intelligence briefings.
+    // Falls back to pre-computed predictionText if the model is unavailable.
+    const { enriched, headline, model } = await generatePredictionNarratives(
+      statistical.predictions,
+      statistical.summary
+    );
+
+    res.json({
+      success: true,
+      predictions: enriched,
+      summary: statistical.summary,
+      headline,
+      narrativeModel: model,
+      generatedAt: statistical.generatedAt,
+    });
+  } catch (err) {
+    console.error('Predictions error:', err);
+    res.status(500).json({ error: 'Failed to generate predictions.' });
+  }
+});
+
+app.get('/api/map/complaints', (_req, res) => {
+  const complaints = getAllComplaints();
+  res.json({
+    success: true,
+    complaints: complaints.map(c => ({
+      id: c.id, ticketId: c.ticketId, issueType: c.issueType,
+      priority: c.priority, status: c.status, location: c.location
+    }))
+  });
+});
+
+// ============================================================
+// NOTIFICATIONS
+// ============================================================
+app.get('/api/notifications', (_req, res) => {
+  const notifications = getNotifications(30);
+  res.json({ success: true, notifications, unreadCount: notifications.filter(n => !n.read).length });
+});
+
+app.patch('/api/notifications/:id/read', (req, res) => {
+  const notification = markNotificationRead(req.params.id);
+  if (!notification) return res.status(404).json({ error: 'Notification not found.' });
+  res.json({ success: true, notification });
+});
+
+app.post('/api/notifications/read-all', (_req, res) => {
+  const notifications = getNotifications(100);
+  notifications.forEach(n => { if (!n.read) markNotificationRead(n.id); });
+  res.json({ success: true, message: 'All notifications marked as read.' });
+});
+
+// ============================================================
+// 404 + Error handlers
+// ============================================================
+app.use((req, res) => res.status(404).json({ error: `Route ${req.method} ${req.path} not found` }));
+// eslint-disable-next-line no-unused-vars
+app.use((err, _req, res, _next) => {
+  console.error('Unhandled error:', err);
+  res.status(500).json({ error: 'Internal server error' });
+});
+
+// ============================================================
+// BOOT
+// ============================================================
+const PORT = parseInt(process.env.PORT) || 3001;
+
+async function boot() {
+  try {
+    await initDatabase();
+
+    httpServer.listen(PORT, '0.0.0.0', () => {
+      console.log('');
+      console.log('============================================');
+      console.log('  CivicAI Backend Server v3.0');
+      console.log('============================================');
+      console.log(`  REST API : http://localhost:${PORT}/api`);
+      console.log(`  Health   : http://localhost:${PORT}/api/health`);
+      console.log(`  WebSocket: ws://localhost:${PORT}`);
+      console.log(`  Database : SQLite (persistent)`);
+      console.log(`  Auth     : JWT (Bearer token)`);
+      console.log(`  AI Mode  : ${process.env.AI_SERVICE_URL ? `Mistral AI Service (${process.env.AI_SERVICE_URL})` : 'http://ai-service:8000 (default)'}${process.env.ANTHROPIC_API_KEY ? ' + Anthropic fallback' : ''}`);
+      console.log('============================================');
+      console.log('');
+    });
+
+    // Escalation worker runs every 5 minutes
+    setInterval(() => {
+      const escalated = runEscalationWorker();
+      if (escalated > 0) broadcast('escalation', { count: escalated, message: `${escalated} CRITICAL complaint(s) auto-escalated` });
+    }, 5 * 60 * 1000);
+
+    // Run once on startup to catch any missed escalations
+    setTimeout(() => runEscalationWorker(), 5000);
+
+  } catch (err) {
+    console.error('FATAL: Failed to start server:', err);
+    process.exit(1);
+  }
+}
+
+boot();
+export default app;

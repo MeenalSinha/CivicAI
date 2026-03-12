@@ -1,0 +1,55 @@
+# ============================================================
+# CivicAI — .gitignore
+# ============================================================
+
+# ---- Secrets -----------------------------------------------
+backend/.env
+# Keep .env.example — it is the safe template
+
+# ---- Dependencies ------------------------------------------
+node_modules/
+backend/node_modules/
+frontend/node_modules/
+
+# ---- Python ------------------------------------------------
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+
+# ---- AI model weights (large binary files) -----------------
+models/
+*.pt
+*.pth
+*.bin
+*.safetensors
+lora-*/
+*.gguf
+
+# ---- Build outputs -----------------------------------------
+frontend/build/
+.cache/
+
+# ---- Database (runtime, not source) ------------------------
+*.db
+*.db-shm
+*.db-wal
+backend/civicai.db
+backend/data/
+
+# ---- Logs --------------------------------------------------
+*.log
+logs/
+
+# ---- OS / Editor -------------------------------------------
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# ---- Docker runtime ----------------------------------------
+.docker/
