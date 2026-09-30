@@ -5,7 +5,7 @@
 // active configuration and data adapter change.
 // ============================================================
 import { join } from 'path';
-import { existsSync } from 'fs';
+import { existsSync, readFileSync } from 'fs';
 import { v4 as uuidv4 } from 'uuid';
 import * as dev from '../database/devdb.js';
 import { dbRun } from '../database/db.js';

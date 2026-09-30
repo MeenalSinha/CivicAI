@@ -16,12 +16,12 @@
     "department": "Solid Waste Management Department",
     "source": "Synthetic demonstration dataset",
     "completedAt": "T-55d",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "India Open Budgets Portal",
+      "isPublicOfficial": false,
+      "source": "Synthetic demonstration dataset",
       "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "coverage": "Illustrative"
     }
   },
   {
@@ -41,12 +41,12 @@
     "department": "Water Supply & Sewerage Board",
     "source": "Synthetic demonstration dataset",
     "plannedCompletion": "T+150d",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "India Open Budgets Portal",
+      "isPublicOfficial": false,
+      "source": "Synthetic demonstration dataset",
       "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "coverage": "Illustrative"
     }
   },
   {
@@ -66,12 +66,12 @@
     "department": "Public Works Department (Roads)",
     "source": "Synthetic demonstration dataset",
     "plannedCompletion": "T+60d",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "India Open Budgets Portal",
+      "isPublicOfficial": false,
+      "source": "Synthetic demonstration dataset",
       "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "coverage": "Illustrative"
     }
   },
   {
@@ -91,12 +91,12 @@
     "department": "Public Works Department (Roads)",
     "source": "Synthetic demonstration dataset",
     "plannedCompletion": "T+200d",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "India Open Budgets Portal",
+      "isPublicOfficial": false,
+      "source": "Synthetic demonstration dataset",
       "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "coverage": "Illustrative"
     }
   },
   {
@@ -116,12 +116,12 @@
     "department": "Storm Water Drainage Department",
     "source": "Synthetic demonstration dataset",
     "completedAt": "T-120d",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "India Open Budgets Portal",
+      "isPublicOfficial": false,
+      "source": "Synthetic demonstration dataset",
       "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "coverage": "Illustrative"
     }
   },
   {
@@ -141,12 +141,12 @@
     "department": "Urban Transport Authority",
     "source": "Synthetic demonstration dataset",
     "plannedCompletion": "T+90d",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "India Open Budgets Portal",
+      "isPublicOfficial": false,
+      "source": "Synthetic demonstration dataset",
       "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "coverage": "Illustrative"
     }
   },
   {
@@ -166,12 +166,12 @@
     "department": "Storm Water Drainage Department",
     "source": "Synthetic demonstration dataset",
     "plannedCompletion": "T+400d",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "India Open Budgets Portal",
+      "isPublicOfficial": false,
+      "source": "Synthetic demonstration dataset",
       "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "coverage": "Illustrative"
     }
   },
   {
@@ -191,12 +191,12 @@
     "department": "Public Works Department (Roads)",
     "source": "Synthetic demonstration dataset",
     "plannedCompletion": "T+500d",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "India Open Budgets Portal",
+      "isPublicOfficial": false,
+      "source": "Synthetic demonstration dataset",
       "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "coverage": "Illustrative"
     }
   },
   {
@@ -216,12 +216,12 @@
     "department": "Water Supply & Sewerage Board (Sanitation)",
     "source": "Synthetic demonstration dataset",
     "plannedCompletion": "T+300d",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "India Open Budgets Portal",
+      "isPublicOfficial": false,
+      "source": "Synthetic demonstration dataset",
       "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "coverage": "Illustrative"
     }
   },
   {
@@ -241,12 +241,12 @@
     "department": "Department of Digital Infrastructure",
     "source": "Synthetic demonstration dataset",
     "plannedCompletion": "T+120d",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "India Open Budgets Portal",
+      "isPublicOfficial": false,
+      "source": "Synthetic demonstration dataset",
       "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "coverage": "Illustrative"
     }
   },
   {
@@ -266,12 +266,12 @@
     "department": "Power Distribution Company",
     "source": "Synthetic demonstration dataset",
     "completedAt": "T-30d",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "India Open Budgets Portal",
+      "isPublicOfficial": false,
+      "source": "Synthetic demonstration dataset",
       "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "coverage": "Illustrative"
     }
   },
   {
@@ -292,12 +292,12 @@
     "source": "Synthetic demonstration dataset",
     "plannedCompletion": "T-40d",
     "notes": "Marked stalled in the source dataset.",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "India Open Budgets Portal",
+      "isPublicOfficial": false,
+      "source": "Synthetic demonstration dataset",
       "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "coverage": "Illustrative"
     }
   }
 ]

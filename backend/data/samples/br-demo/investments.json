@@ -16,12 +16,12 @@
     "department": "SABESP - Saneamento",
     "source": "Demonstration/Synthetic Dataset",
     "plannedCompletion": "T+180d",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Portal da Transparência",
+      "isPublicOfficial": false,
+      "source": "Synthetic demonstration dataset",
       "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "coverage": "Illustrative"
     }
   },
   {
@@ -41,12 +41,12 @@
     "department": "SABESP - Companhia de Saneamento Básico",
     "source": "Demonstration/Synthetic Dataset",
     "plannedCompletion": "T+300d",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Portal da Transparência",
+      "isPublicOfficial": false,
+      "source": "Synthetic demonstration dataset",
       "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "coverage": "Illustrative"
     }
   },
   {
@@ -66,12 +66,12 @@
     "department": "Secretaria Municipal de Infraestrutura Urbana",
     "source": "Demonstration/Synthetic Dataset",
     "plannedCompletion": "T+90d",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Portal da Transparência",
+      "isPublicOfficial": false,
+      "source": "Synthetic demonstration dataset",
       "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "coverage": "Illustrative"
     }
   },
   {
@@ -91,12 +91,12 @@
     "department": "Secretaria Municipal de Gestão de Risco e Drenagem",
     "source": "Demonstration/Synthetic Dataset",
     "plannedCompletion": "T+400d",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Portal da Transparência",
+      "isPublicOfficial": false,
+      "source": "Synthetic demonstration dataset",
       "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "coverage": "Illustrative"
     }
   },
   {
@@ -116,12 +116,12 @@
     "department": "Secretaria Municipal de Saúde",
     "source": "Demonstration/Synthetic Dataset",
     "plannedCompletion": "T+500d",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Portal da Transparência",
+      "isPublicOfficial": false,
+      "source": "Synthetic demonstration dataset",
       "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "coverage": "Illustrative"
     }
   },
   {
@@ -141,12 +141,12 @@
     "department": "SPTrans / Secretaria de Mobilidade Urbana",
     "source": "Demonstration/Synthetic Dataset",
     "plannedCompletion": "T+60d",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Portal da Transparência",
+      "isPublicOfficial": false,
+      "source": "Synthetic demonstration dataset",
       "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "coverage": "Illustrative"
     }
   },
   {
@@ -166,12 +166,12 @@
     "department": "Secretaria Municipal de Gestão de Risco e Drenagem",
     "source": "Demonstration/Synthetic Dataset",
     "plannedCompletion": "T+360d",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Portal da Transparência",
+      "isPublicOfficial": false,
+      "source": "Synthetic demonstration dataset",
       "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "coverage": "Illustrative"
     }
   },
   {
@@ -191,12 +191,12 @@
     "department": "Secretaria Municipal de Educação",
     "source": "Demonstration/Synthetic Dataset",
     "completedAt": "T-90d",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Portal da Transparência",
+      "isPublicOfficial": false,
+      "source": "Synthetic demonstration dataset",
       "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "coverage": "Illustrative"
     }
   },
   {
@@ -216,12 +216,12 @@
     "department": "Secretaria Municipal de Áreas Verdes",
     "source": "Demonstration/Synthetic Dataset",
     "completedAt": "T-45d",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Portal da Transparência",
+      "isPublicOfficial": false,
+      "source": "Synthetic demonstration dataset",
       "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "coverage": "Illustrative"
     }
   },
   {
@@ -241,12 +241,12 @@
     "department": "LOGA / Serviço Municipal de Limpeza Urbana",
     "source": "Demonstration/Synthetic Dataset",
     "plannedCompletion": "T+120d",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Portal da Transparência",
+      "isPublicOfficial": false,
+      "source": "Synthetic demonstration dataset",
       "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "coverage": "Illustrative"
     }
   }
 ]

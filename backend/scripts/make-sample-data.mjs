@@ -61,8 +61,8 @@ for (const [rid, fr] of Object.entries(F)) for (const [sec, frac] of Object.entr
 
 const inv = (id, name, sector, cov, stage, budgetCr, targetPopulation, department, extra = {}) => ({
   id, name, sector, coverage: cov, regionIds: Object.keys(cov), budget: Math.round(budgetCr * 1e7), currency: 'INR', stage, targetPopulation, department,
-  isSynthetic: false,
-  provenance: { isPublicOfficial: true, source: 'India Open Budgets Portal', date: '2025-06-30', coverage: '100% of sample regions' },
+  isSynthetic: true,
+  provenance: { isPublicOfficial: false, source: 'Synthetic demonstration dataset', date: '2025-06-30', coverage: 'Illustrative' },
   ...extra
 });
 const investments = [

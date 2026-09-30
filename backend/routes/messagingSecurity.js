@@ -119,10 +119,28 @@ export async function handleMediaAttachment({ mediaId, mediaUrl, mimeType, fileS
   let localPath = null, hash = null;
   try {
     const headers = {};
-    if (channel === 'whatsapp' && process.env.WHATSAPP_ACCESS_TOKEN) {
+    let finalUrl = mediaUrl;
+
+    if (channel === 'whatsapp-cloud' && process.env.WHATSAPP_ACCESS_TOKEN) {
       headers['Authorization'] = `Bearer ${process.env.WHATSAPP_ACCESS_TOKEN}`;
+      if (!finalUrl && mediaId) {
+        const metaRes = await fetch(`https://graph.facebook.com/v19.0/${mediaId}`, { headers });
+        if (!metaRes.ok) throw new Error(`WhatsApp metadata fetch failed: ${metaRes.status}`);
+        const meta = await metaRes.json();
+        finalUrl = meta.url;
+      }
+    } else if (channel === 'telegram' && process.env.TELEGRAM_BOT_TOKEN) {
+      if (!finalUrl && mediaId) {
+        const metaRes = await fetch(`https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/getFile?file_id=${mediaId}`);
+        if (!metaRes.ok) throw new Error(`Telegram metadata fetch failed: ${metaRes.status}`);
+        const meta = await metaRes.json();
+        finalUrl = `https://api.telegram.org/file/bot${process.env.TELEGRAM_BOT_TOKEN}/${meta.result.file_path}`;
+      }
     }
-    const res = await fetch(mediaUrl, { headers });
+
+    if (!finalUrl) throw new Error('No media URL could be resolved for this channel');
+
+    const res = await fetch(finalUrl, { headers });
     if (!res.ok) throw new Error(`Provider returned ${res.status}`);
     
     const ext = mimeType.split('/')[1]?.split(';')[0] || 'bin';
@@ -229,6 +247,16 @@ export async function sendChannelReply({ channel, to, message, language }) {
       );
       const data = await res.json();
       return { sent: data.ok, channel, messageId: data.result?.message_id };
+    }
+    if (channel === 'sms') {
+      const body = new URLSearchParams({ To: to, From: process.env.TWILIO_PHONE_NUMBER || 'CIVICAI', Body: message });
+      const res = await fetch(`https://api.twilio.com/2010-04-01/Accounts/${process.env.TWILIO_ACCOUNT_SID}/Messages.json`, {
+        method: 'POST',
+        headers: { 'Authorization': 'Basic ' + Buffer.from(`${process.env.TWILIO_ACCOUNT_SID}:${process.env.TWILIO_AUTH_TOKEN}`).toString('base64'), 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: body.toString(), signal: AbortSignal.timeout(10000)
+      });
+      const data = await res.json();
+      return { sent: res.ok, channel, messageId: data.sid, error: res.ok ? null : data.message };
     }
     return { sent: false, channel, note: 'Provider send not implemented for this channel.' };
   } catch (e) {

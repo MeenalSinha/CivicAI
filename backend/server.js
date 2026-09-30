@@ -126,6 +126,7 @@ app.use((req, res, next) => {
     req.on('data', chunk => { buf = Buffer.concat([buf, chunk]); });
     req.on('end', () => {
       req.rawBody = buf;
+      req._body = true; // Prevent body-parser from reading the consumed stream
       try { req.body = JSON.parse(buf.toString('utf-8')); } catch { req.body = {}; }
       next();
     });

@@ -208,9 +208,9 @@ export default function BRICSView({ onSwitchedInstance }) {
 
       {/* Hero */}
       <div className="brics-hero">
-        <div className="brics-hero-title">BRICS Interoperability — Shared Engine Architecture</div>
+        <div className="brics-hero-title">Multi-country Interoperability (India & Brazil)</div>
         <div className="brics-hero-sub">
-          One intelligence engine. Country-specific configuration, data adapters, language, administrative hierarchy and department taxonomy.
+          Multi-country interoperability demonstrated with India and Brazil; architecture is extensible to additional BRICS deployments. 
           No engine code changes between countries — only configuration and data differ.
         </div>
         <div className="brics-engine-tag">
@@ -229,14 +229,8 @@ export default function BRICSView({ onSwitchedInstance }) {
         </div>
       )}
 
-      {/* Synthetic data notice */}
-      <div className="brics-synth-notice">
-        <span>⚠️</span>
-        <div>
-          <strong>DEMONSTRATION / SYNTHETIC DATA.</strong> All datasets shown here (regions, infrastructure indicators, citizen requests, investments) are synthetic values created for demonstration purposes only. They are not official government statistics of any BRICS country.
-        </div>
-      </div>
-
+      {/* Synthetic data notice is handled by the Provenance tab now, avoiding contradictory signals */}
+      
       {/* Architecture decomposition */}
       <div className="brics-arch-grid">
         <div className="brics-arch-card">
