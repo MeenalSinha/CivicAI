@@ -7,10 +7,18 @@
 //   Final:    Rule-based classifier (always available offline)
 // ============================================================
 
+import { GoogleGenerativeAI } from "@google/generative-ai";
+
 const AI_SERVICE_URL = process.env.AI_SERVICE_URL || 'http://ai-service:8000';
 const AI_SERVICE_TIMEOUT = parseInt(process.env.AI_SERVICE_TIMEOUT) || 30000;
-const ANTHROPIC_API_URL = 'https://api.anthropic.com/v1/messages';
-const ANTHROPIC_MODEL = 'claude-sonnet-4-5';
+const GEMINI_MODEL = 'gemini-1.5-flash';
+
+// Initialize Gemini lazily
+function getGeminiModel(systemInstruction) {
+  if (!process.env.GEMINI_API_KEY) return null;
+  const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+  return genAI.getGenerativeModel({ model: GEMINI_MODEL, systemInstruction });
+}
 
 // ============================================================
 // HELPER — Call the Python AI Microservice
@@ -36,20 +44,15 @@ async function callAIService(endpoint, body) {
   }
 }
 
-async function callAnthropicLLM(systemPrompt, userMessage, maxTokens = 800) {
-  const apiKey = process.env.ANTHROPIC_API_KEY;
-  if (!apiKey) return null;
+async function callGeminiLLM(systemPrompt, userMessage) {
   try {
-    const response = await fetch(ANTHROPIC_API_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'x-api-key': apiKey, 'anthropic-version': '2023-06-01' },
-      body: JSON.stringify({ model: ANTHROPIC_MODEL, max_tokens: maxTokens, system: systemPrompt, messages: [{ role: 'user', content: userMessage }] }),
-    });
-    if (!response.ok) return null;
-    const data = await response.json();
-    return data.content[0].text;
+    const model = getGeminiModel(systemPrompt);
+    if (!model) return null;
+    const result = await model.generateContent(userMessage);
+    const response = await result.response;
+    return response.text();
   } catch (err) {
-    console.error('[AI] Anthropic fallback error:', err.message);
+    console.error('[AI] Gemini fallback error:', err.message);
     return null;
   }
 }
@@ -71,11 +74,11 @@ export async function processComplaint(text) {
     console.log(`[AI] Mistral classified: ${result.issueType} (${result.model || 'mistral-7b'})`);
     return result;
   }
-  if (process.env.ANTHROPIC_API_KEY) {
-    console.warn('[AI] Mistral down — using Anthropic fallback');
-    const raw = await callAnthropicLLM(COMPLAINT_SYSTEM_PROMPT, `Classify this complaint: "${text}"`, 600);
+  if (process.env.GEMINI_API_KEY) {
+    console.warn('[AI] Mistral down — using Gemini fallback');
+    const raw = await callGeminiLLM(COMPLAINT_SYSTEM_PROMPT, `Classify this complaint: "${text}"`);
     const parsed = parseJSON(raw);
-    if (parsed && parsed.issueType) { parsed.model = 'anthropic-fallback'; return parsed; }
+    if (parsed && parsed.issueType) { parsed.model = 'gemini-fallback'; return parsed; }
   }
   return fallbackClassify(text);
 }
@@ -86,20 +89,12 @@ export async function processComplaint(text) {
 export async function chatResponse(userMessage, conversationHistory = []) {
   const result = await callAIService('/chat', { message: userMessage, history: conversationHistory });
   if (result && result.reply) return result.reply;
-  if (process.env.ANTHROPIC_API_KEY) {
-    console.warn('[AI] Mistral chat down — using Anthropic fallback');
-    const messages = [
-      ...conversationHistory.slice(-6).map(m => ({ role: m.role === 'bot' ? 'assistant' : m.role, content: m.content })),
-      { role: 'user', content: userMessage },
-    ];
-    try {
-      const r = await fetch(ANTHROPIC_API_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'x-api-key': process.env.ANTHROPIC_API_KEY, 'anthropic-version': '2023-06-01' },
-        body: JSON.stringify({ model: ANTHROPIC_MODEL, max_tokens: 300, system: CHAT_SYSTEM_PROMPT, messages }),
-      });
-      if (r.ok) { const d = await r.json(); return d.content[0].text; }
-    } catch {}
+  if (process.env.GEMINI_API_KEY) {
+    console.warn('[AI] Mistral chat down — using Gemini fallback');
+    const historyText = conversationHistory.slice(-6).map(m => `${m.role.toUpperCase()}: ${m.content}`).join('\n');
+    const fullMessage = `Conversation History:\n${historyText}\n\nUser: ${userMessage}`;
+    const reply = await callGeminiLLM(CHAT_SYSTEM_PROMPT, fullMessage);
+    if (reply) return reply;
   }
   return generateFallbackChatResponse(userMessage);
 }
@@ -110,15 +105,16 @@ export async function chatResponse(userMessage, conversationHistory = []) {
 export async function detectImageIssue(base64Image, mimeType = 'image/jpeg') {
   const result = await callAIService('/analyze-image', { image_base64: base64Image, mime_type: mimeType });
   if (result && result.issueType) { console.log(`[AI] YOLOv8 detected: ${result.issueType}`); return result; }
-  if (process.env.ANTHROPIC_API_KEY) {
-    console.warn('[AI] YOLOv8 down — using Anthropic vision fallback');
+  if (process.env.GEMINI_API_KEY) {
+    console.warn('[AI] YOLOv8 down — using Gemini vision fallback');
     try {
-      const r = await fetch(ANTHROPIC_API_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'x-api-key': process.env.ANTHROPIC_API_KEY, 'anthropic-version': '2023-06-01' },
-        body: JSON.stringify({ model: ANTHROPIC_MODEL, max_tokens: 400, system: IMAGE_SYSTEM_PROMPT, messages: [{ role: 'user', content: [{ type: 'image', source: { type: 'base64', media_type: mimeType, data: base64Image } }, { type: 'text', text: 'Identify the civic issue.' }] }] }),
-      });
-      if (r.ok) { const d = await r.json(); const p = parseJSON(d.content[0].text); if (p) { p.model = 'anthropic-vision-fallback'; return p; } }
+      const model = getGeminiModel(IMAGE_SYSTEM_PROMPT);
+      if (model) {
+        const imagePart = { inlineData: { data: base64Image, mimeType } };
+        const result = await model.generateContent(['Identify the civic issue.', imagePart]);
+        const p = parseJSON((await result.response).text());
+        if (p) { p.model = 'gemini-vision-fallback'; return p; }
+      }
     } catch {}
   }
   return { detected: true, issueType: 'Damaged Infrastructure', confidence: 0.78, description: 'Civic infrastructure issue detected.', severity: 'moderate', priority: 'MEDIUM', model: 'fallback' };
@@ -140,11 +136,11 @@ export async function generateInsights(complaints) {
   if (!complaints || complaints.length === 0) return getDefaultInsights();
   const result = await callAIService('/insights', { complaints: complaints.slice(0, 20) });
   if (result && result.topIssue) return result;
-  if (process.env.ANTHROPIC_API_KEY) {
+  if (process.env.GEMINI_API_KEY) {
     const summary = complaints.slice(0, 20).map(c => `${c.issueType} | ${c.location?.text} | ${c.priority} | ${c.status} | upvotes:${c.upvotes}`).join('\n');
-    const raw = await callAnthropicLLM(INSIGHTS_SYSTEM_PROMPT, `Analyze these ${complaints.length} complaints:\n${summary}`, 500);
+    const raw = await callGeminiLLM(INSIGHTS_SYSTEM_PROMPT, `Analyze these ${complaints.length} complaints:\n${summary}`);
     const parsed = parseJSON(raw);
-    if (parsed && parsed.topIssue) { parsed.model = 'anthropic-fallback'; return parsed; }
+    if (parsed && parsed.topIssue) { parsed.model = 'gemini-fallback'; return parsed; }
   }
   return getDefaultInsights();
 }
@@ -163,16 +159,15 @@ export async function generatePredictionNarratives(predictions, summary) {
     return result;
   }
 
-  // Anthropic fallback — ask Claude to narrate the top 6 predictions
-  if (process.env.ANTHROPIC_API_KEY) {
+  // Gemini fallback — ask Gemini to narrate the top 6 predictions
+  if (process.env.GEMINI_API_KEY) {
     const lines = predictions.slice(0, 6).map((p, i) =>
       `${i + 1}. [${p.riskLevel}] ${p.issueType} in ${p.ward} — ` +
       `${p.daysUntilLikely}d, velocity ${p.velocityPct}%, ${p.unresolvedCount} unresolved`
     ).join('\n');
-    const raw = await callAnthropicLLM(
+    const raw = await callGeminiLLM(
       'You are a Predictive Urban Intelligence AI. For each statistical prediction, write one punchy sentence (max 20 words) a municipal officer can act on. Also write a single city-wide headline (max 15 words). Return ONLY JSON: {"briefings":["..."],"headline":"..."}',
-      `Predictions:\n${lines}`,
-      400
+      `Predictions:\n${lines}`
     );
     const parsed = parseJSON(raw);
     if (parsed && Array.isArray(parsed.briefings)) {
@@ -182,7 +177,7 @@ export async function generatePredictionNarratives(predictions, summary) {
           narrative: parsed.briefings[i]?.trim() || p.predictionText,
         })),
         headline: parsed.headline || null,
-        model: 'anthropic-fallback',
+        model: 'gemini-fallback',
       };
     }
   }
@@ -259,14 +254,15 @@ export async function extractDevelopmentNeed(text) {
   if (result && isValidCategory(result.category, result.subcategory)) {
     return { category: result.category, subcategory: result.subcategory || 'general', confidence: Math.min(0.9, Number(result.confidence) || 0.6), model: result.model || 'mistral-7b' };
   }
-  if (process.env.ANTHROPIC_API_KEY) {
+  if (process.env.GEMINI_API_KEY) {
     const ids = taxonomy.map(c => `${c.id}: ${c.subcategories.map(s => s.id).join(', ')}`).join('\n');
-    const raw = await callAnthropicLLM(
+    const raw = await callGeminiLLM(
       `You classify citizen requests into a fixed development taxonomy. Reply ONLY with JSON {"category":"<id>","subcategory":"<id>","confidence":0-1}. Use ONLY these ids:\n${ids}`,
-      `Request: "${text}"`, 150);
+      `Request: "${text}"`
+    );
     const parsed = parseJSON(raw);
     if (parsed && isValidCategory(parsed.category, parsed.subcategory)) {
-      return { category: parsed.category, subcategory: parsed.subcategory || 'general', confidence: Math.min(0.85, Number(parsed.confidence) || 0.6), model: 'anthropic-fallback' };
+      return { category: parsed.category, subcategory: parsed.subcategory || 'general', confidence: Math.min(0.85, Number(parsed.confidence) || 0.6), model: 'gemini-fallback' };
     }
   }
   return null;
@@ -281,9 +277,9 @@ export async function narrateFacts(question, facts) {
   const user = `Question: ${question}\nFacts (JSON): ${JSON.stringify(facts).slice(0, 6000)}`;
   const r = await callAIService('/narrate', { question, facts, system });
   if (r && typeof r.text === 'string' && r.text.trim()) return { text: r.text.trim(), model: r.model || 'mistral-7b' };
-  if (process.env.ANTHROPIC_API_KEY) {
-    const t = await callAnthropicLLM(system, user, 350);
-    if (t) return { text: t.trim(), model: 'anthropic-fallback' };
+  if (process.env.GEMINI_API_KEY) {
+    const t = await callGeminiLLM(system, user);
+    if (t) return { text: t.trim(), model: 'gemini-fallback' };
   }
   return null;
 }
