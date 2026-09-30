@@ -1,0 +1,56 @@
+{
+  "id": "br-demo",
+  "name": "CivicAI Demonstration Instance - São Paulo Metropolitan Region (Brazil)",
+  "dataLabel": "DEMONSTRATION / SYNTHETIC DATA — illustrative values, not official Brazilian government statistics",
+  "country": "BR",
+  "scope": "São Paulo metropolitan bairros demonstration",
+  "languages": ["pt", "en"],
+  "adminLevels": ["country", "state", "municipality", "bairro"],
+  "mapCenter": { "lat": -23.55, "lng": -46.63, "zoom": 11 },
+  "defaultLocation": { "lat": -23.5505, "lng": -46.6333, "spreadDeg": 0.08 },
+  "governance": {
+    "structure": "prefeitura",
+    "reviewRequiredForRecommendations": true,
+    "kAnonymityThreshold": 3
+  },
+  "departments": {
+    "roads_transport": "Secretaria Municipal de Infraestrutura Urbana",
+    "water_supply": "SABESP - Companhia de Saneamento Básico",
+    "drainage_flood": "Secretaria Municipal de Gestão de Risco e Drenagem",
+    "sanitation": "SABESP - Saneamento",
+    "waste_management": "LOGA / Serviço Municipal de Limpeza Urbana",
+    "electricity": "Enel Distribuição São Paulo",
+    "public_healthcare": "Secretaria Municipal de Saúde",
+    "education": "Secretaria Municipal de Educação",
+    "public_safety": "Secretaria Municipal de Segurança Urbana",
+    "public_mobility": "SPTrans / Secretaria de Mobilidade Urbana",
+    "digital_connectivity": "Secretaria Municipal de Inovação e Tecnologia",
+    "housing_urban_services": "Secretaria Municipal de Habitação",
+    "public_spaces": "Secretaria Municipal de Áreas Verdes",
+    "environmental_infrastructure": "Secretaria do Verde e do Meio Ambiente",
+    "accessibility": "Secretaria Municipal da Pessoa com Deficiência",
+    "other": "Prefeitura Municipal - Administração Geral"
+  },
+  "benchmarks": {
+    "roads_transport": {
+      "metric": "paved_road_km_per_10k",
+      "target": 10,
+      "unit": "km per 10,000 residents"
+    },
+    "water_supply": {
+      "metric": "households_with_tap_pct",
+      "target": 98,
+      "unit": "% households"
+    },
+    "public_healthcare": {
+      "metric": "phc_per_100k",
+      "target": 5,
+      "unit": "UBS per 100,000"
+    }
+  },
+  "data": {
+    "regions": "../../../data/samples/br-demo/regions.json",
+    "assets": "../../../data/samples/br-demo/assets.json",
+    "investments": "../../../data/samples/br-demo/investments.json"
+  }
+}

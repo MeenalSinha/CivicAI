@@ -1,0 +1,32 @@
+{
+  "id": "br-template",
+  "name": "Brazil template instance (configuration only - no data bundled)",
+  "dataLabel": "TEMPLATE - load your own municipal datasets through the adapters",
+  "country": "BR",
+  "scope": "Municipal template",
+  "languages": ["pt", "en"],
+  "adminLevels": ["country", "state", "municipality", "bairro"],
+  "mapCenter": { "lat": -23.55, "lng": -46.63, "zoom": 11 },
+  "defaultLocation": { "lat": -23.55, "lng": -46.63, "spreadDeg": 0.05 },
+  "governance": { "structure": "prefeitura", "reviewRequiredForRecommendations": true, "kAnonymityThreshold": 3 },
+  "departments": {
+    "roads_transport": "Secretaria de Infraestrutura Viária",
+    "water_supply": "Companhia de Saneamento",
+    "drainage_flood": "Secretaria de Drenagem Urbana",
+    "sanitation": "Companhia de Saneamento",
+    "waste_management": "Serviço de Limpeza Urbana",
+    "electricity": "Concessionária de Energia",
+    "public_healthcare": "Secretaria de Saúde",
+    "education": "Secretaria de Educação",
+    "public_safety": "Secretaria de Segurança Urbana",
+    "public_mobility": "Secretaria de Mobilidade",
+    "digital_connectivity": "Secretaria de Inovação",
+    "housing_urban_services": "Secretaria de Habitação",
+    "public_spaces": "Secretaria de Áreas Verdes",
+    "environmental_infrastructure": "Secretaria do Meio Ambiente",
+    "accessibility": "Secretaria da Pessoa com Deficiência",
+    "other": "Administração Geral"
+  },
+  "benchmarks": {},
+  "data": {}
+}

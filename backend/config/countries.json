@@ -1,0 +1,15 @@
+{
+  "_comment": "BRICS-ready country registry. Core engines read country/currency/admin-level names from the active instance config, never from constants. Add a country here, then create config/instances/<id>/instance.json.",
+  "countries": [
+    { "code": "IN", "name": "India", "currency": { "code": "INR", "symbol": "₹", "locale": "en-IN", "unitScale": "crore" }, "defaultLanguages": ["en","hi","hinglish"], "adminLevels": ["country","state","district","ward"] },
+    { "code": "BR", "name": "Brazil", "currency": { "code": "BRL", "symbol": "R$", "locale": "pt-BR", "unitScale": "million" }, "defaultLanguages": ["pt","en"], "adminLevels": ["country","state","municipality","bairro"] },
+    { "code": "RU", "name": "Russia", "currency": { "code": "RUB", "symbol": "₽", "locale": "ru-RU", "unitScale": "million" }, "defaultLanguages": ["ru","en"], "adminLevels": ["country","federal_subject","district","microdistrict"] },
+    { "code": "CN", "name": "China", "currency": { "code": "CNY", "symbol": "¥", "locale": "zh-CN", "unitScale": "million" }, "defaultLanguages": ["zh","en"], "adminLevels": ["country","province","prefecture","subdistrict"] },
+    { "code": "ZA", "name": "South Africa", "currency": { "code": "ZAR", "symbol": "R", "locale": "en-ZA", "unitScale": "million" }, "defaultLanguages": ["en"], "adminLevels": ["country","province","municipality","ward"] },
+    { "code": "EG", "name": "Egypt", "currency": { "code": "EGP", "symbol": "E£", "locale": "ar-EG", "unitScale": "million" }, "defaultLanguages": ["ar","en"], "adminLevels": ["country","governorate","district","shiakha"] },
+    { "code": "ET", "name": "Ethiopia", "currency": { "code": "ETB", "symbol": "Br", "locale": "en-ET", "unitScale": "million" }, "defaultLanguages": ["am","en"], "adminLevels": ["country","region","zone","woreda"] },
+    { "code": "IR", "name": "Iran", "currency": { "code": "IRR", "symbol": "﷼", "locale": "fa-IR", "unitScale": "million" }, "defaultLanguages": ["fa","en"], "adminLevels": ["country","province","county","district"] },
+    { "code": "AE", "name": "United Arab Emirates", "currency": { "code": "AED", "symbol": "AED", "locale": "en-AE", "unitScale": "million" }, "defaultLanguages": ["ar","en"], "adminLevels": ["country","emirate","municipality","community"] },
+    { "code": "ID", "name": "Indonesia", "currency": { "code": "IDR", "symbol": "Rp", "locale": "id-ID", "unitScale": "billion" }, "defaultLanguages": ["id","en"], "adminLevels": ["country","province","regency","kelurahan"] }
+  ]
+}

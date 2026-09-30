@@ -228,6 +228,7 @@ async function runAll() {
     process.exit(1);
   } else {
     console.log('All tests passed!\n');
+    process.exit(0); // DB layer keeps timers alive; exit explicitly so `npm test` can chain suites
   }
 }
 

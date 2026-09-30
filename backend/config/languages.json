@@ -1,0 +1,12 @@
+{
+  "_comment": "Language registry. To add a language: add an entry here and optionally a lexicon overlay config/lexicons/<code>.json mapping 'categoryId' or 'categoryId.subcategoryId' -> keyword list. detect.type: 'script' (regex on characters), 'markers' (distinctive words, minHits required), 'latin-default'.",
+  "languages": [
+    { "code": "hi", "name": "Hindi", "script": "Devanagari", "detect": { "type": "script", "regex": "[\\u0900-\\u097F]", "minRatio": 0.25 } },
+    { "code": "ru", "name": "Russian", "script": "Cyrillic", "detect": { "type": "script", "regex": "[\\u0400-\\u04FF]", "minRatio": 0.25 } },
+    { "code": "zh", "name": "Chinese", "script": "Han", "detect": { "type": "script", "regex": "[\\u4E00-\\u9FFF]", "minRatio": 0.2 } },
+    { "code": "ar", "name": "Arabic", "script": "Arabic", "detect": { "type": "script", "regex": "[\\u0600-\\u06FF]", "minRatio": 0.25 } },
+    { "code": "hinglish", "name": "Hinglish", "script": "Latin", "detect": { "type": "markers", "minHits": 2, "markers": ["hai","hain","nahi","nahin","mein","ka","ki","ke","ko","bahut","kripya","karo","kijiye","raha","rahi","rahe","wala","wali","pichle","din","paani","pani","kachra","bijli","sadak","gadda","nali","naali","ilaaka","mohalla","yahan","humara","hamare","koi","sunwai","dikkat","pareshani","chahiye","aata","aati","hota","hoti","kaafi","bilkul","turant","jaldi","abhi","hafte","mahine","gaon","aspatal","dawai"] } },
+    { "code": "pt", "name": "Portuguese", "script": "Latin", "detect": { "type": "markers", "minHits": 2, "markers": ["não","nao","rua","há","dias","sem","água","agua","muito","bairro","precisamos","falta","está","perto","preciso","alagamento","lixo","luz","posto","saúde","escola","ônibus","onibus","temos","faz","semanas","aqui"] } },
+    { "code": "en", "name": "English", "script": "Latin", "detect": { "type": "latin-default" } }
+  ]
+}

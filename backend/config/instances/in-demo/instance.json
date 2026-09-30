@@ -1,0 +1,74 @@
+{
+  "id": "in-demo",
+  "name": "CivicAI Demonstration Instance - National Capital Region (India)",
+  "dataLabel": "SYNTHETIC DEMONSTRATION DATA - illustrative values, not official government statistics",
+  "country": "IN",
+  "scope": "National Capital Region demonstration wards",
+  "languages": [
+    "en",
+    "hi",
+    "hinglish"
+  ],
+  "adminLevels": [
+    "country",
+    "state",
+    "district",
+    "ward"
+  ],
+  "mapCenter": {
+    "lat": 28.62,
+    "lng": 77.22,
+    "zoom": 11
+  },
+  "defaultLocation": {
+    "lat": 28.6139,
+    "lng": 77.209,
+    "spreadDeg": 0.06
+  },
+  "governance": {
+    "structure": "municipal-corporation",
+    "reviewRequiredForRecommendations": true,
+    "kAnonymityThreshold": 3
+  },
+  "departments": {
+    "roads_transport": "Public Works Department (Roads)",
+    "water_supply": "Water Supply & Sewerage Board",
+    "drainage_flood": "Storm Water Drainage Department",
+    "sanitation": "Water Supply & Sewerage Board (Sanitation)",
+    "waste_management": "Solid Waste Management Department",
+    "electricity": "Power Distribution Company",
+    "public_healthcare": "Department of Health & Family Welfare",
+    "education": "Department of Education",
+    "public_safety": "Public Safety & Traffic Authority",
+    "public_mobility": "Urban Transport Authority",
+    "digital_connectivity": "Department of Digital Infrastructure",
+    "housing_urban_services": "Urban Development & Housing Department",
+    "public_spaces": "Parks & Horticulture Department",
+    "environmental_infrastructure": "Environment & Climate Department",
+    "accessibility": "Social Welfare & Accessibility Cell",
+    "other": "General Administration"
+  },
+  "benchmarks": {
+    "_comment": "Service-level benchmarks used when an asset record does not carry its own. Values are configurable per instance.",
+    "roads_transport": {
+      "metric": "paved_road_km_per_10k",
+      "target": 12,
+      "unit": "km per 10,000 residents"
+    },
+    "water_supply": {
+      "metric": "households_with_tap_pct",
+      "target": 95,
+      "unit": "% households"
+    },
+    "public_healthcare": {
+      "metric": "phc_per_100k",
+      "target": 4,
+      "unit": "primary health facilities per 100,000"
+    }
+  },
+  "data": {
+    "regions": "../../../data/samples/in-demo/regions.json",
+    "assets": "../../../data/samples/in-demo/assets.json",
+    "investments": "../../../data/samples/in-demo/investments.json"
+  }
+}

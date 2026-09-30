@@ -713,6 +713,65 @@ Return ONLY this JSON — no preamble, no markdown:
     }
 
 
+
+# ============================================================
+# ROUTES - DEVELOPMENT-NEED EXTRACTION + FACT NARRATION (v4)
+# The Node layer validates every answer: category ids must exist in the
+# taxonomy and narration numbers must exist in the source facts.
+# ============================================================
+
+class ExtractRequest(BaseModel):
+    text: str
+    taxonomy: list
+
+    @field_validator("text")
+    @classmethod
+    def _text_len(cls, v):
+        v = (v or "").strip()
+        if len(v) < 3 or len(v) > 3000:
+            raise ValueError("text must be 3-3000 characters")
+        return v
+
+
+class NarrateRequest(BaseModel):
+    question: str
+    facts: dict
+    system: Optional[str] = None
+
+
+@app.post("/extract")
+async def extract_need(req: ExtractRequest):
+    """Map a (possibly Hindi/Hinglish) request onto the fixed development taxonomy."""
+    ids = "\n".join(
+        f"{c.get('id')}: {', '.join(s.get('id') for s in c.get('subcategories', []))}"
+        for c in req.taxonomy[:40] if isinstance(c, dict)
+    )
+    system = (
+        "You classify citizen requests (English, Hindi, Hinglish) into a FIXED development taxonomy. "
+        "Reply with ONLY JSON: {\"category\":\"<id>\",\"subcategory\":\"<id>\",\"confidence\":0.0-1.0}. "
+        "Use only the ids listed. If nothing fits use category \"other\", subcategory \"general\".\n" + ids
+    )
+    raw = await call_mistral_async(system, f'Request: "{req.text}"', max_tokens=120)
+    parsed = parse_json_response(raw)
+    if parsed and parsed.get("category"):
+        parsed["model"] = "mistral-7b"
+        return {"success": True, "data": parsed}
+    return {"success": False, "data": None}
+
+
+@app.post("/narrate")
+async def narrate_facts(req: NarrateRequest):
+    """Rephrase already-computed policy facts. Must not add information."""
+    system = req.system or (
+        "Answer using ONLY the supplied JSON facts. Do not add numbers, places or claims that are not present. "
+        "Use neutral language and at most four sentences."
+    )
+    facts = json.dumps(req.facts, ensure_ascii=False)[:6000]
+    raw = await call_mistral_async(system, f"Question: {req.question}\nFacts: {facts}", max_tokens=300)
+    if raw and raw.strip():
+        return {"success": True, "data": {"text": raw.strip(), "model": "mistral-7b"}}
+    return {"success": False, "data": None}
+
 # ============================================================
 # HEALTH
 # ============================================================

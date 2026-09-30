@@ -1,0 +1,14 @@
+{
+  "_comment": "Example overlay proving a new BRICS language can be added without engine changes. Keys are categoryId or categoryId.subcategoryId.",
+  "roads_transport.pothole": ["buraco", "buracos na rua", "buraco na via"],
+  "roads_transport.missing_road": ["rua sem asfalto", "rua de terra", "sem pavimentação", "sem pavimentacao"],
+  "water_supply.no_supply": ["falta de água", "falta de agua", "sem água", "sem agua", "não tem água", "nao tem agua"],
+  "drainage_flood.waterlogging": ["alagamento", "alagamentos", "enchente", "rua alagada"],
+  "waste_management.no_collection": ["lixo não coletado", "lixo nao coletado", "coleta de lixo", "sem coleta"],
+  "electricity.power_outage": ["falta de luz", "sem energia", "queda de energia"],
+  "electricity.streetlight": ["poste sem luz", "iluminação pública", "iluminacao publica", "rua escura"],
+  "public_healthcare.no_facility": ["sem posto de saúde", "sem posto de saude", "falta hospital", "precisamos de um hospital", "posto de saúde longe"],
+  "education.no_school": ["sem escola", "escola longe", "precisamos de uma escola"],
+  "public_mobility.bus_service": ["falta de ônibus", "falta de onibus", "sem ônibus", "sem onibus", "ponto de ônibus"],
+  "digital_connectivity.no_coverage": ["sem sinal", "sem internet", "sem cobertura"]
+}

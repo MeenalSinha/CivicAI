@@ -42,6 +42,23 @@ process.on('SIGTERM', () => { persistToDisk(); process.exit(0); });
 function run(sql, params = []) { _db.run(sql, params); }
 function exec(sql, params = []) { return _db.exec(sql, params); }
 
+// ---- Shared low-level helpers for extension modules (devdb.js) ----
+export function dbRun(sql, params = []) { _db.run(sql, params); }
+export function dbExec(sql, params = []) { return _db.exec(sql, params); }
+export function dbRows(sql, params = []) {
+  const res = _db.exec(sql, params);
+  if (!res.length) return [];
+  const { columns, values } = res[0];
+  return values.map(v => Object.fromEntries(columns.map((c, i) => [c, v[i]])));
+}
+export function dbTransaction(fn) {
+  _db.run('BEGIN');
+  try { const r = fn(); _db.run('COMMIT'); return r; }
+  catch (e) { try { _db.run('ROLLBACK'); } catch {} throw e; }
+}
+export function persistNow() { persistToDisk(); }
+export function invalidateAnalyticsCache() { invalidateCache(); }
+
 function createSchema() {
   run(`CREATE TABLE IF NOT EXISTS complaints (
     id TEXT PRIMARY KEY, ticketId TEXT UNIQUE NOT NULL, issueType TEXT NOT NULL,
@@ -66,6 +83,9 @@ function createSchema() {
   run(`CREATE TABLE IF NOT EXISTS analytics_cache (
     key TEXT PRIMARY KEY, value TEXT NOT NULL, expiresAt TEXT NOT NULL
   )`);
+  // Backward-compatible migration: link legacy complaints to normalised citizen requests
+  const cols = exec(`PRAGMA table_info(complaints)`)[0]?.values.map(v => v[1]) || [];
+  if (!cols.includes('requestId')) run(`ALTER TABLE complaints ADD COLUMN requestId TEXT`);
   run(`CREATE INDEX IF NOT EXISTS idx_c_status ON complaints(status)`);
   run(`CREATE INDEX IF NOT EXISTS idx_c_priority ON complaints(priority)`);
   run(`CREATE INDEX IF NOT EXISTS idx_c_dept ON complaints(department)`);
@@ -105,14 +125,25 @@ function seedIfEmpty() {
 }
 
 function seedOfficers() {
+  // Idempotent: make sure role accounts added in v4 exist even on pre-existing databases.
+  const ensure = (username, password, name, role) => {
+    const has = exec('SELECT 1 FROM officers WHERE username = ? LIMIT 1', [username]);
+    if (has.length && has[0].values.length) return;
+    run(`INSERT INTO officers (id,username,passwordHash,name,role,createdAt) VALUES (?,?,?,?,?,?)`,
+      [uuidv4(), username, bcrypt.hashSync(password, 12), name, role, new Date().toISOString()]);
+  };
   const count = exec('SELECT COUNT(*) FROM officers')[0]?.values[0][0] || 0;
-  if (count > 0) return;
+  if (count > 0) {
+    ensure('policymaker', process.env.DEFAULT_POLICYMAKER_PASSWORD || 'Policy@CivicAI2026', 'Policy Analyst', 'policymaker');
+    return;
+  }
   const password = process.env.DEFAULT_OFFICER_PASSWORD || 'CivicAI@2024';
   run(`INSERT INTO officers (id,username,passwordHash,name,role,createdAt) VALUES (?,?,?,?,?,?)`,
     [uuidv4(),'officer',bcrypt.hashSync(password,12),'Municipal Officer','officer',new Date().toISOString()]);
   run(`INSERT INTO officers (id,username,passwordHash,name,role,createdAt) VALUES (?,?,?,?,?,?)`,
     [uuidv4(),'admin',bcrypt.hashSync('Admin@CivicAI2024',12),'System Administrator','admin',new Date().toISOString()]);
-  console.log(`[DB] Officer accounts seeded: officer / ${password}, admin / Admin@CivicAI2024`);
+  ensure('policymaker', process.env.DEFAULT_POLICYMAKER_PASSWORD || 'Policy@CivicAI2026', 'Policy Analyst', 'policymaker');
+  console.log(`[DB] Accounts seeded: officer / ${password}, admin / Admin@CivicAI2024, policymaker / (see README)`);
 }
 
 function rowToComplaint(row, cols) {
@@ -123,7 +154,7 @@ function rowToComplaint(row, cols) {
     citizenName:o.citizenName, citizenPhone:o.citizenPhone,
     aiConfidence:o.aiConfidence, detectedLanguage:o.detectedLanguage,
     upvotes:o.upvotes, channel:o.channel, notes:o.notes, officerName:o.officerName,
-    sentiment:o.sentiment, keywords:JSON.parse(o.keywords||'[]'),
+    sentiment:o.sentiment, keywords:JSON.parse(o.keywords||'[]'), requestId:o.requestId||null,
     timestamp:o.createdAt, updatedAt:o.updatedAt };
 }
 
@@ -156,6 +187,10 @@ export function addComplaint(data) {
     [uuidv4(),ticketId,`Complaint ${ticketId} registered: ${data.issueType} - ${data.priority} priority`,'registered',0,now]);
   invalidateCache();
   return getComplaintById(id);
+}
+
+export function linkComplaintToRequest(complaintId, requestId) {
+  run('UPDATE complaints SET requestId = ? WHERE id = ?', [requestId, complaintId]);
 }
 
 export function updateComplaint(id, updates) {

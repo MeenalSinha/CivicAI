@@ -1,0 +1,267 @@
+{
+  "version": "1.0.0",
+  "_comment": "Development-need taxonomy. Add a category or subcategory here (plus optional keywords in lexicons/<lang>.json) - no engine code changes needed. keywords.* are matched case-insensitively; Latin words match as word prefixes, non-Latin scripts as substrings.",
+  "categories": [
+    {
+      "id": "roads_transport", "label": "Roads & Transport", "safetyWeight": 0.5,
+      "keywords": { "en": ["road","roads","street","asphalt","carriageway","lane"], "hi": ["सड़क","रोड","गली"], "hinglish": ["sadak","road","gali","rasta"] },
+      "interventions": [ { "id": "road_rehab", "label": "Road resurfacing and pothole rehabilitation programme" } ],
+      "subcategories": [
+        { "id": "pothole", "label": "Pothole", "legacyIssueType": "Pothole", "safetyWeight": 0.7,
+          "keywords": { "en": ["pothole","potholes","craters","pit in the road"], "hi": ["गड्ढा","गड्ढे","गढ्ढा","गढ्ढे"], "hinglish": ["gadda","gaddha","gadde","gaddhe"] },
+          "intervention": "Targeted pothole repair and resurfacing of the affected corridor" },
+        { "id": "road_damage", "label": "Damaged road surface", "legacyIssueType": "Damaged Infrastructure",
+          "keywords": { "en": ["road damaged","broken road","road broken","road is broken","road is damaged","road is broken and damaged","cracked road","road caved","road caved in","damaged road","uneven road"], "hi": ["सड़क टूटी","सड़क खराब","टूटी सड़क","खराब सड़क"], "hinglish": ["sadak toot","sadak kharab","toot gayi","toota hua","kharab sadak","toti sadak"] },
+          "intervention": "Road rehabilitation and drainage-aware resurfacing" },
+        { "id": "footpath", "label": "Footpath / pavement", "legacyIssueType": "Damaged Infrastructure",
+          "keywords": { "en": ["footpath","pavement","sidewalk","walkway","tiles broken"], "hi": ["फुटपाथ","पटरी"], "hinglish": ["footpath","patri"] },
+          "intervention": "Pedestrian footpath reconstruction with accessible kerb ramps" },
+        { "id": "missing_road", "label": "Missing / unpaved road",
+          "keywords": { "en": ["no road","unpaved","dirt road","kacha road","mud road","road not built","no proper road"], "hi": ["कच्ची सड़क","सड़क नहीं","सड़क नही","कच्चा रास्ता"], "hinglish": ["kacchi sadak","kachi sadak","sadak nahi","sadak nahin","kaccha rasta","pakki sadak nahi"] },
+          "intervention": "Construction of paved all-weather link road" },
+        { "id": "traffic_signal", "label": "Traffic signals / junction",
+          "keywords": { "en": ["traffic signal","traffic light","signal not working","junction","traffic jam","congestion"], "hi": ["ट्रैफिक सिग्नल","सिग्नल","जाम","चौराहा"], "hinglish": ["traffic signal","signal kharab","jam","chauraha","chaurah"] },
+          "intervention": "Junction redesign and signal timing upgrade" },
+        { "id": "bridge", "label": "Bridge / flyover",
+          "keywords": { "en": ["bridge","flyover","overbridge","underpass","culvert"], "hi": ["पुल","फ्लाईओवर","अंडरपास"], "hinglish": ["pul","flyover","underpass"] },
+          "intervention": "Bridge/underpass structural assessment and repair" }
+      ]
+    },
+    {
+      "id": "water_supply", "label": "Water Supply", "safetyWeight": 0.5,
+      "keywords": { "en": ["water supply","drinking water","tap water","water pipeline","water tank","water connection"], "hi": ["पानी","जल आपूर्ति","पेयजल","नल"], "hinglish": ["paani","pani","nal","supply","jal"] },
+      "interventions": [ { "id": "water_network", "label": "Distribution network extension and pressure management" } ],
+      "subcategories": [
+        { "id": "no_supply", "label": "No / irregular supply", "legacyIssueType": "Water Leakage",
+          "keywords": { "en": ["no water","water not coming","no water supply","irregular water","water shortage","water scarcity","without water","dry taps","tap dry"], "hi": ["पानी नहीं","पानी नही","पानी की कमी","पानी नहीं आ रहा","पानी नहीं आता","जल संकट"], "hinglish": ["paani nahi","pani nahi","paani nahin","paani ki kami","paani nahi aa raha","pani nahi aa raha","paani ki dikkat","paani ka sankat","paani nahi aata"] },
+          "intervention": "Extend distribution pipeline and add pressure-zone management to restore reliable supply" },
+        { "id": "low_pressure", "label": "Low pressure",
+          "keywords": { "en": ["low pressure","weak pressure","low water pressure"], "hi": ["कम दबाव","पानी का दबाव"], "hinglish": ["kam pressure","pressure kam","pressure nahi"] },
+          "intervention": "Booster pumping and pressure-zone rebalancing" },
+        { "id": "contaminated", "label": "Contaminated water",
+          "keywords": { "en": ["dirty water","contaminated water","muddy water","smelly water","unsafe water","water smells","yellow water"], "hi": ["गंदा पानी","दूषित पानी","बदबूदार पानी"], "hinglish": ["ganda paani","ganda pani","gandha paani","dushit paani","badbu wala paani"] },
+          "intervention": "Water-quality testing, pipe flushing and contamination-source repair" },
+        { "id": "pipe_leak", "label": "Pipe leak / burst", "legacyIssueType": "Water Leakage",
+          "keywords": { "en": ["pipe burst","leakage","leaking pipe","pipeline leak","water leak","burst pipe","pipe leak","leaking"], "hi": ["पाइप फट","लीकेज","पाइपलाइन","पाइप टूट"], "hinglish": ["pipe fat","pipe toot","leakage","pipeline phat","pipe leak","paani beh raha"] },
+          "intervention": "Leak detection and pipeline replacement" },
+        { "id": "no_connection", "label": "No household connection / tanker dependence",
+          "keywords": { "en": ["tanker","no connection","handpump","hand pump","borewell","no tap connection"], "hi": ["टैंकर","हैंडपंप","बोरवेल","कनेक्शन नहीं"], "hinglish": ["tanker","handpump","borewell","connection nahi"] },
+          "intervention": "Household tap-connection programme for unserved settlements" }
+      ]
+    },
+    {
+      "id": "drainage_flood", "label": "Drainage & Flood Management", "safetyWeight": 0.6,
+      "keywords": { "en": ["drain","drainage","flood","flooding","stormwater","waterlogged","waterlogging","water logging"], "hi": ["नाली","नाला","जलभराव","बाढ़","बारिश का पानी"], "hinglish": ["nali","naali","nala","jalbharav","jal bharav","baarish ka paani","barish"] },
+      "interventions": [ { "id": "drain_upgrade", "label": "Stormwater drain construction and desilting programme" } ],
+      "subcategories": [
+        { "id": "waterlogging", "label": "Waterlogging / flooding", "legacyIssueType": "Water Leakage", "safetyWeight": 0.7,
+          "keywords": { "en": ["waterlogging","water logging","waterlogged","flooded","flooding","water stagnation","water stagnant","stagnant water","knee deep water"], "hi": ["जलभराव","पानी भर","बाढ़","पानी जमा"], "hinglish": ["jalbharav","jal bharav","paani bhar","pani bhar","paani jama","pani jama","baadh"] },
+          "intervention": "Stormwater drain upgrade and pumping capacity at flood-prone points" },
+        { "id": "blocked_drain", "label": "Blocked / overflowing drain",
+          "keywords": { "en": ["drain blocked","blocked drain","clogged drain","drain overflow","drain overflowing","choked drain","nala blocked"], "hi": ["नाली जाम","नाला जाम","नाली भर","नाली बंद","नाली ओवरफ्लो"], "hinglish": ["nali jam","naali jam","nala jam","nali band","nali overflow","nali bhar","naala jam"] },
+          "intervention": "Scheduled desilting and drain cleaning" },
+        { "id": "no_drain", "label": "No drainage",
+          "keywords": { "en": ["no drain","no drainage","drain not built","open drain"], "hi": ["नाली नहीं","नाली नही","खुली नाली"], "hinglish": ["nali nahi","naali nahi","khuli nali"] },
+          "intervention": "New drainage line construction" }
+      ]
+    },
+    {
+      "id": "sanitation", "label": "Sanitation", "safetyWeight": 0.5,
+      "keywords": { "en": ["sanitation","sewage","sewer","sewerage","toilet","toilets","septic"], "hi": ["सीवर","सीवेज","शौचालय","स्वच्छता"], "hinglish": ["sewer","sewage","shauchalay","toilet","safai"] },
+      "interventions": [ { "id": "sewer_network", "label": "Sewer network extension and rehabilitation" } ],
+      "subcategories": [
+        { "id": "sewer_overflow", "label": "Sewer overflow / backflow",
+          "keywords": { "en": ["sewer overflow","sewage overflow","sewer blocked","sewage on road","sewer line","sewage","sewer"], "hi": ["सीवर","सीवेज","गंदा पानी सड़क"], "hinglish": ["sewer","sewage","sewer overflow","sewer jam"] },
+          "intervention": "Sewer line rehabilitation and trunk-sewer capacity upgrade" },
+        { "id": "public_toilet", "label": "Public toilets",
+          "keywords": { "en": ["public toilet","toilet","toilets","latrine","community toilet"], "hi": ["शौचालय","सार्वजनिक शौचालय","टॉयलेट"], "hinglish": ["shauchalay","toilet","sulabh"] },
+          "intervention": "Construction/refurbishment of public and community toilets" },
+        { "id": "septic", "label": "Septic / fecal sludge",
+          "keywords": { "en": ["septic","septic tank","fecal sludge","sludge"], "hi": ["सेप्टिक"], "hinglish": ["septic"] },
+          "intervention": "Faecal sludge management service" }
+      ]
+    },
+    {
+      "id": "waste_management", "label": "Waste Management", "safetyWeight": 0.3,
+      "keywords": { "en": ["garbage","trash","waste","rubbish","litter","dustbin","landfill"], "hi": ["कचरा","कूड़ा","गंदगी","डस्टबिन"], "hinglish": ["kachra","kooda","kuda","gandagi","dustbin","safai"] },
+      "interventions": [ { "id": "waste_service", "label": "Door-to-door collection and secondary-transfer upgrade" } ],
+      "subcategories": [
+        { "id": "garbage_overflow", "label": "Garbage overflow", "legacyIssueType": "Garbage Overflow",
+          "keywords": { "en": ["garbage overflow","overflowing bin","garbage pile","garbage dump","garbage everywhere","trash pile","bin overflowing","overflowing dustbin","garbage"], "hi": ["कचरा","कूड़ा","कचरे का ढेर"], "hinglish": ["kachra","kooda","kachre ka dher","dustbin bhar","kachra overflow"] },
+          "intervention": "Increase secondary collection frequency and bin capacity" },
+        { "id": "no_collection", "label": "Collection not happening",
+          "keywords": { "en": ["not collected","no collection","garbage not picked","collection vehicle","waste not collected","not picked up"], "hi": ["कचरा नहीं उठ","गाड़ी नहीं आ","कचरा गाड़ी"], "hinglish": ["kachra nahi utha","gaadi nahi aa","kachre ki gadi","kachra gaadi nahi"] },
+          "intervention": "Route redesign and door-to-door collection coverage expansion" },
+        { "id": "illegal_dumping", "label": "Illegal dumping / burning",
+          "keywords": { "en": ["illegal dumping","burning waste","waste burning","dumping ground","open dumping","burning garbage"], "hi": ["कचरा जला","कचरा जलाना","डंपिंग"], "hinglish": ["kachra jala","kachra jalana","dumping"] },
+          "intervention": "Designated transfer point and enforcement against illegal dumping" }
+      ]
+    },
+    {
+      "id": "electricity", "label": "Electricity", "safetyWeight": 0.5,
+      "keywords": { "en": ["electricity","power","electric","voltage","transformer","current"], "hi": ["बिजली","करंट","ट्रांसफार्मर"], "hinglish": ["bijli","light","current","transformer"] },
+      "interventions": [ { "id": "power_network", "label": "Distribution network reinforcement" } ],
+      "subcategories": [
+        { "id": "power_outage", "label": "Power cuts / outages",
+          "keywords": { "en": ["power cut","power outage","no electricity","blackout","power failure","load shedding","frequent power cuts","no power"], "hi": ["बिजली गुल","बिजली नहीं","बिजली कटौती","लाइट नहीं","बिजली चली गई"], "hinglish": ["bijli nahi","bijli gul","bijli kat","light nahi","light gayi","power cut","bijli chali gayi","bijli katauti"] },
+          "intervention": "Feeder reinforcement and transformer capacity upgrade" },
+        { "id": "streetlight", "label": "Street lighting", "legacyIssueType": "Broken Streetlight", "safetyWeight": 0.6,
+          "keywords": { "en": ["streetlight","street light","street lights","streetlights","lamp post","lamppost","light not working","dark street","no street light"], "hi": ["स्ट्रीट लाइट","स्ट्रीटलाइट","खंभे की लाइट","अंधेरा","लाइट खराब","बत्ती"], "hinglish": ["streetlight","street light","light kharab","light band","andhera","batti","light kharaab"] },
+          "intervention": "Street-lighting repair and LED retrofit of the affected stretch" },
+        { "id": "voltage", "label": "Low / fluctuating voltage",
+          "keywords": { "en": ["low voltage","voltage fluctuation","fluctuating voltage","voltage drop","voltage problem"], "hi": ["कम वोल्टेज","वोल्टेज"], "hinglish": ["low voltage","voltage kam","voltage problem"] },
+          "intervention": "Transformer addition and feeder balancing" },
+        { "id": "hazard_wires", "label": "Hazardous wires / transformer", "safetyWeight": 0.9,
+          "keywords": { "en": ["hanging wires","loose wires","sparking","transformer sparking","live wire","open wires","electric pole leaning","electric shock","exposed wires"], "hi": ["लटके तार","खुले तार","चिंगारी","ट्रांसफार्मर"], "hinglish": ["latke taar","khule taar","taar latak","chingari","transformer"] },
+          "intervention": "Wire bundling/undergrounding and pole-transformer safety works" }
+      ]
+    },
+    {
+      "id": "public_healthcare", "label": "Public Healthcare", "safetyWeight": 0.8,
+      "keywords": { "en": ["hospital","clinic","health centre","health center","dispensary","doctor","medical","healthcare","phc","ambulance","medicine"], "hi": ["अस्पताल","क्लिनिक","डॉक्टर","स्वास्थ्य","दवा","दवाई","एम्बुलेंस","पीएचसी"], "hinglish": ["hospital","aspatal","clinic","doctor","dawai","dawa","ambulance","swasthya","dispensary"] },
+      "interventions": [ { "id": "health_facility", "label": "Primary health facility establishment / upgrade" } ],
+      "subcategories": [
+        { "id": "no_facility", "label": "No nearby health facility",
+          "keywords": { "en": ["no hospital","no clinic","no health centre","no health center","no dispensary","hospital far","clinic far","no nearby hospital","no primary health","need a hospital","need hospital","need a clinic","nearest hospital"], "hi": ["अस्पताल नहीं","अस्पताल दूर","क्लिनिक नहीं","अस्पताल चाहिए","स्वास्थ्य केंद्र नहीं","अस्पताल की जरूरत"], "hinglish": ["hospital nahi","aspatal nahi","aspatal door","hospital door","clinic nahi","hospital chahiye","aspatal chahiye","dispensary nahi","swasthya kendra nahi"] },
+          "intervention": "Establish or upgrade a primary health centre to serve the catchment" },
+        { "id": "staff_shortage", "label": "Doctor / staff shortage",
+          "keywords": { "en": ["no doctor","doctor not available","doctors absent","doctors are absent","no doctor available","doctor is not available","staff shortage","no staff","doctor shortage","understaffed"], "hi": ["डॉक्टर नहीं","डॉक्टर नही","डॉक्टर उपलब्ध"], "hinglish": ["doctor nahi","doctor available nahi","doctor absent","staff nahi"] },
+          "intervention": "Staffing augmentation and rostering for public health facilities" },
+        { "id": "medicine_shortage", "label": "Medicine shortage",
+          "keywords": { "en": ["medicine shortage","no medicines","medicines not available","medicine not available","out of stock medicine"], "hi": ["दवा नहीं","दवाई नहीं","दवा उपलब्ध"], "hinglish": ["dawai nahi","dawa nahi","medicine nahi","dawai available nahi"] },
+          "intervention": "Essential-medicines supply chain strengthening" },
+        { "id": "emergency_access", "label": "Ambulance / emergency access", "safetyWeight": 0.95,
+          "keywords": { "en": ["ambulance","emergency care","emergency service","ambulance late","ambulance not"], "hi": ["एम्बुलेंस","आपातकालीन"], "hinglish": ["ambulance","emergency"] },
+          "intervention": "Ambulance station placement and emergency response coverage" }
+      ]
+    },
+    {
+      "id": "education", "label": "Education", "safetyWeight": 0.3,
+      "keywords": { "en": ["school","schools","college","classroom","teacher","teachers","education","anganwadi","students"], "hi": ["स्कूल","विद्यालय","शिक्षक","कक्षा","आंगनवाड़ी","शिक्षा"], "hinglish": ["school","shikshak","teacher","classroom","anganwadi","padhai"] },
+      "interventions": [ { "id": "school_infra", "label": "School infrastructure and teaching-capacity programme" } ],
+      "subcategories": [
+        { "id": "no_school", "label": "No nearby school",
+          "keywords": { "en": ["no school","school far","school too far","need a school","need school","nearest school"], "hi": ["स्कूल नहीं","स्कूल दूर","स्कूल चाहिए","विद्यालय नहीं"], "hinglish": ["school nahi","school door","school chahiye"] },
+          "intervention": "New school / classroom capacity for the underserved catchment" },
+        { "id": "teacher_shortage", "label": "Teacher shortage",
+          "keywords": { "en": ["teacher shortage","no teachers","teachers absent","not enough teachers","teacher not available"], "hi": ["शिक्षक नहीं","शिक्षकों की कमी","अध्यापक नहीं"], "hinglish": ["teacher nahi","shikshak nahi","teachers ki kami","teacher ki kami"] },
+          "intervention": "Teacher recruitment and deployment to under-staffed schools" },
+        { "id": "school_facilities", "label": "School building / facilities",
+          "keywords": { "en": ["school building","classroom leaking","school toilet","school roof","school lab","school library","school boundary wall","dilapidated school"], "hi": ["स्कूल की छत","स्कूल की इमारत","स्कूल में शौचालय","कक्षा"], "hinglish": ["school ki chhat","school building","school mein toilet","classroom"] },
+          "intervention": "School building repair and basic facilities (toilets, water, labs)" }
+      ]
+    },
+    {
+      "id": "public_safety", "label": "Public Safety", "safetyWeight": 0.9,
+      "keywords": { "en": ["unsafe","safety","crime","theft","cctv","police","harassment","accident prone","fire"], "hi": ["असुरक्षित","सुरक्षा","चोरी","सीसीटीवी","पुलिस","आग"], "hinglish": ["unsafe","suraksha","chori","cctv","police","aag"] },
+      "interventions": [ { "id": "safety_infra", "label": "Public-safety infrastructure (lighting, CCTV, patrol points)" } ],
+      "subcategories": [
+        { "id": "surveillance_lighting", "label": "CCTV / policing presence",
+          "keywords": { "en": ["cctv","no police","police post","patrolling","theft","chain snatching","unsafe at night","feel unsafe","unsafe area"], "hi": ["सीसीटीवी","पुलिस चौकी","चोरी","असुरक्षित","गश्त"], "hinglish": ["cctv","police chowki","chori","unsafe","gasht","suraksha"] },
+          "intervention": "CCTV coverage and community patrol points" },
+        { "id": "dangerous_junction", "label": "Accident-prone junction", "safetyWeight": 0.95,
+          "keywords": { "en": ["accident prone","accidents happen","dangerous junction","frequent accidents","speeding","no speed breaker","need speed breaker","zebra crossing"], "hi": ["दुर्घटना","हादसे","स्पीड ब्रेकर","जेब्रा क्रॉसिंग"], "hinglish": ["accident","hadsa","speed breaker","zebra crossing","haadse"] },
+          "intervention": "Traffic-calming and pedestrian-crossing safety measures" },
+        { "id": "fire_safety", "label": "Fire safety", "safetyWeight": 1.0,
+          "keywords": { "en": ["fire hazard","fire station","fire safety","fire hydrant","fire risk"], "hi": ["आग","फायर स्टेशन","अग्निशमन"], "hinglish": ["aag","fire station","fire safety"] },
+          "intervention": "Fire-station coverage and hydrant network audit" }
+      ]
+    },
+    {
+      "id": "public_mobility", "label": "Public Mobility", "safetyWeight": 0.3,
+      "keywords": { "en": ["bus","buses","metro","transport service","commute","auto","e-rickshaw","cycle"], "hi": ["बस","मेट्रो","ऑटो","ई-रिक्शा","साइकिल"], "hinglish": ["bus","metro","auto","e-rickshaw","cycle"] },
+      "interventions": [ { "id": "transit_service", "label": "Public transit service extension" } ],
+      "subcategories": [
+        { "id": "bus_service", "label": "Bus service / stops",
+          "keywords": { "en": ["no bus","bus service","bus route","bus frequency","bus stop","buses not","bus not coming","need a bus","few buses","bus shelter"], "hi": ["बस नहीं","बस सेवा","बस स्टॉप","बस रूट","बस की सुविधा","बसें नहीं"], "hinglish": ["bus nahi","bus service","bus stop","bus route","bus ki suvidha","bus nahi aati","buses nahi"] },
+          "intervention": "New / more frequent bus route and shelters" },
+        { "id": "last_mile", "label": "Metro / last-mile connectivity",
+          "keywords": { "en": ["metro connectivity","last mile","feeder","metro station far","no feeder","e-rickshaw stand"], "hi": ["मेट्रो स्टेशन दूर","फीडर","लास्ट माइल"], "hinglish": ["metro door","last mile","feeder","metro station door"] },
+          "intervention": "Feeder services and last-mile links to rapid transit" },
+        { "id": "cycling_walking", "label": "Cycling / walking infrastructure",
+          "keywords": { "en": ["cycle track","cycle lane","bike lane","pedestrian crossing","no crossing","foot overbridge"], "hi": ["साइकिल ट्रैक","पैदल पार"], "hinglish": ["cycle track","cycle lane","paidal"] },
+          "intervention": "Protected cycle/pedestrian network" }
+      ]
+    },
+    {
+      "id": "digital_connectivity", "label": "Digital Connectivity", "safetyWeight": 0.1,
+      "keywords": { "en": ["internet","broadband","wifi","wi-fi","mobile network","network coverage","signal","fibre","fiber","4g","5g","mobile tower"], "hi": ["इंटरनेट","नेटवर्क","ब्रॉडबैंड","वाईफाई","मोबाइल टावर"], "hinglish": ["internet","network","broadband","wifi","tower","signal"] },
+      "interventions": [ { "id": "digital_infra", "label": "Broadband / mobile coverage extension" } ],
+      "subcategories": [
+        { "id": "no_coverage", "label": "No mobile / network coverage",
+          "keywords": { "en": ["no network","no mobile network","no signal","network coverage","no coverage","mobile tower","poor network","weak signal","network problem"], "hi": ["नेटवर्क नहीं","नेटवर्क नही","टावर","सिग्नल नहीं","नेटवर्क की समस्या"], "hinglish": ["network nahi","signal nahi","tower nahi","network ki problem","network problem","network aata nahi","network nahin"] },
+          "intervention": "Mobile tower / small-cell deployment to close the coverage hole" },
+        { "id": "broadband", "label": "Broadband / internet access",
+          "keywords": { "en": ["no internet","broadband","slow internet","fibre","fiber","wifi","internet connection","no broadband","internet not available"], "hi": ["इंटरनेट नहीं","इंटरनेट","ब्रॉडबैंड","वाईफाई"], "hinglish": ["internet nahi","broadband","wifi","internet slow","internet ki suvidha"] },
+          "intervention": "Last-mile fibre / public Wi-Fi rollout" },
+        { "id": "digital_services", "label": "Digital service access",
+          "keywords": { "en": ["csc","online services","e-governance","digital kiosk","common service centre","online form"], "hi": ["सीएससी","ऑनलाइन सेवा","जन सेवा केंद्र"], "hinglish": ["csc","online seva","jan seva kendra"] },
+          "intervention": "Common service centres / assisted digital kiosks" }
+      ]
+    },
+    {
+      "id": "housing_urban_services", "label": "Housing / Urban Services", "safetyWeight": 0.5,
+      "keywords": { "en": ["housing","slum","encroachment","tenement","resettlement","ration","community hall"], "hi": ["आवास","मकान","झुग्गी","अतिक्रमण","बस्ती"], "hinglish": ["awas","makaan","jhuggi","atikraman","basti"] },
+      "interventions": [ { "id": "housing_services", "label": "Affordable housing and basic urban-services upgrade" } ],
+      "subcategories": [
+        { "id": "informal_settlement", "label": "Informal settlement services",
+          "keywords": { "en": ["slum","informal settlement","jhuggi","no basic services","resettlement"], "hi": ["झुग्गी","बस्ती","पुनर्वास"], "hinglish": ["jhuggi","basti","punarvas"] },
+          "intervention": "In-situ upgrading with basic services for informal settlements" },
+        { "id": "encroachment", "label": "Encroachment",
+          "keywords": { "en": ["encroachment","illegal construction","illegal shops","blocked footpath by shops"], "hi": ["अतिक्रमण","अवैध निर्माण"], "hinglish": ["atikraman","avaidh nirman","illegal construction"] },
+          "intervention": "Encroachment survey and vending-zone planning" },
+        { "id": "building_safety", "label": "Unsafe buildings", "safetyWeight": 0.9,
+          "keywords": { "en": ["dilapidated building","building collapse","unsafe building","cracks in building","building tilting"], "hi": ["जर्जर इमारत","इमारत गिर","खतरनाक इमारत"], "hinglish": ["jarjar building","building gir","khatarnak building"] },
+          "intervention": "Structural audit and retrofit / relocation of unsafe buildings" }
+      ]
+    },
+    {
+      "id": "public_spaces", "label": "Public Spaces", "safetyWeight": 0.2,
+      "keywords": { "en": ["park","garden","playground","community space","open space","ground"], "hi": ["पार्क","बगीचा","खेल का मैदान","मैदान"], "hinglish": ["park","bagicha","maidan","playground"] },
+      "interventions": [ { "id": "public_space_dev", "label": "Park and community-space development" } ],
+      "subcategories": [
+        { "id": "park", "label": "Park / garden",
+          "keywords": { "en": ["park","garden","no park","park not maintained","park neglected"], "hi": ["पार्क","बगीचा","उद्यान"], "hinglish": ["park","bagicha","udyan"] },
+          "intervention": "Neighbourhood park creation / rehabilitation" },
+        { "id": "playground", "label": "Playground / sports ground",
+          "keywords": { "en": ["playground","sports ground","play area","no playground","children play"], "hi": ["खेल का मैदान","खेल मैदान"], "hinglish": ["khel ka maidan","playground","maidan"] },
+          "intervention": "Playground and sports-ground provision" }
+      ]
+    },
+    {
+      "id": "environmental_infrastructure", "label": "Environmental Infrastructure", "safetyWeight": 0.4,
+      "keywords": { "en": ["pollution","air quality","smog","dust","trees","tree cover","lake","pond","river pollution","green cover"], "hi": ["प्रदूषण","धूल","पेड़","तालाब","झील"], "hinglish": ["pollution","dhool","dhul","ped","talaab","jheel"] },
+      "interventions": [ { "id": "env_infra", "label": "Environmental monitoring and green infrastructure" } ],
+      "subcategories": [
+        { "id": "air_pollution", "label": "Air pollution / dust",
+          "keywords": { "en": ["air pollution","smog","dust pollution","dusty road","air quality","construction dust","smoke"], "hi": ["वायु प्रदूषण","धूल","धुआं","प्रदूषण"], "hinglish": ["air pollution","dhool","dhul","dhuan","pollution"] },
+          "intervention": "Air-quality monitoring and dust-control measures" },
+        { "id": "green_cover", "label": "Trees / green cover",
+          "keywords": { "en": ["tree cutting","trees cut","no trees","green cover","tree plantation","plantation"], "hi": ["पेड़ कट","पेड़","हरियाली","पौधारोपण"], "hinglish": ["ped kat","ped nahi","hariyali","paudharopan"] },
+          "intervention": "Urban tree plantation and canopy protection" },
+        { "id": "water_bodies", "label": "Lakes / ponds / rivers",
+          "keywords": { "en": ["lake","pond","river pollution","encroached lake","polluted river","dried pond"], "hi": ["तालाब","झील","नदी"], "hinglish": ["talaab","talab","jheel","nadi"] },
+          "intervention": "Water-body restoration and pollution control" }
+      ]
+    },
+    {
+      "id": "accessibility", "label": "Accessibility", "safetyWeight": 0.4,
+      "keywords": { "en": ["accessible","accessibility","wheelchair","disabled","disability","ramp","divyang","blind","elderly"], "hi": ["दिव्यांग","व्हीलचेयर","रैंप","विकलांग"], "hinglish": ["divyang","wheelchair","ramp","viklang"] },
+      "interventions": [ { "id": "accessibility_works", "label": "Accessibility retrofits for public infrastructure" } ],
+      "subcategories": [
+        { "id": "ramps_access", "label": "Ramps / step-free access",
+          "keywords": { "en": ["no ramp","wheelchair access","not accessible","step-free","wheelchair ramp","ramp missing","wheelchair"], "hi": ["रैंप नहीं","व्हीलचेयर","दिव्यांग"], "hinglish": ["ramp nahi","wheelchair","divyang"] },
+          "intervention": "Ramps and step-free access at public buildings and crossings" },
+        { "id": "accessible_transport", "label": "Accessible transport",
+          "keywords": { "en": ["accessible bus","low floor bus","tactile paving","tactile path","audio signal"], "hi": ["सुगम्य बस"], "hinglish": ["accessible bus","low floor"] },
+          "intervention": "Accessible bus stops and tactile paving" }
+      ]
+    },
+    {
+      "id": "other", "label": "Other", "safetyWeight": 0.2,
+      "keywords": { "en": [], "hi": [], "hinglish": [] },
+      "interventions": [ { "id": "general_review", "label": "Departmental review" } ],
+      "subcategories": [ { "id": "general", "label": "General request", "keywords": { "en": [], "hi": [], "hinglish": [] }, "intervention": "Departmental review of the request" } ]
+    }
+  ]
+}

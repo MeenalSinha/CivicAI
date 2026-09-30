@@ -1,9 +1,11 @@
+import PolicyDashboard from './policy/PolicyDashboard';
+import JudgeMode from './policy/JudgeMode';
 import { useState, useEffect, useRef, useCallback } from 'react';
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
   PieChart, Pie, Cell, AreaChart, Area, Legend
 } from 'recharts';
-import { citizenAPI, officerAPI, authAPI, tokenStore, createWebSocket, WS_URL } from './api';
+import { citizenAPI, officerAPI, authAPI, tokenStore, createWebSocket, WS_URL, geoStore } from './api';
 
 // ============================================================
 // GLOBAL STYLES
@@ -939,6 +941,61 @@ function WelcomePage({ onNavigate }) {
   );
 }
 
+// Opt-in geolocation: nothing is requested until the citizen presses the button.
+function LocationShare() {
+  const [state, setState] = useState(geoStore.get() ? 'on' : 'off');
+  const [err, setErr] = useState('');
+  const enable = async () => {
+    setErr('');
+    try { await geoStore.request(); setState('on'); } catch (e) { setErr(e.message); }
+  };
+  const disable = () => { geoStore.clear(); setState('off'); };
+  return (
+    <div style={{ fontSize: 12, color: 'var(--text2)', display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap', margin: '0 0 10px' }}>
+      {state === 'on'
+        ? <><span style={{ color: 'var(--green)', fontWeight: 600 }}>Location shared for more accurate reporting.</span><button className="btn btn-outline btn-sm" onClick={disable}>Stop sharing</button></>
+        : <><button className="btn btn-outline btn-sm" onClick={enable}>Use my location</button><span>Optional. Improves accuracy; only approximate area is used in public analysis.</span></>}
+      {err && <span style={{ color: 'var(--red)' }} role="alert">{err}</span>}
+    </div>
+  );
+}
+
+function RequestNote({ request }) {
+  if (!request) return null;
+  return (
+    <div style={{ marginTop: 8, fontSize: 12, color: 'var(--text2)', background: 'var(--accent-light)', border: '1px solid var(--border)', borderRadius: 8, padding: '8px 10px' }}>
+      Recorded as a development need: <b>{request.categoryLabel}</b>{request.subcategoryLabel ? ` - ${request.subcategoryLabel}` : ''}
+      {request.regionName ? <> in <b>{request.regionName}</b></> : <> (location to be confirmed)</>}. Similar requests from your area are grouped so planners can see the shared need.
+    </div>
+  );
+}
+
+function FeedbackForm({ complaint }) {
+  const [rating, setRating] = useState(0);
+  const [comment, setComment] = useState('');
+  const [state, setState] = useState({ sent: false, error: '' });
+  if (complaint.status !== 'resolved') return null;
+  if (state.sent) return <div style={{ marginTop: 14, fontSize: 13, color: 'var(--green)', fontWeight: 600 }}>Thank you - your feedback helps measure real outcomes.</div>;
+  const send = async () => {
+    try { await citizenAPI.sendFeedback(complaint.id, rating, comment); setState({ sent: true, error: '' }); }
+    catch (e) { setState({ sent: false, error: e.message }); }
+  };
+  return (
+    <div style={{ marginTop: 16, padding: 12, border: '1px solid var(--border)', borderRadius: 8 }}>
+      <div className="section-title">Was your issue fixed to your satisfaction?</div>
+      <div style={{ display: 'flex', gap: 6, margin: '6px 0' }} role="radiogroup" aria-label="Satisfaction rating">
+        {[1, 2, 3, 4, 5].map(n => (
+          <button key={n} role="radio" aria-checked={rating === n} className={`btn btn-sm ${rating === n ? 'btn-primary' : 'btn-outline'}`} onClick={() => setRating(n)}>{n}</button>
+        ))}
+        <span style={{ fontSize: 11, color: 'var(--text3)', alignSelf: 'center' }}>1 = not resolved, 5 = fully resolved</span>
+      </div>
+      <textarea className="form-input" rows={2} maxLength={300} placeholder="Optional comment (do not include personal details)" value={comment} onChange={e => setComment(e.target.value)} />
+      {state.error && <div style={{ color: 'var(--red)', fontSize: 12, marginTop: 4 }} role="alert">{state.error}</div>}
+      <button className="btn btn-primary btn-sm" style={{ marginTop: 8 }} disabled={!rating} onClick={send}>Submit feedback</button>
+    </div>
+  );
+}
+
 function ChatPage() {
   const [messages, setMessages] = useState([
     {
@@ -966,7 +1023,7 @@ function ChatPage() {
     try {
       const data = await citizenAPI.chat(text, messages.slice(-6), sessionId);
       setSessionId(data.sessionId);
-      setMessages(p => [...p, { id: Date.now() + 1, role: 'bot', content: data.reply, complaint: data.complaint, timestamp: new Date().toISOString() }]);
+      setMessages(p => [...p, { id: Date.now() + 1, role: 'bot', content: data.duplicate ? `${data.reply}\n\n(This looks like a repeat of a request you already sent, so it was linked to your existing ticket.)` : data.reply, complaint: data.complaint, request: data.request, timestamp: new Date().toISOString() }]);
     } catch (err) {
       setError(err.message || 'Could not connect to server. Please ensure the backend is running on port 3001.');
     }
@@ -990,6 +1047,7 @@ function ChatPage() {
         </div>
         <div className="chat-lang-note">Supports English, Hindi, Hinglish</div>
       </div>
+      <div style={{ padding: '8px 14px 0' }}><LocationShare /></div>
       <div className="chat-messages">
         {messages.map(msg => (
           <div key={msg.id} className={`msg msg-${msg.role}`}>
@@ -1004,6 +1062,7 @@ function ChatPage() {
                 <div className="msg-ticket-row"><span className="msg-ticket-key">AI Confidence</span><span>{Math.round((msg.complaint.aiConfidence || 0.85) * 100)}%</span></div>
               </div>
             )}
+            {msg.request && <RequestNote request={msg.request} />}
             <div className="msg-time">{new Date(msg.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</div>
           </div>
         ))}
@@ -1073,6 +1132,7 @@ function ImagePage() {
         <h1 className="page-title">Image-Based Reporting</h1>
         <p className="page-subtitle">Upload a photo — AI vision will automatically detect and classify the civic issue</p>
       </div>
+      <LocationShare />
       <div className="grid-2">
         <div>
           <div
@@ -1227,6 +1287,7 @@ function VoicePage() {
         <h1 className="page-title">Voice Complaint</h1>
         <p className="page-subtitle">Record your complaint using voice — AI will transcribe and process it automatically</p>
       </div>
+      <LocationShare />
       <div style={{ maxWidth: 640 }}>
         <div className="card mb-16">
           <div className="voice-center">
@@ -1377,6 +1438,7 @@ function TrackPage() {
               </div>
             ))}
           </div>
+          <FeedbackForm complaint={complaint} />
         </div>
       )}
     </div>
@@ -2051,20 +2113,22 @@ export default function App() {
     { id: 'track', label: 'Track Complaint' }
   ];
 
+  const canSeeComplaints = !officer || ['officer', 'admin'].includes(officer.role);
   const switchMode = (m) => {
-    if (m === 'officer' && !officer) {
+    if ((m === 'officer' || m === 'policy') && !officer) {
       setShowLogin(true);
       return;
     }
     setMode(m);
-    setPage(m === 'citizen' ? 'welcome' : 'officer');
+    setPage(m === 'citizen' ? 'welcome' : m);
   };
 
   const handleLogin = (officerData) => {
     setOfficer(officerData);
     setShowLogin(false);
-    setMode('officer');
-    setPage('officer');
+    const m = officerData.role === 'policymaker' ? 'policy' : 'officer';
+    setMode(m);
+    setPage(m);
   };
 
   const handleLogout = () => {
@@ -2090,14 +2154,22 @@ export default function App() {
       <nav className="topnav">
         <span className="nav-brand">CivicAI</span>
         <div className="nav-divider" />
-        <span className="nav-subtitle">Civic Governance Platform</span>
+        <span className="nav-subtitle">Development Demand Intelligence for Public Infrastructure</span>
 
         <div className="nav-mode-tabs" style={{ marginLeft: 20 }}>
           <button className={`nav-mode-btn ${mode === 'citizen' ? 'active' : ''}`} onClick={() => switchMode('citizen')}>
             Citizen Portal
           </button>
-          <button className={`nav-mode-btn ${mode === 'officer' ? 'active' : ''}`} onClick={() => switchMode('officer')}>
-            Officer Dashboard
+          {canSeeComplaints && (
+            <button className={`nav-mode-btn ${mode === 'officer' ? 'active' : ''}`} onClick={() => switchMode('officer')}>
+              Officer Dashboard
+            </button>
+          )}
+          <button className={`nav-mode-btn ${mode === 'policy' ? 'active' : ''}`} onClick={() => switchMode('policy')}>
+            Policy Intelligence
+          </button>
+          <button className={`nav-mode-btn ${mode === 'judge' ? 'active' : ''}`} onClick={() => switchMode('judge')}>
+            Judge Mode
           </button>
         </div>
 
@@ -2153,7 +2225,9 @@ export default function App() {
           {mode === 'citizen' && page === 'image' && <ImagePage />}
           {mode === 'citizen' && page === 'voice' && <VoicePage />}
           {mode === 'citizen' && page === 'track' && <TrackPage />}
-          {mode === 'officer' && officer && <OfficerDashboard officer={officer} />}
+          {mode === 'officer' && officer && canSeeComplaints && <OfficerDashboard officer={officer} />}
+          {mode === 'policy' && officer && <PolicyDashboard user={officer} />}
+          {mode === 'judge' && <JudgeMode onSession={(o) => setOfficer(o)} />}
         </main>
       </div>
 
@@ -2163,7 +2237,7 @@ export default function App() {
         <span>Speech: Whisper + Web Speech API</span>
         <span>Maps: OpenStreetMap + Leaflet</span>
         <span>Charts: Recharts</span>
-        <span style={{ marginLeft: 'auto' }}>CivicAI v3.0</span>
+        <span style={{ marginLeft: 'auto' }}>CivicAI v4.0 - synthetic demo data is always labelled</span>
       </footer>
     </div>
   );

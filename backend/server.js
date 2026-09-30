@@ -39,6 +39,18 @@ import {
   transcribeVoice
 } from './ai/aiService.js';
 
+import { initDevSchema, addFeedback, audit } from './database/devdb.js';
+import * as devdb from './database/devdb.js';
+import { ingestRequest, IntakeError, syncUpvote, backfillLegacyComplaints } from './intelligence/intake.js';
+import { onPipelineComplete } from './intelligence/pipeline.js';
+import { ensureDemoData } from './demo/loadDemo.js';
+import { loadStructuralDataForInstance, insertBrazilSyntheticRequests, getInstanceRegistry } from './demo/multiInstanceDemo.js';
+import { createPolicyRouter, demoMode } from './routes/policy.js';
+import { normalizeChannelPayload } from './routes/channels.js';
+import { normalizeChannelPayloadEnhanced, verifyWhatsappSignature, verifyTelegramSignature, verifyTwilioSignature, verifySharedSecret, handleMediaAttachment, sendChannelReply, buildOutboundReply, auditMessagingEvent, checkTimestamp } from './routes/messagingSecurity.js';
+import { getInstance, setInstance, loadInstanceById } from './intelligence/config.js';
+import { timingSafeEqual } from 'crypto';
+
 dotenv.config();
 
 const JWT_SECRET = process.env.JWT_SECRET || 'civicai-jwt-secret-change-in-production';
@@ -131,6 +143,45 @@ function requireAuth(req, res, next) {
   }
 }
 
+function requireRole(...roles) {
+  return (req, res, next) => roles.includes(req.officer?.role)
+    ? next()
+    : res.status(403).json({ error: `Your role (${req.officer?.role || 'none'}) cannot access this resource.` });
+}
+
+/** Number or null (rejects NaN / out-of-range so bad GPS never reaches the engines). */
+function parseCoord(v, max) {
+  const n = typeof v === 'string' ? parseFloat(v) : v;
+  return typeof n === 'number' && Number.isFinite(n) && Math.abs(n) <= max ? n : null;
+}
+/** Stable, non-reversible submitter key: browser clientId, else phone, else IP. Hashed inside the intelligence layer. */
+function submitterKeyFor(req, phone) {
+  const cid = req.body?.clientId;
+  if (typeof cid === 'string' && /^[a-zA-Z0-9_-]{8,64}$/.test(cid)) return `client:${cid}`;
+  if (phone && phone !== 'Not provided') return `phone:${phone}`;
+  return `ip:${req.ip}`;
+}
+
+/** Shared citizen-intake path: legacy complaint + normalised anonymised request + audit + realtime events. */
+async function submitCitizenRequest(req, res, o) {
+  try {
+    const lat = parseCoord(req.body?.lat, 90), lng = parseCoord(req.body?.lng, 180);
+    const result = await ingestRequest({
+      text: o.text, channel: o.channel, legacyChannel: o.legacyChannel, legacy: o.processed,
+      lat: lat != null && lng != null ? lat : null, lng: lat != null && lng != null ? lng : null,
+      locationText: o.location || undefined, citizenName: o.citizenName, citizenPhone: o.citizenPhone,
+      submitterKey: submitterKeyFor(req, o.citizenPhone), imageEvidence: o.imageEvidence,
+      ...(() => { const a = approximateCoords(); return { fallbackLat: a.lat, fallbackLng: a.lng }; })()
+    });
+    if (result.duplicate) return { duplicate: true, ...result };
+    if (result.complaint) broadcast('new_complaint', result.complaint);
+    return result;
+  } catch (e) {
+    if (e instanceof IntakeError) { res.status(e.status).json({ error: e.message, code: e.code }); return null; }
+    throw e;
+  }
+}
+
 // ---- HTTP + WebSocket ----
 const httpServer = createServer(app);
 const wss = new WebSocketServer({ server: httpServer });
@@ -161,15 +212,91 @@ function broadcast(event, data) {
 // ============================================================
 app.get('/api/health', (_req, res) => {
   const stats = getDbStats();
+  const inst = getInstance();
   res.json({
-    status: 'ok', version: '3.0.0',
+    status: 'ok', version: '4.0.0', instance: inst.id, demoMode: demoMode(),
     db: 'sqlite-persistent',
     ...stats,
     wsClients: wsClients.size,
     aiServiceUrl: process.env.AI_SERVICE_URL || 'http://ai-service:8000',
     anthropicFallback: !!process.env.ANTHROPIC_API_KEY,
     uptime: Math.floor(process.uptime()),
-    timestamp: new Date().toISOString()
+    timestamp: new Date().toISOString(),
+    // BRICS interoperability info
+    countryInstances: getInstanceRegistry().map(i => ({ id: i.id, country: i.countryName, status: i.status }))
+  });
+});
+
+// ============================================================
+// BRICS / COUNTRY INTEROPERABILITY API
+// ============================================================
+
+/** Public: list all available country demo instances */
+app.get('/api/brics/instances', (_req, res) => {
+  res.json({ success: true, instances: getInstanceRegistry(), activeInstance: getInstance().id });
+});
+
+/** Judge/Demo: switch active instance and get a summary of the new context */
+app.post('/api/brics/switch', async (req, res) => {
+  if (!demoMode()) return res.status(403).json({ error: 'Instance switching is only available in demo mode (DEMO_MODE=true).' });
+  const id = sanitize(String(req.body?.instanceId || ''), 40);
+  const registry = getInstanceRegistry();
+  if (!registry.find(r => r.id === id)) {
+    return res.status(400).json({ error: `Unknown instance "${id}". Available: ${registry.map(r => r.id).join(', ')}` });
+  }
+  try {
+    const inst = setInstance(id);
+    broadcast('instance_switched', { instanceId: id, country: inst.countryInfo.name });
+    const overview = await import('./intelligence/views.js').then(m => m.getOverview());
+    res.json({ success: true, instance: { id: inst.id, name: inst.name, country: inst.countryInfo.name, currency: inst.countryInfo.currency, adminLevels: inst.adminLevels, languages: inst.languages, mapCenter: inst.mapCenter, dataLabel: inst.dataLabel, engineNote: registry.find(r => r.id === id)?.engineNote }, overview });
+  } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+/** Public: BRICS interoperability summary (all instances, shared engine claim) */
+app.get('/api/brics/summary', (_req, res) => {
+  const regions = devdb.getRegions();
+  const requests = devdb.getRequests();
+  const investments = devdb.getInvestments();
+  const sources = devdb.listDataSources();
+  const registry = getInstanceRegistry();
+
+  const summary = registry.map(inst => {
+    const instRegions = regions.filter(r => r.countryCode === inst.country);
+    const instRequests = requests.filter(r => {
+      const region = instRegions.find(reg => reg.id === r.regionId);
+      return !!region;
+    });
+    const instInvestments = investments.filter(i => {
+      return (i.regionIds || []).some(rid => instRegions.find(r => r.id === rid));
+    });
+    const instSources = sources.filter(s => s.id.startsWith(inst.id));
+    return {
+      instanceId: inst.id,
+      country: inst.countryName,
+      countryCode: inst.country,
+      scope: inst.scope,
+      languages: inst.languages,
+      currency: inst.currency,
+      adminLevels: inst.adminLevels,
+      population: instRegions.reduce((s, r) => s + (r.population || 0), 0),
+      regions: instRegions.length,
+      citizenRequests: instRequests.length,
+      mappedInvestments: instInvestments.length,
+      dataSources: instSources.length,
+      dataLabel: inst.dataLabel,
+      engineNote: inst.engineNote,
+      status: inst.status
+    };
+  });
+
+  res.json({
+    success: true,
+    architecture: 'Shared CivicAI Intelligence Engine',
+    architectureNote: 'One engine. Country-specific configuration, data adapters, language, hierarchy and taxonomy. No engine code changes between countries.',
+    interoperabilityStatus: 'Interoperability-ready architecture — standardized data interfaces for cross-country deployment.',
+    instances: summary,
+    sharedComponents: ['ingestion_pipeline', 'normalization_layer', 'ai_classification', 'demand_aggregation', 'infrastructure_gap_engine', 'investment_alignment', 'prioritization', 'policy_query', 'visualization_layer'],
+    countrySpecificComponents: ['country_configuration', 'data_adapters', 'localization', 'administrative_hierarchy', 'department_taxonomy', 'geographic_data', 'currency_formatting']
   });
 });
 
@@ -236,25 +363,16 @@ app.post('/api/chat', async (req, res) => {
     const reply = await chatResponse(message, history);
     let complaint = null;
 
+    let request = null;
     if (isComplaint) {
       const processed = await processComplaint(message);
-      const newComplaint = addComplaint({
-        issueType: processed.issueType,
-        description: message,
-        location: {
-          text: processed.location !== 'Location not specified' ? processed.location : 'Location pending confirmation',
-          ...approximateCoords(),
-        },
-        department: processed.department, priority: processed.priority,
-        citizenName: 'Chat User', citizenPhone: 'Not provided',
-        aiConfidence: processed.aiConfidence, detectedLanguage: processed.detectedLanguage,
-        keywords: processed.keywords, sentiment: processed.sentiment, channel: 'chat'
-      });
-      complaint = newComplaint;
-      broadcast('new_complaint', newComplaint);
+      const r = await submitCitizenRequest(req, res, { text: message, channel: 'chat', legacyChannel: 'chat', processed, citizenName: 'Chat User', citizenPhone: 'Not provided' });
+      if (r === null) return;
+      complaint = r.complaint; request = r.request || null;
+      if (r.duplicate) return res.json({ success: true, reply, complaint, duplicate: true, sessionId: sessionId || uuidv4(), note: r.reason });
     }
 
-    res.json({ success: true, reply, complaint, sessionId: sessionId || uuidv4() });
+    res.json({ success: true, reply, complaint, request: publicRequest(request), sessionId: sessionId || uuidv4() });
   } catch (err) {
     console.error('Chat error:', err);
     res.status(500).json({
@@ -275,19 +393,11 @@ app.post('/api/complaints', async (req, res) => {
 
   try {
     const processed = await processComplaint(text);
-    const newComplaint = addComplaint({
-      issueType: processed.issueType, description: text,
-      location: {
-        text: location || processed.location,
-        ...approximateCoords(),
-      },
-      department: processed.department, priority: processed.priority,
-      citizenName, citizenPhone,
-      aiConfidence: processed.aiConfidence, detectedLanguage: processed.detectedLanguage,
-      keywords: processed.keywords, sentiment: processed.sentiment, channel: 'manual'
-    });
-    broadcast('new_complaint', newComplaint);
-    res.status(201).json({ success: true, complaint: newComplaint, message: `Complaint ${newComplaint.ticketId} registered successfully` });
+    const r = await submitCitizenRequest(req, res, { text, channel: 'text', legacyChannel: 'manual', processed, location, citizenName, citizenPhone });
+    if (r === null) return;
+    if (r.duplicate) return res.status(200).json({ success: true, duplicate: true, complaint: r.complaint, message: 'This looks like a repeat of a request you already submitted, so it was linked to the existing ticket instead of counted again.' });
+    const newComplaint = r.complaint;
+    res.status(201).json({ success: true, complaint: newComplaint, request: publicRequest(r.request), message: `Complaint ${newComplaint.ticketId} registered successfully` });
   } catch (err) {
     console.error('Submit error:', err);
     res.status(500).json({ error: 'Failed to process complaint. Please try again.' });
@@ -306,6 +416,7 @@ app.post('/api/complaints/:id/upvote', (req, res) => {
   const id = sanitize(req.params.id, 50);
   const updated = upvoteComplaint(id);
   if (!updated) return res.status(404).json({ error: `Complaint ${id} not found.` });
+  syncUpvote(updated);
   broadcast('complaint_updated', { id: updated.id, ticketId: updated.ticketId, upvotes: updated.upvotes });
   res.json({ success: true, upvotes: updated.upvotes });
 });
@@ -321,19 +432,18 @@ app.post('/api/analyze-image', async (req, res) => {
     const base64 = image.replace(/^data:image\/\w+;base64,/, '');
     const mimeType = mimeMatch[1];
     const visionResult = await detectImageIssue(base64, mimeType);
-    const deptMap = { 'Pothole': 'Road Maintenance', 'Garbage Overflow': 'Sanitation', 'Broken Streetlight': 'Electrical Department', 'Water Leakage': 'Water Supply', 'Damaged Infrastructure': 'Road Maintenance' };
-    const newComplaint = addComplaint({
-      issueType: visionResult.issueType, description: visionResult.description,
-      location: { text: sanitize(location || 'Location from uploaded image', 300), ...approximateCoords() },
-      department: deptMap[visionResult.issueType] || 'General Administration',
-      priority: visionResult.priority,
-      citizenName: sanitize(citizenName || 'Anonymous Citizen', 100),
-      citizenPhone: 'Not provided', aiConfidence: visionResult.confidence,
-      detectedLanguage: 'Image', keywords: [visionResult.issueType.toLowerCase()],
-      sentiment: 'neutral', channel: 'image'
+    const { fromLegacyIssueType } = await import('./intelligence/taxonomy.js');
+    const m = fromLegacyIssueType(visionResult.issueType);
+    const processedLike = { issueType: visionResult.issueType, department: null, priority: visionResult.priority, aiConfidence: visionResult.confidence, detectedLanguage: 'Image', keywords: [visionResult.issueType.toLowerCase()], sentiment: 'neutral', model: visionResult.model };
+    const r = await submitCitizenRequest(req, res, {
+      text: visionResult.description, channel: 'image', legacyChannel: 'image', processed: processedLike, location: sanitize(location || '', 300),
+      citizenName: sanitize(citizenName || 'Anonymous Citizen', 100), citizenPhone: 'Not provided',
+      imageEvidence: { detected: true, label: visionResult.issueType, category: m.category, subcategory: m.subcategory, confidence: visionResult.confidence, model: visionResult.model || 'vision' }
     });
-    broadcast('new_complaint', newComplaint);
-    res.status(201).json({ success: true, vision: visionResult, complaint: newComplaint, message: `Image analyzed. Complaint ${newComplaint.ticketId} registered.` });
+    if (r === null) return;
+    if (r.duplicate) return res.status(200).json({ success: true, duplicate: true, vision: visionResult, complaint: r.complaint, message: 'Similar image report already recorded; linked to the existing ticket.' });
+    const newComplaint = r.complaint;
+    res.status(201).json({ success: true, vision: visionResult, complaint: newComplaint, request: publicRequest(r.request), message: `Image analyzed. Complaint ${newComplaint.ticketId} registered.` });
   } catch (err) {
     console.error('Image error:', err);
     res.status(500).json({ error: 'Image analysis failed. Please try again.' });
@@ -348,16 +458,11 @@ app.post('/api/voice-complaint', async (req, res) => {
 
   try {
     const processed = await processComplaint(transcript);
-    const newComplaint = addComplaint({
-      issueType: processed.issueType, description: transcript,
-      location: { text: location || processed.location, ...approximateCoords() },
-      department: processed.department, priority: processed.priority,
-      citizenName, citizenPhone: 'Not provided',
-      aiConfidence: processed.aiConfidence, detectedLanguage: processed.detectedLanguage,
-      keywords: processed.keywords, sentiment: processed.sentiment, channel: 'voice'
-    });
-    broadcast('new_complaint', newComplaint);
-    res.status(201).json({ success: true, complaint: newComplaint, message: `Voice complaint ${newComplaint.ticketId} registered successfully` });
+    const r = await submitCitizenRequest(req, res, { text: transcript, channel: 'voice', legacyChannel: 'voice', processed, location, citizenName, citizenPhone: 'Not provided' });
+    if (r === null) return;
+    if (r.duplicate) return res.status(200).json({ success: true, duplicate: true, complaint: r.complaint, message: 'Repeat voice request linked to your existing ticket.' });
+    const newComplaint = r.complaint;
+    res.status(201).json({ success: true, complaint: newComplaint, request: publicRequest(r.request), message: `Voice complaint ${newComplaint.ticketId} registered successfully` });
   } catch (err) {
     console.error('Voice error:', err);
     res.status(500).json({ error: 'Failed to process voice complaint.' });
@@ -378,20 +483,16 @@ app.post('/api/transcribe-audio', async (req, res) => {
     const detectedLang = transcription.language || 'unknown';
 
     const processed = await processComplaint(transcript);
-    const newComplaint = addComplaint({
-      issueType: processed.issueType, description: transcript,
-      location: { text: sanitize(location || processed.location, 300), ...approximateCoords() },
-      department: processed.department, priority: processed.priority,
-      citizenName: sanitize(citizenName || 'Voice Citizen', 100), citizenPhone: 'Not provided',
-      aiConfidence: processed.aiConfidence, detectedLanguage: processed.detectedLanguage || detectedLang,
-      keywords: processed.keywords, sentiment: processed.sentiment, channel: 'voice'
-    });
-    broadcast('new_complaint', newComplaint);
+    const r = await submitCitizenRequest(req, res, { text: transcript, channel: 'voice', legacyChannel: 'voice', processed: { ...processed, detectedLanguage: processed.detectedLanguage || detectedLang }, location: sanitize(location || '', 300), citizenName: sanitize(citizenName || 'Voice Citizen', 100), citizenPhone: 'Not provided' });
+    if (r === null) return;
+    if (r.duplicate) return res.status(200).json({ success: true, duplicate: true, transcript, complaint: r.complaint, message: 'Repeat voice request linked to your existing ticket.' });
+    const newComplaint = r.complaint;
     res.status(201).json({
       success: true,
       transcript,
       detectedLanguage: detectedLang,
       complaint: newComplaint,
+      request: publicRequest(r.request),
       message: `Audio transcribed and complaint ${newComplaint.ticketId} registered successfully`
     });
   } catch (err) {
@@ -406,11 +507,155 @@ app.post('/api/transcribe-audio', async (req, res) => {
   }
 });
 
+/** Citizen-facing view of the normalised request: no identifiers, no internal traces. */
+function publicRequest(r) {
+  if (!r) return null;
+  return {
+    id: r.id, category: r.category, categoryLabel: r.categoryLabel, subcategory: r.subcategory, subcategoryLabel: r.subcategoryLabel,
+    language: r.language, languageName: r.languageName, urgencyBand: r.urgencyBand, confidence: r.confidence,
+    regionName: r.regionName, locationSource: r.locationSource, channel: r.channel, affectedInfrastructure: r.affectedInfrastructure
+  };
+}
+
+// Citizen feedback closes the loop (outcome measurement)
+app.post('/api/complaints/:id/feedback', (req, res) => {
+  const id = sanitize(req.params.id, 50);
+  const complaint = getComplaintById(id);
+  if (!complaint) return res.status(404).json({ error: `Complaint ${id} not found.` });
+  if (complaint.status !== 'resolved') return res.status(409).json({ error: 'Feedback can be given once the complaint is marked resolved.' });
+  const rating = parseInt(req.body.rating);
+  if (!(rating >= 1 && rating <= 5)) return res.status(400).json({ error: 'Rating must be between 1 and 5.' });
+  if (devdb.getFeedback().some(f => f.complaintId === complaint.id)) return res.status(409).json({ error: 'Feedback was already recorded for this complaint.' });
+  addFeedback({ id: uuidv4(), complaintId: complaint.id, requestId: complaint.requestId, rating, comment: sanitize(req.body.comment || '', 300) });
+  audit({ actorType: 'citizen', action: 'feedback.recorded', entityType: 'citizen_request', entityId: complaint.requestId, details: { rating } });
+  res.status(201).json({ success: true, message: 'Thank you - your feedback helps measure outcomes.' });
+});
+
+// Messaging-channel webhooks (WhatsApp Cloud / Telegram / SMS / generic).
+// Provider-specific signature verification + media pipeline + outbound reply + audit trail.
+app.post('/api/channels/:channel/webhook', async (req, res) => {
+  const channel = req.params.channel;
+  const rawBody = JSON.stringify(req.body); // for HMAC computation
+  let sigCheck = { ok: false, reason: 'No verification method matched' };
+
+  // --- Provider-specific signature verification ---
+  // Guard: if neither provider credentials nor shared secret are configured, webhooks are disabled.
+  const hasAnyCredential = process.env.CHANNEL_WEBHOOK_SECRET || process.env.WHATSAPP_APP_SECRET || process.env.TELEGRAM_SECRET_TOKEN || process.env.TWILIO_AUTH_TOKEN;
+  if (!hasAnyCredential) {
+    return res.status(503).json({ error: 'Messaging webhooks are disabled (no webhook credentials configured).' });
+  }
+
+  if (channel === 'whatsapp-cloud') {
+    const appSecret = process.env.WHATSAPP_APP_SECRET;
+    sigCheck = appSecret
+      ? verifyWhatsappSignature(rawBody, req.headers['x-hub-signature-256'], appSecret)
+      : verifySharedSecret(req.headers['x-channel-secret'], process.env.CHANNEL_WEBHOOK_SECRET);
+  } else if (channel === 'telegram') {
+    sigCheck = verifyTelegramSignature(req.headers['x-telegram-bot-api-secret-token'], process.env.TELEGRAM_SECRET_TOKEN);
+    // Fallback to shared secret if telegram token not configured
+    if (!sigCheck.ok && !process.env.TELEGRAM_SECRET_TOKEN) {
+      sigCheck = verifySharedSecret(req.headers['x-channel-secret'], process.env.CHANNEL_WEBHOOK_SECRET);
+    }
+  } else if (channel === 'sms') {
+    const fullUrl = `${req.protocol}://${req.get('host')}${req.originalUrl}`;
+    sigCheck = process.env.TWILIO_AUTH_TOKEN
+      ? verifyTwilioSignature(fullUrl, req.body, req.headers['x-twilio-signature'], process.env.TWILIO_AUTH_TOKEN)
+      : verifySharedSecret(req.headers['x-channel-secret'], process.env.CHANNEL_WEBHOOK_SECRET);
+  } else {
+    // Generic/custom channels: require shared secret
+    const secret = process.env.CHANNEL_WEBHOOK_SECRET;
+    if (!secret) return res.status(503).json({ error: 'Messaging webhooks are disabled (CHANNEL_WEBHOOK_SECRET not set).' });
+    sigCheck = verifySharedSecret(req.headers['x-channel-secret'], secret);
+  }
+
+  if (!sigCheck.ok) {
+    console.warn(`[Webhook][${channel}] Signature rejected: ${sigCheck.reason}`);
+    auditMessagingEvent({ channel, processingStatus: 'signature_rejected', errorDetails: sigCheck.reason });
+    return res.status(401).json({ error: 'Invalid webhook signature.' });
+  }
+
+  // --- Replay protection ---
+  const ts = req.headers['x-timestamp'] || req.body?.timestamp || req.body?.entry?.[0]?.time;
+  const replayCheck = checkTimestamp(ts);
+  if (!replayCheck.ok) {
+    auditMessagingEvent({ channel, processingStatus: 'replay_rejected', errorDetails: replayCheck.reason });
+    return res.status(400).json({ error: replayCheck.reason });
+  }
+
+  // --- Normalize payload (enhanced, with media detection) ---
+  const msg = normalizeChannelPayloadEnhanced(channel, req.body);
+  if (msg === undefined) return res.status(404).json({ error: `Unknown channel "${channel}".` });
+
+  // --- Handle media attachments ---
+  let mediaResult = null;
+  if (msg?.media) {
+    mediaResult = await handleMediaAttachment({ ...msg.media, channel, requestId: null });
+    console.log(`[Webhook][${channel}] Media: ${JSON.stringify(mediaResult)}`);
+  }
+
+  if (!msg || !msg.text) {
+    // Non-text with media-only payload: acknowledge without processing
+    return res.status(200).json({ success: true, ignored: true, reason: 'No text content to process.', mediaHandled: !!mediaResult });
+  }
+
+  let result = null;
+  try {
+    const text = sanitize(String(msg.text), 2000);
+    const processed = await processComplaint(text);
+    const lat = parseCoord(msg.lat, 90), lng = parseCoord(msg.lng, 180);
+    result = await ingestRequest({
+      text, channel: 'messaging', legacyChannel: 'chat', legacy: processed,
+      lat: lat != null && lng != null ? lat : null, lng: lat != null && lng != null ? lng : null,
+      submitterKey: `${channel}:${msg.from}`, citizenName: 'Messaging User', citizenPhone: 'Not provided',
+      language: msg.language,
+      ...(() => { const a = approximateCoords(); return { fallbackLat: a.lat, fallbackLng: a.lng }; })()
+    });
+
+    if (result.complaint) broadcast('new_complaint', result.complaint);
+
+    // --- Outbound reply ---
+    const inst = getInstance();
+    const lang = result.request?.language || inst.languages?.[0] || 'en';
+    const dept = inst.departments?.[result.request?.category] || 'relevant department';
+    const replyMsg = buildOutboundReply({
+      templateKey: result.duplicate ? 'grouped' : 'received',
+      language: lang,
+      args: result.duplicate ? [1] : [result.complaint?.ticketId || result.request?.id || '—'],
+      requestId: result.request?.id,
+      ticketId: result.complaint?.ticketId
+    });
+    const replySent = await sendChannelReply({ channel, to: msg.from, message: replyMsg.text, language: lang });
+
+    // --- Audit trail ---
+    auditMessagingEvent({
+      channel, inboundMessageId: msg.messageId || null,
+      requestId: result.request?.id, ticketId: result.complaint?.ticketId,
+      processingStatus: result.duplicate ? 'duplicate' : 'accepted',
+      mediaStatus: mediaResult?.status || null,
+      replyStatus: replySent?.sent ? 'sent' : (replySent?.mode === 'demo' ? 'demo_mode' : 'failed'),
+      errorDetails: replySent?.error || null
+    });
+
+    res.status(result.duplicate ? 200 : 201).json({
+      success: true, duplicate: !!result.duplicate, ticketId: result.complaint?.ticketId,
+      request: publicRequest(result.request), reply: replySent
+    });
+  } catch (e) {
+    auditMessagingEvent({ channel, processingStatus: 'error', errorDetails: e.message });
+    if (e instanceof IntakeError) return res.status(e.status).json({ error: e.message });
+    console.error('Channel webhook error:', e);
+    res.status(500).json({ error: 'Failed to process message.' });
+  }
+});
+
+// Policy intelligence, Judge Mode
+app.use('/api', createPolicyRouter({ requireAuth, broadcast, sanitize, jwtSecret: JWT_SECRET, jwtExpires: JWT_EXPIRES }));
+
 // ============================================================
 // OFFICER ROUTES — JWT Protected
 // ============================================================
 
-app.get('/api/officer/complaints', requireAuth, (req, res) => {
+app.get('/api/officer/complaints', requireAuth, requireRole('officer', 'admin'), (req, res) => {
   const { status, priority, department, search, page = 1, limit = 50 } = req.query;
   const filtered = getAllComplaints({ status, priority, department, search });
   const pageNum = Math.max(1, parseInt(page) || 1);
@@ -425,7 +670,7 @@ app.get('/api/officer/complaints', requireAuth, (req, res) => {
   });
 });
 
-app.patch('/api/officer/complaints/:id', requireAuth, (req, res) => {
+app.patch('/api/officer/complaints/:id', requireAuth, requireRole('officer', 'admin'), (req, res) => {
   const id = sanitize(req.params.id, 50);
   const { status, notes, officerName, priority } = req.body;
 
@@ -532,6 +777,10 @@ app.post('/api/notifications/read-all', (_req, res) => {
 app.use((req, res) => res.status(404).json({ error: `Route ${req.method} ${req.path} not found` }));
 // eslint-disable-next-line no-unused-vars
 app.use((err, _req, res, _next) => {
+  // Client-side problems (malformed JSON, oversized body) are 4xx, not server faults
+  if (err && err.status >= 400 && err.status < 500) {
+    return res.status(err.status).json({ error: err.type === 'entity.too.large' ? 'Request body too large.' : 'Malformed request.' });
+  }
   console.error('Unhandled error:', err);
   res.status(500).json({ error: 'Internal server error' });
 });
@@ -544,11 +793,31 @@ const PORT = parseInt(process.env.PORT) || 3001;
 async function boot() {
   try {
     await initDatabase();
+    initDevSchema();
+    if (String(process.env.LOAD_DEMO_DATA ?? 'true') === 'true') {
+      try {
+        // Load India demo (structural + synthetic)
+        const r = await ensureDemoData();
+        if (r.loaded) console.log(`[Demo] India: ${r.syntheticRequests} synthetic requests loaded; pipeline: ${r.pipeline.demands} demands, ${r.pipeline.projects} priorities`);
+
+        // Load Brazil demo (structural + synthetic) — same pipeline, different instance
+        try {
+          const prevInst = getInstance().id;
+          await loadStructuralDataForInstance('br-demo');
+          setInstance('br-demo');
+          const brInserted = insertBrazilSyntheticRequests();
+          console.log(`[Demo] Brazil: ${brInserted} Portuguese synthetic requests loaded through shared pipeline`);
+          setInstance(prevInst); // restore to default
+        } catch (brErr) { console.error('[Demo] Brazil data failed (non-fatal):', brErr.message); }
+      }
+      catch (e) { console.error('[Demo] Failed to load demonstration data:', e.message); }
+    }
+    onPipelineComplete(run => broadcast('intelligence_updated', { stats: run.stats, trigger: run.trigger }));
 
     httpServer.listen(PORT, '0.0.0.0', () => {
       console.log('');
       console.log('============================================');
-      console.log('  CivicAI Backend Server v3.0');
+      console.log('  CivicAI Backend Server v4.0');
       console.log('============================================');
       console.log(`  REST API : http://localhost:${PORT}/api`);
       console.log(`  Health   : http://localhost:${PORT}/api/health`);

@@ -245,3 +245,53 @@ function generateFallbackChatResponse(message) {
 function getDefaultInsights() {
   return { topIssue: 'Potholes', criticalHotspot: 'Sector 14 and NH-8 Underpass', recommendation: 'Prioritize road repair in Sector 14. Deploy sanitation to Main Market Road.', trend: 'Water incidents increasing. Road damage up 40% this week.', departmentAlert: 'Road Maintenance handling 50% of complaints.', predictedIssues: 'Monsoon likely to worsen waterlogging at NH-8 underpass.', model: 'default' };
 }
+
+// ============================================================
+// DEVELOPMENT-NEED EXTRACTION (v4)
+// Only called when the deterministic multilingual classifier is unsure.
+// The model may ONLY answer with taxonomy ids; anything else is discarded.
+// ============================================================
+import { isValidCategory, listTaxonomy } from '../intelligence/taxonomy.js';
+
+export async function extractDevelopmentNeed(text) {
+  const taxonomy = listTaxonomy();
+  const result = await callAIService('/extract', { text, taxonomy });
+  if (result && isValidCategory(result.category, result.subcategory)) {
+    return { category: result.category, subcategory: result.subcategory || 'general', confidence: Math.min(0.9, Number(result.confidence) || 0.6), model: result.model || 'mistral-7b' };
+  }
+  if (process.env.ANTHROPIC_API_KEY) {
+    const ids = taxonomy.map(c => `${c.id}: ${c.subcategories.map(s => s.id).join(', ')}`).join('\n');
+    const raw = await callAnthropicLLM(
+      `You classify citizen requests into a fixed development taxonomy. Reply ONLY with JSON {"category":"<id>","subcategory":"<id>","confidence":0-1}. Use ONLY these ids:\n${ids}`,
+      `Request: "${text}"`, 150);
+    const parsed = parseJSON(raw);
+    if (parsed && isValidCategory(parsed.category, parsed.subcategory)) {
+      return { category: parsed.category, subcategory: parsed.subcategory || 'general', confidence: Math.min(0.85, Number(parsed.confidence) || 0.6), model: 'anthropic-fallback' };
+    }
+  }
+  return null;
+}
+
+/**
+ * Natural-language narration of ALREADY-COMPUTED facts. The model must not add facts;
+ * the caller verifies every number in the narration against the source data.
+ */
+export async function narrateFacts(question, facts) {
+  const system = 'You are a policy analyst assistant. Answer the question using ONLY the JSON facts provided. Do not introduce any number, place or claim that is not in the facts. Be concise (max 4 sentences). Use neutral language: never say an investment is ineffective.';
+  const user = `Question: ${question}\nFacts (JSON): ${JSON.stringify(facts).slice(0, 6000)}`;
+  const r = await callAIService('/narrate', { question, facts, system });
+  if (r && typeof r.text === 'string' && r.text.trim()) return { text: r.text.trim(), model: r.model || 'mistral-7b' };
+  if (process.env.ANTHROPIC_API_KEY) {
+    const t = await callAnthropicLLM(system, user, 350);
+    if (t) return { text: t.trim(), model: 'anthropic-fallback' };
+  }
+  return null;
+}
+
+export async function aiHealth() {
+  try {
+    const c = new AbortController(); const t = setTimeout(() => c.abort(), 2500);
+    const r = await fetch(`${AI_SERVICE_URL}/health`, { signal: c.signal }); clearTimeout(t);
+    return r.ok ? await r.json() : null;
+  } catch { return null; }
+}

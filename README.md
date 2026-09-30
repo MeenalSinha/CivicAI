@@ -1,3 +1,42 @@
+# CivicAI — AI-Powered Development Demand Intelligence for Digital Public Infrastructure
+
+**Track 1 — AI for Digital Public Infrastructure & Governance · BRICS theme: Innovation**
+
+> Every citizen request becomes structured public-interest data. CivicAI turns fragmented development requests into evidence-based infrastructure intelligence for policymakers — with every score computed, every recommendation explained, and every decision left to humans.
+
+## What is new in v4
+Citizen request → multilingual understanding → geolocation → development-need classification (16 categories / 51 subcategories) → duplicate & spam protection → **demand clusters + configurable Demand Score** → **infrastructure-gap analysis** → **investment alignment** (neutral language) → **transparent priority score** → **explainable recommendation** → **human review** → policy dashboard, **policy Q&A**, **Judge Mode** → feedback & outcome measurement.
+All v3 features (chat/voice/image intake, tickets, officer workflow, analytics, map, notifications, WebSocket, predictions, fallbacks) still work: the original test-suite passes unchanged.
+
+## Quick start
+```bash
+# Backend (Node 20+/22)
+cd backend && cp .env.example .env   # set JWT_SECRET; DEMO_MODE=true LOAD_DEMO_DATA=true for the demo
+npm install && npm start             # synthetic demo dataset loads automatically on first boot
+# Frontend
+cd ../frontend && npm install && npm start
+# Optional AI service (Mistral / YOLOv8 / Whisper): see docker-compose.yml; everything degrades gracefully without it
+```
+Open the app → **Judge Mode** (no login) for the guided 12-step demo, or sign in as `policymaker / Policy@CivicAI2026` for **Policy Intelligence**. Other accounts: `officer / CivicAI@2024` (complaint workflow + PII), `admin / Admin@CivicAI2024` (weights, datasets, audit). **Change these in production and set `DEMO_MODE=false`.**
+
+## Tests
+```bash
+cd backend && npm test         # legacy (23) + intelligence (44) + BRICS (7) + API/WebSocket integration (38)
+cd frontend && npm run build
+```
+See `docs/TEST_REPORT.md`, `docs/REQUIREMENTS_AUDIT.md`, `docs/KNOWN_LIMITATIONS.md`.
+
+## Documentation
+`docs/ARCHITECTURE.md` · `docs/DATA_SCHEMA.md` · `docs/API.md` · `docs/JUDGE_MODE.md` · sample data in `backend/data/samples/in-demo/` (**synthetic, always labelled as such in the UI and in `data_sources`**).
+
+## Plugging in another city / country
+1. Add/pick a country in `backend/config/countries.json`; create `backend/config/instances/<id>/instance.json` (languages, departments, admin levels, benchmarks) and set `CIVICAI_INSTANCE=<id>`.
+2. Load regions, infrastructure indicators and investments via `POST /api/policy/datasets/import` (JSON/CSV/GeoJSON/HTTP adapters) or add an adapter in `backend/adapters/`.
+3. Add languages in `config/languages.json` + an optional `config/lexicons/<code>.json` overlay; add categories in `config/taxonomy.json`.
+No engine code changes are required — `tests/brics.test.js` demonstrates this with a Brazilian instance and Portuguese requests.
+
+---
+# Original v3 documentation
 # CivicAI
 
 **Open-source AI-powered civic governance platform for Indian municipalities.**
