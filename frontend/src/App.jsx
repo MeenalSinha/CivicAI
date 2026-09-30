@@ -915,14 +915,16 @@ function MapView({ complaints }) {
 // ============================================================
 function WelcomePage({ onNavigate }) {
   const cards = [
-    { id: 'chat', icon: 'C', title: 'Report via Chat', desc: 'Describe your issue in natural language — English, Hindi, or Hinglish' },
-    { id: 'image', icon: 'I', title: 'Upload Image', desc: 'AI vision automatically detects and classifies civic issues from photos' },
-    { id: 'voice', icon: 'V', title: 'Voice Report', desc: 'Record a voice complaint and let AI transcribe and process it' },
-    { id: 'track', icon: 'T', title: 'Track Complaint', desc: 'Check the real-time status of your filed complaints' }
+    { id: 'chat', icon: <svg viewBox="0 0 24 24" width="1em" height="1em" stroke="currentColor" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>, title: 'Report via Chat', desc: 'Describe your issue in natural language — English, Hindi, or Hinglish' },
+    { id: 'image', icon: <svg viewBox="0 0 24 24" width="1em" height="1em" stroke="currentColor" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>, title: 'Upload Image', desc: 'AI vision automatically detects and classifies civic issues from photos' },
+    { id: 'voice', icon: <svg viewBox="0 0 24 24" width="1em" height="1em" stroke="currentColor" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>, title: 'Voice Report', desc: 'Record a voice complaint and let AI transcribe and process it' },
+    { id: 'track', icon: <svg viewBox="0 0 24 24" width="1em" height="1em" stroke="currentColor" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>, title: 'Track Complaint', desc: 'Check the real-time status of your filed complaints' }
   ];
   return (
     <div className="welcome-wrap fade-in">
-      <div className="welcome-logo">CA</div>
+      <div className="welcome-logo">
+        <svg viewBox="0 0 24 24" width="1.2em" height="1.2em" stroke="currentColor" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 21h18"></path><path d="M9 8h1"></path><path d="M9 12h1"></path><path d="M9 16h1"></path><path d="M14 8h1"></path><path d="M14 12h1"></path><path d="M14 16h1"></path><path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"></path></svg>
+      </div>
       <h1 className="welcome-title">CivicAI Platform</h1>
       <p className="welcome-desc">
         AI-powered civic governance connecting citizens to municipal officers.
@@ -2202,14 +2204,23 @@ export default function App() {
         {mode === 'citizen' && (
           <nav className="sidebar">
             <div className="sidebar-section-label">Citizen Portal</div>
-            {citizenNav.map(item => (
-              <div key={item.id} className={`sidebar-item ${page === item.id ? 'active' : ''}`} onClick={() => setPage(item.id)}>
-                <span className="sidebar-icon">
-                  {item.id === 'welcome' ? 'H' : item.id === 'chat' ? 'C' : item.id === 'image' ? 'I' : item.id === 'voice' ? 'V' : 'T'}
-                </span>
-                {item.label}
-              </div>
-            ))}
+            {citizenNav.map(item => {
+              let iconSvg = null;
+              if (item.id === 'welcome') iconSvg = <svg viewBox="0 0 24 24" width="1em" height="1em" stroke="currentColor" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>;
+              else if (item.id === 'chat') iconSvg = <svg viewBox="0 0 24 24" width="1em" height="1em" stroke="currentColor" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>;
+              else if (item.id === 'image') iconSvg = <svg viewBox="0 0 24 24" width="1em" height="1em" stroke="currentColor" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>;
+              else if (item.id === 'voice') iconSvg = <svg viewBox="0 0 24 24" width="1em" height="1em" stroke="currentColor" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>;
+              else if (item.id === 'track') iconSvg = <svg viewBox="0 0 24 24" width="1em" height="1em" stroke="currentColor" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>;
+
+              return (
+                <div key={item.id} className={`sidebar-item ${page === item.id ? 'active' : ''}`} onClick={() => setPage(item.id)}>
+                  <span className="sidebar-icon">
+                    {iconSvg}
+                  </span>
+                  {item.label}
+                </div>
+              );
+            })}
             <div className="sidebar-divider" />
             <div className="sidebar-section-label">Track Complaint</div>
             <div className="sidebar-item" onClick={() => setPage('track')} style={{ fontSize: 12 }}>
