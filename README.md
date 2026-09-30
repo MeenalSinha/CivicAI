@@ -9,6 +9,12 @@ Citizen request → multilingual understanding → geolocation → development-n
 All v3 features (chat/voice/image intake, tickets, officer workflow, analytics, map, notifications, WebSocket, predictions, fallbacks) still work: the original test-suite passes unchanged.
 
 ## Quick start
+
+**Live Demo:**
+* 🌐 **Frontend App:** [https://civicai-frontend-1063473205796.us-central1.run.app](https://civicai-frontend-1063473205796.us-central1.run.app)
+* ⚙️ **Backend API:** [https://civicai-backend-1063473205796.us-central1.run.app/api/health](https://civicai-backend-1063473205796.us-central1.run.app/api/health)
+
+### Running locally
 ```bash
 # Backend (Node 20+/22)
 cd backend && cp .env.example .env   # set JWT_SECRET; DEMO_MODE=true LOAD_DEMO_DATA=true for the demo
