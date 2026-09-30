@@ -68,17 +68,17 @@ await h.test('unauthenticated officer routes are rejected', async () => assert.e
 h.section('Citizen intake: multilingual, voice, image, geolocation');
 let hiComplaint;
 await h.test('chat: Hinglish request creates a complaint AND a normalised anonymised request', async () => {
-  const r = await call(base, 'POST', '/chat', { body: { message: 'Western Settlement mein paani nahi aa raha 4 din se, poore mohalla ke log pareshan hain', clientId: 'client-chat-0001' } });
-  assert.eq(r.status, 200); assert.ok(r.body.complaint.ticketId); assert.eq(r.body.request.category, 'water_supply'); assert.eq(r.body.request.language, 'hinglish'); assert.eq(r.body.request.regionName, 'Western Settlement');
+  const r = await call(base, 'POST', '/chat', { body: { message: 'West Delhi mein paani nahi aa raha 4 din se, poore mohalla ke log pareshan hain', clientId: 'client-chat-0001' } });
+  assert.eq(r.status, 200); assert.ok(r.body.complaint.ticketId); assert.eq(r.body.request.category, 'water_supply'); assert.eq(r.body.request.language, 'hinglish'); assert.eq(r.body.request.regionName, 'West Delhi');
   assert.ok(!('submitterHash' in r.body.request));
 });
 await h.test('text complaint in Hindi (Devanagari) is classified with the new taxonomy', async () => {
-  const r = await call(base, 'POST', '/complaints', { body: { text: 'Eastern Periphery में अस्पताल नहीं है, बहुत दूर जाना पड़ता है', citizenName: 'Asha', citizenPhone: '9811100001', clientId: 'client-hi-000001' } });
+  const r = await call(base, 'POST', '/complaints', { body: { text: 'South West Delhi में अस्पताल नहीं है, बहुत दूर जाना पड़ता है', citizenName: 'Asha', citizenPhone: '9811100001', clientId: 'client-hi-000001' } });
   assert.eq(r.status, 201); assert.eq(r.body.request.category, 'public_healthcare'); assert.eq(r.body.request.language, 'hi'); hiComplaint = r.body.complaint;
 });
 await h.test('text complaint in English with GPS is placed in the right region', async () => {
   const r = await call(base, 'POST', '/complaints', { body: { text: 'Large pothole and broken road surface', lat: 28.6302, lng: 77.3198, clientId: 'client-en-000001' } });
-  assert.eq(r.status, 201); assert.eq(r.body.request.regionName, 'Eastern Periphery'); assert.eq(r.body.request.locationSource, 'gps'); assert.eq(r.body.request.category, 'roads_transport');
+  assert.eq(r.status, 201); assert.eq(r.body.request.regionName, 'East Delhi'); assert.eq(r.body.request.locationSource, 'gps'); assert.eq(r.body.request.category, 'roads_transport');
 });
 await h.test('malformed GPS is ignored safely (no crash, location left unresolved)', async () => {
   const r = await call(base, 'POST', '/complaints', { body: { text: 'Garbage overflow near the bin', lat: 9999, lng: 'abc', clientId: 'client-bad-00001' } });
@@ -195,7 +195,7 @@ await h.test('policy Q&A: four canonical questions answered from data', async ()
     assert.ok(r.success && r.table && r.table.rows.length > 0, q); assert.notIncludes(r.intent, 'unknown');
   }
   const why = (await call(base, 'POST', '/policy/query', { token: policy, body: { question: 'Why was this region prioritized?', context: { regionId: 'r08', category: 'public_healthcare' } } })).body;
-  assert.eq(why.intent, 'explain'); assert.includes(why.answer, 'Eastern Periphery');
+  assert.eq(why.intent, 'explain'); assert.includes(why.answer, 'South West Delhi');
   const off = (await call(base, 'POST', '/policy/query', { token: policy, body: { question: 'Who won the cricket match yesterday?' } })).body; assert.eq(off.intent, 'unknown');
 });
 
@@ -244,7 +244,7 @@ await h.test('judge flow: Hinglish voice request -> classify -> locate -> cluste
   const before = (await call(base, 'GET', '/policy/overview', { token: policy })).body.totals.citizenRequests;
   const r = await call(base, 'POST', '/judge/submit', { body: { transcript: sc.voiceSamples[0].text, runId: 'int-test', transcriptSource: 'sample' } });
   assert.eq(r.status, 201); const t = r.body.trace;
-  assert.eq(t.request.language, 'hinglish'); assert.eq(t.request.category, 'public_healthcare'); assert.eq(t.request.regionName, 'Eastern Periphery');
+  assert.eq(t.request.language, 'hinglish'); assert.eq(t.request.category, 'public_healthcare'); assert.eq(t.request.regionName, 'South West Delhi');
   assert.gte(t.cluster.requestCount, 2); assert.gt(t.demand.demandScore, 40); assert.gt(t.gap.populationAffected, 10000);
   assert.includes(t.alignment.label, 'limited mapped investment'); assert.ok(t.project.priorityScore > 50); assert.gte(t.recommendation.evidenceTrail.length, 8);
   assert.eq((await call(base, 'GET', '/policy/overview', { token: policy })).body.totals.citizenRequests, before + 1);

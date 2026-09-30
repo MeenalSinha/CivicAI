@@ -209,9 +209,9 @@ function reclassify(reqId, category, subcategory, by) {
 
 export const JUDGE_SAMPLES = [
   // India samples
-  { id: 'hinglish-healthcare', label: 'Hinglish — Healthcare Access', language: 'Hinglish', country: 'IN', text: 'Eastern Periphery mein koi hospital nahi hai, aspatal bahut door hai. Hamare mohalla ke kai parivar pareshan hain, kripya jaldi dhyan dein.' },
-  { id: 'hindi-healthcare', label: 'Hindi (Devanagari) — Healthcare', language: 'Hindi', country: 'IN', text: 'Eastern Periphery में अस्पताल नहीं है, इलाज के लिए बहुत दूर जाना पड़ता है। हमारे मोहल्ले के सभी परिवार परेशान हैं।' },
-  { id: 'hinglish-water', label: 'Hinglish — Water Supply', language: 'Hinglish', country: 'IN', text: 'Western Settlement mein paani nahi aa raha 5 din se, poore mohalla ke log pareshan hain.' },
+  { id: 'hinglish-healthcare', label: 'Hinglish — Healthcare Access', language: 'Hinglish', country: 'IN', text: 'South West Delhi mein koi hospital nahi hai, aspatal bahut door hai. Hamare mohalla ke kai parivar pareshan hain, kripya jaldi dhyan dein.' },
+  { id: 'hindi-healthcare', label: 'Hindi (Devanagari) — Healthcare', language: 'Hindi', country: 'IN', text: 'South West Delhi में अस्पताल नहीं है, इलाज के लिए बहुत दूर जाना पड़ता है। हमारे मोहल्ले के सभी परिवार परेशान हैं।' },
+  { id: 'hinglish-water', label: 'Hinglish — Water Supply', language: 'Hinglish', country: 'IN', text: 'West Delhi mein paani nahi aa raha 5 din se, poore mohalla ke log pareshan hain.' },
   // Brazil samples
   { id: 'pt-water-jardim', label: 'Português — Falta de Água', language: 'Portuguese', country: 'BR', text: 'Falta de água há 5 dias no Jardim Ângela. Estamos sem abastecimento e as famílias estão sofrendo muito.' },
   { id: 'pt-flood-capao', label: 'Português — Alagamento', language: 'Portuguese', country: 'BR', text: 'Alagamento na rua do Capão Redondo toda vez que chove. A água chega até o joelho, carros ficam presos e crianças não conseguem ir para a escola.' },
