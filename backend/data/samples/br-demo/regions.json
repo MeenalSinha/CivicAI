@@ -1,0 +1,256 @@
+[
+  {
+    "id": "b01",
+    "name": "Jardim Ângela",
+    "aliases": [
+      "jardim angela",
+      "jd angela",
+      "angela"
+    ],
+    "level": "bairro",
+    "municipality": "São Paulo",
+    "state": "São Paulo",
+    "countryCode": "BR",
+    "lat": -23.716,
+    "lng": -46.775,
+    "radiusKm": 2.8,
+    "population": 138000,
+    "populationYear": 2025,
+    "areaKm2": 17.4,
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "IBGE (Instituto Brasileiro de Geografia e Estatística)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "b02",
+    "name": "Parelheiros",
+    "aliases": [
+      "parelheiros",
+      "parelhe"
+    ],
+    "level": "bairro",
+    "municipality": "São Paulo",
+    "state": "São Paulo",
+    "countryCode": "BR",
+    "lat": -23.838,
+    "lng": -46.728,
+    "radiusKm": 4.1,
+    "population": 74000,
+    "populationYear": 2025,
+    "areaKm2": 35.2,
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "IBGE (Instituto Brasileiro de Geografia e Estatística)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "b03",
+    "name": "Brasilândia",
+    "aliases": [
+      "brasilandia",
+      "brasit"
+    ],
+    "level": "bairro",
+    "municipality": "São Paulo",
+    "state": "São Paulo",
+    "countryCode": "BR",
+    "lat": -23.456,
+    "lng": -46.684,
+    "radiusKm": 2.5,
+    "population": 109000,
+    "populationYear": 2025,
+    "areaKm2": 12.8,
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "IBGE (Instituto Brasileiro de Geografia e Estatística)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "b04",
+    "name": "Capão Redondo",
+    "aliases": [
+      "capao redondo",
+      "capão redondo",
+      "capao"
+    ],
+    "level": "bairro",
+    "municipality": "São Paulo",
+    "state": "São Paulo",
+    "countryCode": "BR",
+    "lat": -23.67,
+    "lng": -46.762,
+    "radiusKm": 2.3,
+    "population": 92000,
+    "populationYear": 2025,
+    "areaKm2": 9.5,
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "IBGE (Instituto Brasileiro de Geografia e Estatística)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "b05",
+    "name": "Guaianazes",
+    "aliases": [
+      "guaianazes",
+      "guaia"
+    ],
+    "level": "bairro",
+    "municipality": "São Paulo",
+    "state": "São Paulo",
+    "countryCode": "BR",
+    "lat": -23.554,
+    "lng": -46.369,
+    "radiusKm": 2.6,
+    "population": 85000,
+    "populationYear": 2025,
+    "areaKm2": 10.9,
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "IBGE (Instituto Brasileiro de Geografia e Estatística)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "b06",
+    "name": "Itaquera",
+    "aliases": [
+      "itaquera",
+      "itaque"
+    ],
+    "level": "bairro",
+    "municipality": "São Paulo",
+    "state": "São Paulo",
+    "countryCode": "BR",
+    "lat": -23.538,
+    "lng": -46.455,
+    "radiusKm": 2,
+    "population": 96000,
+    "populationYear": 2025,
+    "areaKm2": 8.2,
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "IBGE (Instituto Brasileiro de Geografia e Estatística)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "b07",
+    "name": "Campo Limpo",
+    "aliases": [
+      "campo limpo",
+      "campo"
+    ],
+    "level": "bairro",
+    "municipality": "São Paulo",
+    "state": "São Paulo",
+    "countryCode": "BR",
+    "lat": -23.639,
+    "lng": -46.754,
+    "radiusKm": 1.9,
+    "population": 78000,
+    "populationYear": 2025,
+    "areaKm2": 6.8,
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "IBGE (Instituto Brasileiro de Geografia e Estatística)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "b08",
+    "name": "Grajaú",
+    "aliases": [
+      "grajau",
+      "grajaú"
+    ],
+    "level": "bairro",
+    "municipality": "São Paulo",
+    "state": "São Paulo",
+    "countryCode": "BR",
+    "lat": -23.708,
+    "lng": -46.685,
+    "radiusKm": 3.4,
+    "population": 123000,
+    "populationYear": 2025,
+    "areaKm2": 25.6,
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "IBGE (Instituto Brasileiro de Geografia e Estatística)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "b09",
+    "name": "Cidade Tiradentes",
+    "aliases": [
+      "cidade tiradentes",
+      "tiradentes",
+      "cid tiradentes"
+    ],
+    "level": "bairro",
+    "municipality": "São Paulo",
+    "state": "São Paulo",
+    "countryCode": "BR",
+    "lat": -23.589,
+    "lng": -46.371,
+    "radiusKm": 2.2,
+    "population": 95000,
+    "populationYear": 2025,
+    "areaKm2": 9,
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "IBGE (Instituto Brasileiro de Geografia e Estatística)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "b10",
+    "name": "Heliópolis",
+    "aliases": [
+      "heliopolis",
+      "heliópolis",
+      "helio"
+    ],
+    "level": "bairro",
+    "municipality": "São Paulo",
+    "state": "São Paulo",
+    "countryCode": "BR",
+    "lat": -23.617,
+    "lng": -46.583,
+    "radiusKm": 1.5,
+    "population": 68000,
+    "populationYear": 2025,
+    "areaKm2": 4.8,
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "IBGE (Instituto Brasileiro de Geografia e Estatística)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  }
+]

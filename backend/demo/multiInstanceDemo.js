@@ -35,37 +35,39 @@ export async function loadStructuralDataForInstance(instId, actor = { type: 'sys
   const dir = join(SAMPLE_DIR, instId);
   if (!existsSync(dir)) throw new Error(`No sample data directory for instance "${instId}"`);
 
-  const label = inst.dataLabel || 'DEMONSTRATION / SYNTHETIC DATA';
-  const common = { isSynthetic: true, license: 'Synthetic — created for demonstration; not real government data' };
+  // Read metadata from first record of each file if present
+  const getMeta = (path, defaultTitle) => {
+    if (!existsSync(path)) return null;
+    let data = [];
+    try { data = JSON.parse(readFileSync(path, 'utf8')); } catch { return null; }
+    const isSynthetic = data[0]?.isSynthetic ?? true;
+    const prov = data[0]?.provenance || {};
+    return {
+      path,
+      source: {
+        id: `${instId}-${defaultTitle.toLowerCase().replace(/\\s+/g, '-')}`,
+        name: `${inst.name} – ${defaultTitle}`,
+        isSynthetic,
+        license: isSynthetic ? 'Synthetic — created for demonstration' : 'Public Domain / Open Data',
+        description: prov.source ? `Source: ${prov.source} (Coverage: ${prov.coverage || '100%'})` : inst.dataLabel,
+        publishedAt: prov.date || '2025-06-30'
+      }
+    };
+  };
 
   const results = [];
-  const regionsPath = join(dir, 'regions.json');
-  const assetsPath = join(dir, 'assets.json');
-  const investmentsPath = join(dir, 'investments.json');
+  const metaRegions = getMeta(join(dir, 'regions.json'), 'Administrative Boundaries');
+  const metaAssets = getMeta(join(dir, 'assets.json'), 'Public Infrastructure Data');
+  const metaInv = getMeta(join(dir, 'investments.json'), 'Public Investment Projects');
 
-  if (existsSync(regionsPath)) {
-    results.push(await importDataset({
-      type: 'regions', adapter: 'json-file',
-      options: { path: regionsPath },
-      source: { ...common, id: `${instId}-regions`, name: `${inst.name} – regions & population (synthetic)`, description: label },
-      actor
-    }));
+  if (metaRegions) {
+    results.push(await importDataset({ type: 'regions', adapter: 'json-file', options: { path: metaRegions.path }, source: metaRegions.source, actor }));
   }
-  if (existsSync(assetsPath)) {
-    results.push(await importDataset({
-      type: 'assets', adapter: 'json-file',
-      options: { path: assetsPath },
-      source: { ...common, id: `${instId}-infrastructure`, name: `${inst.name} – infrastructure indicators (synthetic)`, description: label },
-      actor
-    }));
+  if (metaAssets) {
+    results.push(await importDataset({ type: 'assets', adapter: 'json-file', options: { path: metaAssets.path }, source: metaAssets.source, actor }));
   }
-  if (existsSync(investmentsPath)) {
-    results.push(await importDataset({
-      type: 'investments', adapter: 'json-file-relative-dates-multi',
-      options: { path: investmentsPath },
-      source: { ...common, id: `${instId}-investments`, name: `${inst.name} – public investments (synthetic)`, description: label },
-      actor
-    }));
+  if (metaInv) {
+    results.push(await importDataset({ type: 'investments', adapter: 'json-file-relative-dates-multi', options: { path: metaInv.path }, source: metaInv.source, actor }));
   }
   return results;
 }

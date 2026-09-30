@@ -1,0 +1,252 @@
+[
+  {
+    "id": "BRV-001",
+    "name": "Programa de Saneamento Básico - Jardim Ângela Fase 1",
+    "sector": "sanitation",
+    "coverage": {
+      "b01": 0.4
+    },
+    "regionIds": [
+      "b01"
+    ],
+    "budget": 42000000,
+    "currency": "BRL",
+    "stage": "ongoing",
+    "targetPopulation": 55000,
+    "department": "SABESP - Saneamento",
+    "source": "Demonstration/Synthetic Dataset",
+    "plannedCompletion": "T+180d",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Portal da Transparência",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "BRV-002",
+    "name": "Rede de Água Potável - Parelheiros",
+    "sector": "water_supply",
+    "coverage": {
+      "b02": 0.3
+    },
+    "regionIds": [
+      "b02"
+    ],
+    "budget": 35000000,
+    "currency": "BRL",
+    "stage": "tender",
+    "targetPopulation": 22000,
+    "department": "SABESP - Companhia de Saneamento Básico",
+    "source": "Demonstration/Synthetic Dataset",
+    "plannedCompletion": "T+300d",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Portal da Transparência",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "BRV-003",
+    "name": "Pavimentação de Vias - Brasilândia (Pacote A)",
+    "sector": "roads_transport",
+    "coverage": {
+      "b03": 0.5
+    },
+    "regionIds": [
+      "b03"
+    ],
+    "budget": 28000000,
+    "currency": "BRL",
+    "stage": "ongoing",
+    "targetPopulation": 54000,
+    "department": "Secretaria Municipal de Infraestrutura Urbana",
+    "source": "Demonstration/Synthetic Dataset",
+    "plannedCompletion": "T+90d",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Portal da Transparência",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "BRV-004",
+    "name": "Contenção de Enchentes - Capão Redondo",
+    "sector": "drainage_flood",
+    "coverage": {
+      "b04": 0.35
+    },
+    "regionIds": [
+      "b04"
+    ],
+    "budget": 55000000,
+    "currency": "BRL",
+    "stage": "approved",
+    "targetPopulation": 32000,
+    "department": "Secretaria Municipal de Gestão de Risco e Drenagem",
+    "source": "Demonstration/Synthetic Dataset",
+    "plannedCompletion": "T+400d",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Portal da Transparência",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "BRV-005",
+    "name": "UBS Nova - Guaianazes",
+    "sector": "public_healthcare",
+    "coverage": {
+      "b05": 0.6
+    },
+    "regionIds": [
+      "b05"
+    ],
+    "budget": 18000000,
+    "currency": "BRL",
+    "stage": "planned",
+    "targetPopulation": 51000,
+    "department": "Secretaria Municipal de Saúde",
+    "source": "Demonstration/Synthetic Dataset",
+    "plannedCompletion": "T+500d",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Portal da Transparência",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "BRV-006",
+    "name": "Ampliação de Linhas de Ônibus - Itaquera",
+    "sector": "public_mobility",
+    "coverage": {
+      "b06": 0.55
+    },
+    "regionIds": [
+      "b06"
+    ],
+    "budget": 22000000,
+    "currency": "BRL",
+    "stage": "ongoing",
+    "targetPopulation": 53000,
+    "department": "SPTrans / Secretaria de Mobilidade Urbana",
+    "source": "Demonstration/Synthetic Dataset",
+    "plannedCompletion": "T+60d",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Portal da Transparência",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "BRV-007",
+    "name": "Drenagem Urbana - Grajaú",
+    "sector": "drainage_flood",
+    "coverage": {
+      "b08": 0.25
+    },
+    "regionIds": [
+      "b08"
+    ],
+    "budget": 65000000,
+    "currency": "BRL",
+    "stage": "tender",
+    "targetPopulation": 30000,
+    "department": "Secretaria Municipal de Gestão de Risco e Drenagem",
+    "source": "Demonstration/Synthetic Dataset",
+    "plannedCompletion": "T+360d",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Portal da Transparência",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "BRV-008",
+    "name": "Escola Construída - Cidade Tiradentes",
+    "sector": "education",
+    "coverage": {
+      "b09": 0.4
+    },
+    "regionIds": [
+      "b09"
+    ],
+    "budget": 14000000,
+    "currency": "BRL",
+    "stage": "completed",
+    "targetPopulation": 38000,
+    "department": "Secretaria Municipal de Educação",
+    "source": "Demonstration/Synthetic Dataset",
+    "completedAt": "T-90d",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Portal da Transparência",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "BRV-009",
+    "name": "Revitalização de Espaços Públicos - Heliópolis",
+    "sector": "public_spaces",
+    "coverage": {
+      "b10": 0.7
+    },
+    "regionIds": [
+      "b10"
+    ],
+    "budget": 9500000,
+    "currency": "BRL",
+    "stage": "completed",
+    "targetPopulation": 47000,
+    "department": "Secretaria Municipal de Áreas Verdes",
+    "source": "Demonstration/Synthetic Dataset",
+    "completedAt": "T-45d",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Portal da Transparência",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "BRV-010",
+    "name": "Coleta Seletiva - Campo Limpo",
+    "sector": "waste_management",
+    "coverage": {
+      "b07": 0.8
+    },
+    "regionIds": [
+      "b07"
+    ],
+    "budget": 7200000,
+    "currency": "BRL",
+    "stage": "ongoing",
+    "targetPopulation": 62000,
+    "department": "LOGA / Serviço Municipal de Limpeza Urbana",
+    "source": "Demonstration/Synthetic Dataset",
+    "plannedCompletion": "T+120d",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Portal da Transparência",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  }
+]

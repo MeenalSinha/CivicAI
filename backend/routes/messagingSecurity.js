@@ -4,8 +4,13 @@
 // Signature verification where providers support it.
 // NEVER stores raw personal data beyond what's needed for audit.
 // ============================================================
-import { createHmac, timingSafeEqual } from 'crypto';
+import crypto, { createHmac, timingSafeEqual } from 'crypto';
+import fs from 'fs';
+import path from 'path';
 import * as dev from '../database/devdb.js';
+
+const MEDIA_DIR = path.join(process.cwd(), 'data', 'media');
+if (!fs.existsSync(MEDIA_DIR)) fs.mkdirSync(MEDIA_DIR, { recursive: true });
 
 // ---- Messaging schema is part of devdb.js audit_logs — no separate schema needed ----
 // This placeholder is kept for API compatibility.
@@ -111,11 +116,36 @@ export async function handleMediaAttachment({ mediaId, mediaUrl, mimeType, fileS
   }
 
   // Real download path (activated when credentials are present)
+  let localPath = null, hash = null;
+  try {
+    const headers = {};
+    if (channel === 'whatsapp' && process.env.WHATSAPP_ACCESS_TOKEN) {
+      headers['Authorization'] = `Bearer ${process.env.WHATSAPP_ACCESS_TOKEN}`;
+    }
+    const res = await fetch(mediaUrl, { headers });
+    if (!res.ok) throw new Error(`Provider returned ${res.status}`);
+    
+    const ext = mimeType.split('/')[1]?.split(';')[0] || 'bin';
+    const filename = `${mediaId}.${ext}`;
+    localPath = path.join(MEDIA_DIR, filename);
+    
+    const buffer = await res.arrayBuffer();
+    const data = Buffer.from(buffer);
+    fs.writeFileSync(localPath, data);
+    hash = crypto.createHash('sha256').update(data).digest('hex');
+  } catch (err) {
+    return {
+      handled: false, type: isImage ? 'image' : isAudio ? 'audio' : 'media',
+      status: 'download_failed',
+      note: `Failed to download media: ${err.message}`
+    };
+  }
+
   return {
     handled: true, type: isImage ? 'image' : isAudio ? 'audio' : 'media',
-    status: 'queued',
-    note: `Queued for ${isImage ? 'vision analysis' : 'audio transcription'}`,
-    mediaId, mediaUrl, requestId
+    status: 'downloaded',
+    note: `Successfully downloaded and stored securely (SHA-256: ${hash.slice(0, 16)}...)`,
+    mediaId, mediaUrl, requestId, localPath, hash
   };
 }
 

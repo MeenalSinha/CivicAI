@@ -2,13 +2,14 @@ import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { policyAPI, createWebSocket } from '../api';
 import PolicyMap from './PolicyMap';
 import BRICSView from './BRICSView';
+import ProvenanceView from './ProvenanceView';
 import { policyStyles } from './policyStyles';
 import { fmt, pct, signedPct, SeverityBadge, PriorityBadge, ReviewBadge, Bar, Kpi, Loading, ErrorBox, Empty, Spark, SyntheticBanner, useAsync, catColor } from './ui';
 
 const TABS = [
   ['overview', 'National overview'], ['map', 'Geographic intelligence'], ['priorities', 'Development priorities'],
   ['trends', 'Trend intelligence'], ['investment', 'Investment & outcomes'], ['ask', 'Ask CivicAI'],
-  ['governance', 'Governance & review'], ['brics', '🌐 BRICS Interop']
+  ['governance', 'Governance & review'], ['provenance', 'Data Provenance'], ['brics', '🌐 BRICS Interop']
 ];
 
 export default function PolicyDashboard({ user, initialTab = 'overview', embedded = false, focusProjectId = null }) {
@@ -63,6 +64,7 @@ export default function PolicyDashboard({ user, initialTab = 'overview', embedde
       {tab === 'investment' && <Investment tick={tick} />}
       {tab === 'ask' && <Ask onOpen={setSelected} />}
       {tab === 'governance' && <Governance user={user} tick={tick} canDecide={canDecide} onChanged={() => setTick(t => t + 1)} onOpen={setSelected} />}
+      {tab === 'provenance' && <ProvenanceView />}
       {tab === 'brics' && <BRICSView onSwitchedInstance={handleInstanceSwitch} />}
       {selected && <Drawer id={selected} onClose={() => setSelected(null)} canDecide={canDecide} onChanged={() => setTick(t => t + 1)} tick={tick} />}
     </div>

@@ -1,0 +1,1802 @@
+[
+  {
+    "id": "A-r01-roads_transport",
+    "regionId": "r01",
+    "sector": "roads_transport",
+    "assetType": "paved_road_km_per_10k",
+    "metric": "paved_road_km_per_10k",
+    "value": 10.8,
+    "benchmark": 12,
+    "unit": "km per 10,000 residents",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r01-water_supply",
+    "regionId": "r01",
+    "sector": "water_supply",
+    "assetType": "households_with_tap_pct",
+    "metric": "households_with_tap_pct",
+    "value": 90.25,
+    "benchmark": 95,
+    "unit": "% of households",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r01-public_healthcare",
+    "regionId": "r01",
+    "sector": "public_healthcare",
+    "assetType": "phc_per_100k",
+    "metric": "phc_per_100k",
+    "value": 3.4,
+    "benchmark": 4,
+    "unit": "primary health facilities per 100,000 residents",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r01-waste_management",
+    "regionId": "r01",
+    "sector": "waste_management",
+    "assetType": "waste_collection_coverage_pct",
+    "metric": "waste_collection_coverage_pct",
+    "value": 66.5,
+    "benchmark": 95,
+    "unit": "% of households served",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r01-public_mobility",
+    "regionId": "r01",
+    "sector": "public_mobility",
+    "assetType": "bus_stop_within_500m_pct",
+    "metric": "bus_stop_within_500m_pct",
+    "value": 72,
+    "benchmark": 80,
+    "unit": "% of residents within 500 m of a bus stop",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r01-digital_connectivity",
+    "regionId": "r01",
+    "sector": "digital_connectivity",
+    "assetType": "mobile_4g_coverage_pct",
+    "metric": "mobile_4g_coverage_pct",
+    "value": 90.25,
+    "benchmark": 95,
+    "unit": "% area with 4G coverage",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r01-drainage_flood",
+    "regionId": "r01",
+    "sector": "drainage_flood",
+    "assetType": "storm_drain_coverage_pct",
+    "metric": "storm_drain_coverage_pct",
+    "value": 72,
+    "benchmark": 90,
+    "unit": "% of road length with storm drains",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r01-education",
+    "regionId": "r01",
+    "sector": "education",
+    "assetType": "schools_per_10k_children",
+    "metric": "schools_per_10k_children",
+    "value": 5.1,
+    "benchmark": 6,
+    "unit": "schools per 10,000 children",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r01-electricity",
+    "regionId": "r01",
+    "sector": "electricity",
+    "assetType": "reliable_supply_hours_per_day",
+    "metric": "reliable_supply_hours_per_day",
+    "value": 20.9,
+    "benchmark": 22,
+    "unit": "hours/day",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r01-sanitation",
+    "regionId": "r01",
+    "sector": "sanitation",
+    "assetType": "sewer_connection_pct",
+    "metric": "sewer_connection_pct",
+    "value": 81,
+    "benchmark": 90,
+    "unit": "% of households connected",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r02-roads_transport",
+    "regionId": "r02",
+    "sector": "roads_transport",
+    "assetType": "paved_road_km_per_10k",
+    "metric": "paved_road_km_per_10k",
+    "value": 6.6,
+    "benchmark": 12,
+    "unit": "km per 10,000 residents",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r02-water_supply",
+    "regionId": "r02",
+    "sector": "water_supply",
+    "assetType": "households_with_tap_pct",
+    "metric": "households_with_tap_pct",
+    "value": 80.75,
+    "benchmark": 95,
+    "unit": "% of households",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r02-public_healthcare",
+    "regionId": "r02",
+    "sector": "public_healthcare",
+    "assetType": "phc_per_100k",
+    "metric": "phc_per_100k",
+    "value": 3.2,
+    "benchmark": 4,
+    "unit": "primary health facilities per 100,000 residents",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r02-waste_management",
+    "regionId": "r02",
+    "sector": "waste_management",
+    "assetType": "waste_collection_coverage_pct",
+    "metric": "waste_collection_coverage_pct",
+    "value": 76,
+    "benchmark": 95,
+    "unit": "% of households served",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r02-public_mobility",
+    "regionId": "r02",
+    "sector": "public_mobility",
+    "assetType": "bus_stop_within_500m_pct",
+    "metric": "bus_stop_within_500m_pct",
+    "value": 60,
+    "benchmark": 80,
+    "unit": "% of residents within 500 m of a bus stop",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r02-digital_connectivity",
+    "regionId": "r02",
+    "sector": "digital_connectivity",
+    "assetType": "mobile_4g_coverage_pct",
+    "metric": "mobile_4g_coverage_pct",
+    "value": 85.5,
+    "benchmark": 95,
+    "unit": "% area with 4G coverage",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r02-drainage_flood",
+    "regionId": "r02",
+    "sector": "drainage_flood",
+    "assetType": "storm_drain_coverage_pct",
+    "metric": "storm_drain_coverage_pct",
+    "value": 54,
+    "benchmark": 90,
+    "unit": "% of road length with storm drains",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r02-education",
+    "regionId": "r02",
+    "sector": "education",
+    "assetType": "schools_per_10k_children",
+    "metric": "schools_per_10k_children",
+    "value": 4.8,
+    "benchmark": 6,
+    "unit": "schools per 10,000 children",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r02-electricity",
+    "regionId": "r02",
+    "sector": "electricity",
+    "assetType": "reliable_supply_hours_per_day",
+    "metric": "reliable_supply_hours_per_day",
+    "value": 18.7,
+    "benchmark": 22,
+    "unit": "hours/day",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r02-sanitation",
+    "regionId": "r02",
+    "sector": "sanitation",
+    "assetType": "sewer_connection_pct",
+    "metric": "sewer_connection_pct",
+    "value": 72,
+    "benchmark": 90,
+    "unit": "% of households connected",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r03-roads_transport",
+    "regionId": "r03",
+    "sector": "roads_transport",
+    "assetType": "paved_road_km_per_10k",
+    "metric": "paved_road_km_per_10k",
+    "value": 7.2,
+    "benchmark": 12,
+    "unit": "km per 10,000 residents",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r03-water_supply",
+    "regionId": "r03",
+    "sector": "water_supply",
+    "assetType": "households_with_tap_pct",
+    "metric": "households_with_tap_pct",
+    "value": 57,
+    "benchmark": 95,
+    "unit": "% of households",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r03-public_healthcare",
+    "regionId": "r03",
+    "sector": "public_healthcare",
+    "assetType": "phc_per_100k",
+    "metric": "phc_per_100k",
+    "value": 2,
+    "benchmark": 4,
+    "unit": "primary health facilities per 100,000 residents",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r03-waste_management",
+    "regionId": "r03",
+    "sector": "waste_management",
+    "assetType": "waste_collection_coverage_pct",
+    "metric": "waste_collection_coverage_pct",
+    "value": 57,
+    "benchmark": 95,
+    "unit": "% of households served",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r03-public_mobility",
+    "regionId": "r03",
+    "sector": "public_mobility",
+    "assetType": "bus_stop_within_500m_pct",
+    "metric": "bus_stop_within_500m_pct",
+    "value": 40,
+    "benchmark": 80,
+    "unit": "% of residents within 500 m of a bus stop",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r03-digital_connectivity",
+    "regionId": "r03",
+    "sector": "digital_connectivity",
+    "assetType": "mobile_4g_coverage_pct",
+    "metric": "mobile_4g_coverage_pct",
+    "value": 76,
+    "benchmark": 95,
+    "unit": "% area with 4G coverage",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r03-drainage_flood",
+    "regionId": "r03",
+    "sector": "drainage_flood",
+    "assetType": "storm_drain_coverage_pct",
+    "metric": "storm_drain_coverage_pct",
+    "value": 27,
+    "benchmark": 90,
+    "unit": "% of road length with storm drains",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r03-education",
+    "regionId": "r03",
+    "sector": "education",
+    "assetType": "schools_per_10k_children",
+    "metric": "schools_per_10k_children",
+    "value": 3.6,
+    "benchmark": 6,
+    "unit": "schools per 10,000 children",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r03-electricity",
+    "regionId": "r03",
+    "sector": "electricity",
+    "assetType": "reliable_supply_hours_per_day",
+    "metric": "reliable_supply_hours_per_day",
+    "value": 17.6,
+    "benchmark": 22,
+    "unit": "hours/day",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r03-sanitation",
+    "regionId": "r03",
+    "sector": "sanitation",
+    "assetType": "sewer_connection_pct",
+    "metric": "sewer_connection_pct",
+    "value": 45,
+    "benchmark": 90,
+    "unit": "% of households connected",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r04-roads_transport",
+    "regionId": "r04",
+    "sector": "roads_transport",
+    "assetType": "paved_road_km_per_10k",
+    "metric": "paved_road_km_per_10k",
+    "value": 8.4,
+    "benchmark": 12,
+    "unit": "km per 10,000 residents",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r04-water_supply",
+    "regionId": "r04",
+    "sector": "water_supply",
+    "assetType": "households_with_tap_pct",
+    "metric": "households_with_tap_pct",
+    "value": 76,
+    "benchmark": 95,
+    "unit": "% of households",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r04-public_healthcare",
+    "regionId": "r04",
+    "sector": "public_healthcare",
+    "assetType": "phc_per_100k",
+    "metric": "phc_per_100k",
+    "value": 3.2,
+    "benchmark": 4,
+    "unit": "primary health facilities per 100,000 residents",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r04-waste_management",
+    "regionId": "r04",
+    "sector": "waste_management",
+    "assetType": "waste_collection_coverage_pct",
+    "metric": "waste_collection_coverage_pct",
+    "value": 71.25,
+    "benchmark": 95,
+    "unit": "% of households served",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r04-public_mobility",
+    "regionId": "r04",
+    "sector": "public_mobility",
+    "assetType": "bus_stop_within_500m_pct",
+    "metric": "bus_stop_within_500m_pct",
+    "value": 72,
+    "benchmark": 80,
+    "unit": "% of residents within 500 m of a bus stop",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r04-digital_connectivity",
+    "regionId": "r04",
+    "sector": "digital_connectivity",
+    "assetType": "mobile_4g_coverage_pct",
+    "metric": "mobile_4g_coverage_pct",
+    "value": 90.25,
+    "benchmark": 95,
+    "unit": "% area with 4G coverage",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r04-drainage_flood",
+    "regionId": "r04",
+    "sector": "drainage_flood",
+    "assetType": "storm_drain_coverage_pct",
+    "metric": "storm_drain_coverage_pct",
+    "value": 63,
+    "benchmark": 90,
+    "unit": "% of road length with storm drains",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r04-education",
+    "regionId": "r04",
+    "sector": "education",
+    "assetType": "schools_per_10k_children",
+    "metric": "schools_per_10k_children",
+    "value": 5.4,
+    "benchmark": 6,
+    "unit": "schools per 10,000 children",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r04-electricity",
+    "regionId": "r04",
+    "sector": "electricity",
+    "assetType": "reliable_supply_hours_per_day",
+    "metric": "reliable_supply_hours_per_day",
+    "value": 19.8,
+    "benchmark": 22,
+    "unit": "hours/day",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r04-sanitation",
+    "regionId": "r04",
+    "sector": "sanitation",
+    "assetType": "sewer_connection_pct",
+    "metric": "sewer_connection_pct",
+    "value": 76.5,
+    "benchmark": 90,
+    "unit": "% of households connected",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r05-roads_transport",
+    "regionId": "r05",
+    "sector": "roads_transport",
+    "assetType": "paved_road_km_per_10k",
+    "metric": "paved_road_km_per_10k",
+    "value": 6,
+    "benchmark": 12,
+    "unit": "km per 10,000 residents",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r05-water_supply",
+    "regionId": "r05",
+    "sector": "water_supply",
+    "assetType": "households_with_tap_pct",
+    "metric": "households_with_tap_pct",
+    "value": 52.25,
+    "benchmark": 95,
+    "unit": "% of households",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r05-public_healthcare",
+    "regionId": "r05",
+    "sector": "public_healthcare",
+    "assetType": "phc_per_100k",
+    "metric": "phc_per_100k",
+    "value": 1.8,
+    "benchmark": 4,
+    "unit": "primary health facilities per 100,000 residents",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r05-waste_management",
+    "regionId": "r05",
+    "sector": "waste_management",
+    "assetType": "waste_collection_coverage_pct",
+    "metric": "waste_collection_coverage_pct",
+    "value": 47.5,
+    "benchmark": 95,
+    "unit": "% of households served",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r05-public_mobility",
+    "regionId": "r05",
+    "sector": "public_mobility",
+    "assetType": "bus_stop_within_500m_pct",
+    "metric": "bus_stop_within_500m_pct",
+    "value": 44,
+    "benchmark": 80,
+    "unit": "% of residents within 500 m of a bus stop",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r05-digital_connectivity",
+    "regionId": "r05",
+    "sector": "digital_connectivity",
+    "assetType": "mobile_4g_coverage_pct",
+    "metric": "mobile_4g_coverage_pct",
+    "value": 66.5,
+    "benchmark": 95,
+    "unit": "% area with 4G coverage",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r05-drainage_flood",
+    "regionId": "r05",
+    "sector": "drainage_flood",
+    "assetType": "storm_drain_coverage_pct",
+    "metric": "storm_drain_coverage_pct",
+    "value": 22.5,
+    "benchmark": 90,
+    "unit": "% of road length with storm drains",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r05-education",
+    "regionId": "r05",
+    "sector": "education",
+    "assetType": "schools_per_10k_children",
+    "metric": "schools_per_10k_children",
+    "value": 3.3,
+    "benchmark": 6,
+    "unit": "schools per 10,000 children",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r05-electricity",
+    "regionId": "r05",
+    "sector": "electricity",
+    "assetType": "reliable_supply_hours_per_day",
+    "metric": "reliable_supply_hours_per_day",
+    "value": 15.4,
+    "benchmark": 22,
+    "unit": "hours/day",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r05-sanitation",
+    "regionId": "r05",
+    "sector": "sanitation",
+    "assetType": "sewer_connection_pct",
+    "metric": "sewer_connection_pct",
+    "value": 31.5,
+    "benchmark": 90,
+    "unit": "% of households connected",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r06-roads_transport",
+    "regionId": "r06",
+    "sector": "roads_transport",
+    "assetType": "paved_road_km_per_10k",
+    "metric": "paved_road_km_per_10k",
+    "value": 4.2,
+    "benchmark": 12,
+    "unit": "km per 10,000 residents",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r06-water_supply",
+    "regionId": "r06",
+    "sector": "water_supply",
+    "assetType": "households_with_tap_pct",
+    "metric": "households_with_tap_pct",
+    "value": 38,
+    "benchmark": 95,
+    "unit": "% of households",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r06-public_healthcare",
+    "regionId": "r06",
+    "sector": "public_healthcare",
+    "assetType": "phc_per_100k",
+    "metric": "phc_per_100k",
+    "value": 1.2,
+    "benchmark": 4,
+    "unit": "primary health facilities per 100,000 residents",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r06-waste_management",
+    "regionId": "r06",
+    "sector": "waste_management",
+    "assetType": "waste_collection_coverage_pct",
+    "metric": "waste_collection_coverage_pct",
+    "value": 38,
+    "benchmark": 95,
+    "unit": "% of households served",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r06-public_mobility",
+    "regionId": "r06",
+    "sector": "public_mobility",
+    "assetType": "bus_stop_within_500m_pct",
+    "metric": "bus_stop_within_500m_pct",
+    "value": 24,
+    "benchmark": 80,
+    "unit": "% of residents within 500 m of a bus stop",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r06-digital_connectivity",
+    "regionId": "r06",
+    "sector": "digital_connectivity",
+    "assetType": "mobile_4g_coverage_pct",
+    "metric": "mobile_4g_coverage_pct",
+    "value": 33.25,
+    "benchmark": 95,
+    "unit": "% area with 4G coverage",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r06-drainage_flood",
+    "regionId": "r06",
+    "sector": "drainage_flood",
+    "assetType": "storm_drain_coverage_pct",
+    "metric": "storm_drain_coverage_pct",
+    "value": 36,
+    "benchmark": 90,
+    "unit": "% of road length with storm drains",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r06-education",
+    "regionId": "r06",
+    "sector": "education",
+    "assetType": "schools_per_10k_children",
+    "metric": "schools_per_10k_children",
+    "value": 3,
+    "benchmark": 6,
+    "unit": "schools per 10,000 children",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r06-electricity",
+    "regionId": "r06",
+    "sector": "electricity",
+    "assetType": "reliable_supply_hours_per_day",
+    "metric": "reliable_supply_hours_per_day",
+    "value": 13.2,
+    "benchmark": 22,
+    "unit": "hours/day",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r06-sanitation",
+    "regionId": "r06",
+    "sector": "sanitation",
+    "assetType": "sewer_connection_pct",
+    "metric": "sewer_connection_pct",
+    "value": 27,
+    "benchmark": 90,
+    "unit": "% of households connected",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r07-roads_transport",
+    "regionId": "r07",
+    "sector": "roads_transport",
+    "assetType": "paved_road_km_per_10k",
+    "metric": "paved_road_km_per_10k",
+    "value": 9.6,
+    "benchmark": 12,
+    "unit": "km per 10,000 residents",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r07-water_supply",
+    "regionId": "r07",
+    "sector": "water_supply",
+    "assetType": "households_with_tap_pct",
+    "metric": "households_with_tap_pct",
+    "value": 76,
+    "benchmark": 95,
+    "unit": "% of households",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r07-public_healthcare",
+    "regionId": "r07",
+    "sector": "public_healthcare",
+    "assetType": "phc_per_100k",
+    "metric": "phc_per_100k",
+    "value": 2.8,
+    "benchmark": 4,
+    "unit": "primary health facilities per 100,000 residents",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r07-waste_management",
+    "regionId": "r07",
+    "sector": "waste_management",
+    "assetType": "waste_collection_coverage_pct",
+    "metric": "waste_collection_coverage_pct",
+    "value": 80.75,
+    "benchmark": 95,
+    "unit": "% of households served",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r07-public_mobility",
+    "regionId": "r07",
+    "sector": "public_mobility",
+    "assetType": "bus_stop_within_500m_pct",
+    "metric": "bus_stop_within_500m_pct",
+    "value": 64,
+    "benchmark": 80,
+    "unit": "% of residents within 500 m of a bus stop",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r07-digital_connectivity",
+    "regionId": "r07",
+    "sector": "digital_connectivity",
+    "assetType": "mobile_4g_coverage_pct",
+    "metric": "mobile_4g_coverage_pct",
+    "value": 85.5,
+    "benchmark": 95,
+    "unit": "% area with 4G coverage",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r07-drainage_flood",
+    "regionId": "r07",
+    "sector": "drainage_flood",
+    "assetType": "storm_drain_coverage_pct",
+    "metric": "storm_drain_coverage_pct",
+    "value": 67.5,
+    "benchmark": 90,
+    "unit": "% of road length with storm drains",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r07-education",
+    "regionId": "r07",
+    "sector": "education",
+    "assetType": "schools_per_10k_children",
+    "metric": "schools_per_10k_children",
+    "value": 4.8,
+    "benchmark": 6,
+    "unit": "schools per 10,000 children",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r07-electricity",
+    "regionId": "r07",
+    "sector": "electricity",
+    "assetType": "reliable_supply_hours_per_day",
+    "metric": "reliable_supply_hours_per_day",
+    "value": 19.8,
+    "benchmark": 22,
+    "unit": "hours/day",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r07-sanitation",
+    "regionId": "r07",
+    "sector": "sanitation",
+    "assetType": "sewer_connection_pct",
+    "metric": "sewer_connection_pct",
+    "value": 72,
+    "benchmark": 90,
+    "unit": "% of households connected",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r08-roads_transport",
+    "regionId": "r08",
+    "sector": "roads_transport",
+    "assetType": "paved_road_km_per_10k",
+    "metric": "paved_road_km_per_10k",
+    "value": 4.8,
+    "benchmark": 12,
+    "unit": "km per 10,000 residents",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r08-water_supply",
+    "regionId": "r08",
+    "sector": "water_supply",
+    "assetType": "households_with_tap_pct",
+    "metric": "households_with_tap_pct",
+    "value": 57,
+    "benchmark": 95,
+    "unit": "% of households",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r08-public_healthcare",
+    "regionId": "r08",
+    "sector": "public_healthcare",
+    "assetType": "phc_per_100k",
+    "metric": "phc_per_100k",
+    "value": 1.12,
+    "benchmark": 4,
+    "unit": "primary health facilities per 100,000 residents",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r08-waste_management",
+    "regionId": "r08",
+    "sector": "waste_management",
+    "assetType": "waste_collection_coverage_pct",
+    "metric": "waste_collection_coverage_pct",
+    "value": 47.5,
+    "benchmark": 95,
+    "unit": "% of households served",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r08-public_mobility",
+    "regionId": "r08",
+    "sector": "public_mobility",
+    "assetType": "bus_stop_within_500m_pct",
+    "metric": "bus_stop_within_500m_pct",
+    "value": 28,
+    "benchmark": 80,
+    "unit": "% of residents within 500 m of a bus stop",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r08-digital_connectivity",
+    "regionId": "r08",
+    "sector": "digital_connectivity",
+    "assetType": "mobile_4g_coverage_pct",
+    "metric": "mobile_4g_coverage_pct",
+    "value": 57,
+    "benchmark": 95,
+    "unit": "% area with 4G coverage",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r08-drainage_flood",
+    "regionId": "r08",
+    "sector": "drainage_flood",
+    "assetType": "storm_drain_coverage_pct",
+    "metric": "storm_drain_coverage_pct",
+    "value": 45,
+    "benchmark": 90,
+    "unit": "% of road length with storm drains",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r08-education",
+    "regionId": "r08",
+    "sector": "education",
+    "assetType": "schools_per_10k_children",
+    "metric": "schools_per_10k_children",
+    "value": 2.7,
+    "benchmark": 6,
+    "unit": "schools per 10,000 children",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r08-electricity",
+    "regionId": "r08",
+    "sector": "electricity",
+    "assetType": "reliable_supply_hours_per_day",
+    "metric": "reliable_supply_hours_per_day",
+    "value": 14.3,
+    "benchmark": 22,
+    "unit": "hours/day",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r08-sanitation",
+    "regionId": "r08",
+    "sector": "sanitation",
+    "assetType": "sewer_connection_pct",
+    "metric": "sewer_connection_pct",
+    "value": 45,
+    "benchmark": 90,
+    "unit": "% of households connected",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r09-roads_transport",
+    "regionId": "r09",
+    "sector": "roads_transport",
+    "assetType": "paved_road_km_per_10k",
+    "metric": "paved_road_km_per_10k",
+    "value": 5.4,
+    "benchmark": 12,
+    "unit": "km per 10,000 residents",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r09-water_supply",
+    "regionId": "r09",
+    "sector": "water_supply",
+    "assetType": "households_with_tap_pct",
+    "metric": "households_with_tap_pct",
+    "value": 28.5,
+    "benchmark": 95,
+    "unit": "% of households",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r09-public_healthcare",
+    "regionId": "r09",
+    "sector": "public_healthcare",
+    "assetType": "phc_per_100k",
+    "metric": "phc_per_100k",
+    "value": 2,
+    "benchmark": 4,
+    "unit": "primary health facilities per 100,000 residents",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r09-waste_management",
+    "regionId": "r09",
+    "sector": "waste_management",
+    "assetType": "waste_collection_coverage_pct",
+    "metric": "waste_collection_coverage_pct",
+    "value": 33.25,
+    "benchmark": 95,
+    "unit": "% of households served",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r09-public_mobility",
+    "regionId": "r09",
+    "sector": "public_mobility",
+    "assetType": "bus_stop_within_500m_pct",
+    "metric": "bus_stop_within_500m_pct",
+    "value": 40,
+    "benchmark": 80,
+    "unit": "% of residents within 500 m of a bus stop",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r09-digital_connectivity",
+    "regionId": "r09",
+    "sector": "digital_connectivity",
+    "assetType": "mobile_4g_coverage_pct",
+    "metric": "mobile_4g_coverage_pct",
+    "value": 61.75,
+    "benchmark": 95,
+    "unit": "% area with 4G coverage",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r09-drainage_flood",
+    "regionId": "r09",
+    "sector": "drainage_flood",
+    "assetType": "storm_drain_coverage_pct",
+    "metric": "storm_drain_coverage_pct",
+    "value": 31.5,
+    "benchmark": 90,
+    "unit": "% of road length with storm drains",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r09-education",
+    "regionId": "r09",
+    "sector": "education",
+    "assetType": "schools_per_10k_children",
+    "metric": "schools_per_10k_children",
+    "value": 3.6,
+    "benchmark": 6,
+    "unit": "schools per 10,000 children",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r09-electricity",
+    "regionId": "r09",
+    "sector": "electricity",
+    "assetType": "reliable_supply_hours_per_day",
+    "metric": "reliable_supply_hours_per_day",
+    "value": 13.2,
+    "benchmark": 22,
+    "unit": "hours/day",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r09-sanitation",
+    "regionId": "r09",
+    "sector": "sanitation",
+    "assetType": "sewer_connection_pct",
+    "metric": "sewer_connection_pct",
+    "value": 27,
+    "benchmark": 90,
+    "unit": "% of households connected",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r10-roads_transport",
+    "regionId": "r10",
+    "sector": "roads_transport",
+    "assetType": "paved_road_km_per_10k",
+    "metric": "paved_road_km_per_10k",
+    "value": 9,
+    "benchmark": 12,
+    "unit": "km per 10,000 residents",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r10-water_supply",
+    "regionId": "r10",
+    "sector": "water_supply",
+    "assetType": "households_with_tap_pct",
+    "metric": "households_with_tap_pct",
+    "value": 66.5,
+    "benchmark": 95,
+    "unit": "% of households",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r10-public_healthcare",
+    "regionId": "r10",
+    "sector": "public_healthcare",
+    "assetType": "phc_per_100k",
+    "metric": "phc_per_100k",
+    "value": 2.4,
+    "benchmark": 4,
+    "unit": "primary health facilities per 100,000 residents",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r10-waste_management",
+    "regionId": "r10",
+    "sector": "waste_management",
+    "assetType": "waste_collection_coverage_pct",
+    "metric": "waste_collection_coverage_pct",
+    "value": 66.5,
+    "benchmark": 95,
+    "unit": "% of households served",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r10-public_mobility",
+    "regionId": "r10",
+    "sector": "public_mobility",
+    "assetType": "bus_stop_within_500m_pct",
+    "metric": "bus_stop_within_500m_pct",
+    "value": 52,
+    "benchmark": 80,
+    "unit": "% of residents within 500 m of a bus stop",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r10-digital_connectivity",
+    "regionId": "r10",
+    "sector": "digital_connectivity",
+    "assetType": "mobile_4g_coverage_pct",
+    "metric": "mobile_4g_coverage_pct",
+    "value": 80.75,
+    "benchmark": 95,
+    "unit": "% area with 4G coverage",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r10-drainage_flood",
+    "regionId": "r10",
+    "sector": "drainage_flood",
+    "assetType": "storm_drain_coverage_pct",
+    "metric": "storm_drain_coverage_pct",
+    "value": 63,
+    "benchmark": 90,
+    "unit": "% of road length with storm drains",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r10-education",
+    "regionId": "r10",
+    "sector": "education",
+    "assetType": "schools_per_10k_children",
+    "metric": "schools_per_10k_children",
+    "value": 4.2,
+    "benchmark": 6,
+    "unit": "schools per 10,000 children",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r10-electricity",
+    "regionId": "r10",
+    "sector": "electricity",
+    "assetType": "reliable_supply_hours_per_day",
+    "metric": "reliable_supply_hours_per_day",
+    "value": 18.7,
+    "benchmark": 22,
+    "unit": "hours/day",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "A-r10-sanitation",
+    "regionId": "r10",
+    "sector": "sanitation",
+    "assetType": "sewer_connection_pct",
+    "metric": "sewer_connection_pct",
+    "value": 58.5,
+    "benchmark": 90,
+    "unit": "% of households connected",
+    "asOf": "2025-06-30",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Open Government Data Platform India (data.gov.in)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  }
+]

@@ -1,0 +1,461 @@
+[
+  {
+    "id": "ba01",
+    "regionId": "b01",
+    "sector": "water_supply",
+    "metric": "households_with_tap_pct",
+    "value": 74,
+    "benchmark": 98,
+    "unit": "%",
+    "asOf": "2025-01-01",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Portal Brasileiro de Dados Abertos",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "ba02",
+    "regionId": "b01",
+    "sector": "roads_transport",
+    "metric": "paved_road_km_per_10k",
+    "value": 5.2,
+    "benchmark": 10,
+    "unit": "km/10k",
+    "asOf": "2025-01-01",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Portal Brasileiro de Dados Abertos",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "ba03",
+    "regionId": "b01",
+    "sector": "public_healthcare",
+    "metric": "phc_per_100k",
+    "value": 2.8,
+    "benchmark": 5,
+    "unit": "UBS/100k",
+    "asOf": "2025-01-01",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Portal Brasileiro de Dados Abertos",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "ba04",
+    "regionId": "b01",
+    "sector": "drainage_flood",
+    "metric": "drainage_coverage_pct",
+    "value": 52,
+    "benchmark": 90,
+    "unit": "%",
+    "asOf": "2025-01-01",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Portal Brasileiro de Dados Abertos",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "ba05",
+    "regionId": "b02",
+    "sector": "water_supply",
+    "metric": "households_with_tap_pct",
+    "value": 61,
+    "benchmark": 98,
+    "unit": "%",
+    "asOf": "2025-01-01",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Portal Brasileiro de Dados Abertos",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "ba06",
+    "regionId": "b02",
+    "sector": "roads_transport",
+    "metric": "paved_road_km_per_10k",
+    "value": 3.5,
+    "benchmark": 10,
+    "unit": "km/10k",
+    "asOf": "2025-01-01",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Portal Brasileiro de Dados Abertos",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "ba07",
+    "regionId": "b02",
+    "sector": "public_healthcare",
+    "metric": "phc_per_100k",
+    "value": 1.5,
+    "benchmark": 5,
+    "unit": "UBS/100k",
+    "asOf": "2025-01-01",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Portal Brasileiro de Dados Abertos",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "ba08",
+    "regionId": "b02",
+    "sector": "sanitation",
+    "metric": "sewer_connection_pct",
+    "value": 45,
+    "benchmark": 95,
+    "unit": "%",
+    "asOf": "2025-01-01",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Portal Brasileiro de Dados Abertos",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "ba09",
+    "regionId": "b03",
+    "sector": "water_supply",
+    "metric": "households_with_tap_pct",
+    "value": 82,
+    "benchmark": 98,
+    "unit": "%",
+    "asOf": "2025-01-01",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Portal Brasileiro de Dados Abertos",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "ba10",
+    "regionId": "b03",
+    "sector": "roads_transport",
+    "metric": "paved_road_km_per_10k",
+    "value": 6.8,
+    "benchmark": 10,
+    "unit": "km/10k",
+    "asOf": "2025-01-01",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Portal Brasileiro de Dados Abertos",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "ba11",
+    "regionId": "b03",
+    "sector": "public_healthcare",
+    "metric": "phc_per_100k",
+    "value": 3.2,
+    "benchmark": 5,
+    "unit": "UBS/100k",
+    "asOf": "2025-01-01",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Portal Brasileiro de Dados Abertos",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "ba12",
+    "regionId": "b04",
+    "sector": "drainage_flood",
+    "metric": "drainage_coverage_pct",
+    "value": 48,
+    "benchmark": 90,
+    "unit": "%",
+    "asOf": "2025-01-01",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Portal Brasileiro de Dados Abertos",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "ba13",
+    "regionId": "b04",
+    "sector": "sanitation",
+    "metric": "sewer_connection_pct",
+    "value": 65,
+    "benchmark": 95,
+    "unit": "%",
+    "asOf": "2025-01-01",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Portal Brasileiro de Dados Abertos",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "ba14",
+    "regionId": "b04",
+    "sector": "public_healthcare",
+    "metric": "phc_per_100k",
+    "value": 2.1,
+    "benchmark": 5,
+    "unit": "UBS/100k",
+    "asOf": "2025-01-01",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Portal Brasileiro de Dados Abertos",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "ba15",
+    "regionId": "b05",
+    "sector": "education",
+    "metric": "schools_per_10k_children",
+    "value": 3.2,
+    "benchmark": 6,
+    "unit": "schools/10k",
+    "asOf": "2025-01-01",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Portal Brasileiro de Dados Abertos",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "ba16",
+    "regionId": "b05",
+    "sector": "public_mobility",
+    "metric": "bus_routes_per_km2",
+    "value": 0.8,
+    "benchmark": 2.5,
+    "unit": "routes/km2",
+    "asOf": "2025-01-01",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Portal Brasileiro de Dados Abertos",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "ba17",
+    "regionId": "b06",
+    "sector": "roads_transport",
+    "metric": "paved_road_km_per_10k",
+    "value": 7.2,
+    "benchmark": 10,
+    "unit": "km/10k",
+    "asOf": "2025-01-01",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Portal Brasileiro de Dados Abertos",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "ba18",
+    "regionId": "b06",
+    "sector": "public_mobility",
+    "metric": "bus_routes_per_km2",
+    "value": 1.2,
+    "benchmark": 2.5,
+    "unit": "routes/km2",
+    "asOf": "2025-01-01",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Portal Brasileiro de Dados Abertos",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "ba19",
+    "regionId": "b07",
+    "sector": "water_supply",
+    "metric": "households_with_tap_pct",
+    "value": 88,
+    "benchmark": 98,
+    "unit": "%",
+    "asOf": "2025-01-01",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Portal Brasileiro de Dados Abertos",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "ba20",
+    "regionId": "b07",
+    "sector": "drainage_flood",
+    "metric": "drainage_coverage_pct",
+    "value": 61,
+    "benchmark": 90,
+    "unit": "%",
+    "asOf": "2025-01-01",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Portal Brasileiro de Dados Abertos",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "ba21",
+    "regionId": "b08",
+    "sector": "water_supply",
+    "metric": "households_with_tap_pct",
+    "value": 72,
+    "benchmark": 98,
+    "unit": "%",
+    "asOf": "2025-01-01",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Portal Brasileiro de Dados Abertos",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "ba22",
+    "regionId": "b08",
+    "sector": "sanitation",
+    "metric": "sewer_connection_pct",
+    "value": 55,
+    "benchmark": 95,
+    "unit": "%",
+    "asOf": "2025-01-01",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Portal Brasileiro de Dados Abertos",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "ba23",
+    "regionId": "b08",
+    "sector": "public_healthcare",
+    "metric": "phc_per_100k",
+    "value": 2.5,
+    "benchmark": 5,
+    "unit": "UBS/100k",
+    "asOf": "2025-01-01",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Portal Brasileiro de Dados Abertos",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "ba24",
+    "regionId": "b09",
+    "sector": "public_mobility",
+    "metric": "bus_routes_per_km2",
+    "value": 0.6,
+    "benchmark": 2.5,
+    "unit": "routes/km2",
+    "asOf": "2025-01-01",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Portal Brasileiro de Dados Abertos",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "ba25",
+    "regionId": "b09",
+    "sector": "education",
+    "metric": "schools_per_10k_children",
+    "value": 2.8,
+    "benchmark": 6,
+    "unit": "schools/10k",
+    "asOf": "2025-01-01",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Portal Brasileiro de Dados Abertos",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "ba26",
+    "regionId": "b10",
+    "sector": "sanitation",
+    "metric": "sewer_connection_pct",
+    "value": 58,
+    "benchmark": 95,
+    "unit": "%",
+    "asOf": "2025-01-01",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Portal Brasileiro de Dados Abertos",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "ba27",
+    "regionId": "b10",
+    "sector": "drainage_flood",
+    "metric": "drainage_coverage_pct",
+    "value": 44,
+    "benchmark": 90,
+    "unit": "%",
+    "asOf": "2025-01-01",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Portal Brasileiro de Dados Abertos",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  }
+]

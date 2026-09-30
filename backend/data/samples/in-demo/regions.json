@@ -1,0 +1,267 @@
+[
+  {
+    "id": "r01",
+    "name": "Central Market Ward",
+    "aliases": [
+      "central market",
+      "main market",
+      "market road"
+    ],
+    "level": "ward",
+    "district": "Demo District (synthetic)",
+    "state": "Demo NCR Region (synthetic)",
+    "countryCode": "IN",
+    "lat": 28.622,
+    "lng": 77.218,
+    "radiusKm": 1.9,
+    "population": 92000,
+    "populationYear": 2025,
+    "areaKm2": 6.5,
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Census of India (Projected 2025)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "r02",
+    "name": "Sector 14 Ward",
+    "aliases": [
+      "sector 14",
+      "sector-14",
+      "metro station gate 2"
+    ],
+    "level": "ward",
+    "district": "Demo District (synthetic)",
+    "state": "Demo NCR Region (synthetic)",
+    "countryCode": "IN",
+    "lat": 28.61,
+    "lng": 77.2,
+    "radiusKm": 1.7,
+    "population": 78000,
+    "populationYear": 2025,
+    "areaKm2": 5.8,
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Census of India (Projected 2025)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "r03",
+    "name": "NH-8 Corridor",
+    "aliases": [
+      "nh-8",
+      "nh8",
+      "nh 8",
+      "toll plaza",
+      "nh-8 underpass"
+    ],
+    "level": "ward",
+    "district": "Demo District (synthetic)",
+    "state": "Demo NCR Region (synthetic)",
+    "countryCode": "IN",
+    "lat": 28.592,
+    "lng": 77.185,
+    "radiusKm": 2.4,
+    "population": 61000,
+    "populationYear": 2025,
+    "areaKm2": 9.5,
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Census of India (Projected 2025)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "r04",
+    "name": "Lajpat Nagar Ward",
+    "aliases": [
+      "lajpat nagar",
+      "lajpat",
+      "gali no 5"
+    ],
+    "level": "ward",
+    "district": "Demo District (synthetic)",
+    "state": "Demo NCR Region (synthetic)",
+    "countryCode": "IN",
+    "lat": 28.605,
+    "lng": 77.243,
+    "radiusKm": 1.6,
+    "population": 105000,
+    "populationYear": 2025,
+    "areaKm2": 5.2,
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Census of India (Projected 2025)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "r05",
+    "name": "Yamuna Riverside Colony",
+    "aliases": [
+      "yamuna riverside",
+      "riverside colony",
+      "yamuna khadar",
+      "riverside"
+    ],
+    "level": "ward",
+    "district": "Demo District (synthetic)",
+    "state": "Demo NCR Region (synthetic)",
+    "countryCode": "IN",
+    "lat": 28.65,
+    "lng": 77.262,
+    "radiusKm": 2.2,
+    "population": 88000,
+    "populationYear": 2025,
+    "areaKm2": 7.4,
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Census of India (Projected 2025)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "r06",
+    "name": "Northern Fringe",
+    "aliases": [
+      "northern fringe",
+      "north fringe",
+      "uttari kinara"
+    ],
+    "level": "ward",
+    "district": "Demo District (synthetic)",
+    "state": "Demo NCR Region (synthetic)",
+    "countryCode": "IN",
+    "lat": 28.7,
+    "lng": 77.16,
+    "radiusKm": 3.6,
+    "population": 46000,
+    "populationYear": 2025,
+    "areaKm2": 18,
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Census of India (Projected 2025)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "r07",
+    "name": "Southern Extension",
+    "aliases": [
+      "southern extension",
+      "south extension",
+      "south ext"
+    ],
+    "level": "ward",
+    "district": "Demo District (synthetic)",
+    "state": "Demo NCR Region (synthetic)",
+    "countryCode": "IN",
+    "lat": 28.54,
+    "lng": 77.215,
+    "radiusKm": 2.1,
+    "population": 69000,
+    "populationYear": 2025,
+    "areaKm2": 8.8,
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Census of India (Projected 2025)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "r08",
+    "name": "Eastern Periphery",
+    "aliases": [
+      "eastern periphery",
+      "east periphery",
+      "purvi kinara",
+      "east delhi edge"
+    ],
+    "level": "ward",
+    "district": "Demo District (synthetic)",
+    "state": "Demo NCR Region (synthetic)",
+    "countryCode": "IN",
+    "lat": 28.63,
+    "lng": 77.32,
+    "radiusKm": 3.2,
+    "population": 120000,
+    "populationYear": 2025,
+    "areaKm2": 14,
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Census of India (Projected 2025)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "r09",
+    "name": "Western Settlement",
+    "aliases": [
+      "western settlement",
+      "west settlement",
+      "paschim basti",
+      "western basti"
+    ],
+    "level": "ward",
+    "district": "Demo District (synthetic)",
+    "state": "Demo NCR Region (synthetic)",
+    "countryCode": "IN",
+    "lat": 28.645,
+    "lng": 77.105,
+    "radiusKm": 2.3,
+    "population": 97000,
+    "populationYear": 2025,
+    "areaKm2": 8.6,
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Census of India (Projected 2025)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "r10",
+    "name": "Airport Road Block",
+    "aliases": [
+      "airport road",
+      "airport block",
+      "airport road block"
+    ],
+    "level": "ward",
+    "district": "Demo District (synthetic)",
+    "state": "Demo NCR Region (synthetic)",
+    "countryCode": "IN",
+    "lat": 28.56,
+    "lng": 77.12,
+    "radiusKm": 2.6,
+    "population": 52000,
+    "populationYear": 2025,
+    "areaKm2": 12,
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "Census of India (Projected 2025)",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  }
+]

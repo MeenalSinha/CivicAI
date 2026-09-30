@@ -89,8 +89,8 @@ const allowedOrigins = process.env.ALLOWED_ORIGINS
 
 app.use(cors({
   origin: allowedOrigins,
-  methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  methods: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Hub-Signature-256', 'X-Telegram-Bot-Api-Secret-Token', 'X-Twilio-Signature', 'X-Channel-Secret', 'X-Timestamp']
 }));
 
 // ---- Rate Limiting ----
@@ -116,6 +116,24 @@ app.use('/api/analyze-image', aiLimiter);
 app.use('/api/voice-complaint', aiLimiter);
 app.use('/api/transcribe-audio', aiLimiter);
 app.use('/api/auth/login', authLimiter);
+
+// ---- Raw-body capture for webhook routes (must come before express.json) ----
+// WhatsApp Cloud API HMAC must be computed against the exact raw request bytes.
+// We store rawBody on req for webhook routes; all other routes use parsed JSON normally.
+app.use((req, res, next) => {
+  if (req.path.startsWith('/api/channels/') && req.path.endsWith('/webhook')) {
+    let buf = Buffer.alloc(0);
+    req.on('data', chunk => { buf = Buffer.concat([buf, chunk]); });
+    req.on('end', () => {
+      req.rawBody = buf;
+      try { req.body = JSON.parse(buf.toString('utf-8')); } catch { req.body = {}; }
+      next();
+    });
+    req.on('error', next);
+  } else {
+    next();
+  }
+});
 
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
@@ -535,7 +553,7 @@ app.post('/api/complaints/:id/feedback', (req, res) => {
 // Provider-specific signature verification + media pipeline + outbound reply + audit trail.
 app.post('/api/channels/:channel/webhook', async (req, res) => {
   const channel = req.params.channel;
-  const rawBody = JSON.stringify(req.body); // for HMAC computation
+  const rawBody = req.rawBody || Buffer.from(JSON.stringify(req.body)); // Use exact captured bytes for HMAC
   let sigCheck = { ok: false, reason: 'No verification method matched' };
 
   // --- Provider-specific signature verification ---

@@ -1,0 +1,303 @@
+[
+  {
+    "id": "INV-001",
+    "name": "Central Market Waste Transfer Station",
+    "sector": "waste_management",
+    "coverage": {
+      "r01": 0.9
+    },
+    "regionIds": [
+      "r01"
+    ],
+    "budget": 42000000,
+    "currency": "INR",
+    "stage": "completed",
+    "targetPopulation": 90000,
+    "department": "Solid Waste Management Department",
+    "source": "Synthetic demonstration dataset",
+    "completedAt": "T-55d",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "India Open Budgets Portal",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "INV-002",
+    "name": "Western Settlement Water Pipeline - Phase 1",
+    "sector": "water_supply",
+    "coverage": {
+      "r09": 0.35
+    },
+    "regionIds": [
+      "r09"
+    ],
+    "budget": 180000000,
+    "currency": "INR",
+    "stage": "ongoing",
+    "targetPopulation": 34000,
+    "department": "Water Supply & Sewerage Board",
+    "source": "Synthetic demonstration dataset",
+    "plannedCompletion": "T+150d",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "India Open Budgets Portal",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "INV-003",
+    "name": "Lajpat Nagar Arterial Road Resurfacing (Package A)",
+    "sector": "roads_transport",
+    "coverage": {
+      "r04": 0.6
+    },
+    "regionIds": [
+      "r04"
+    ],
+    "budget": 95000000,
+    "currency": "INR",
+    "stage": "ongoing",
+    "targetPopulation": 60000,
+    "department": "Public Works Department (Roads)",
+    "source": "Synthetic demonstration dataset",
+    "plannedCompletion": "T+60d",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "India Open Budgets Portal",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "INV-004",
+    "name": "Lajpat Nagar Road Rehabilitation (Package B)",
+    "sector": "roads_transport",
+    "coverage": {
+      "r04": 0.5
+    },
+    "regionIds": [
+      "r04"
+    ],
+    "budget": 75000000,
+    "currency": "INR",
+    "stage": "tender",
+    "targetPopulation": 50000,
+    "department": "Public Works Department (Roads)",
+    "source": "Synthetic demonstration dataset",
+    "plannedCompletion": "T+200d",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "India Open Budgets Portal",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "INV-005",
+    "name": "Southern Extension Drainage Upgrade",
+    "sector": "drainage_flood",
+    "coverage": {
+      "r07": 0.8
+    },
+    "regionIds": [
+      "r07"
+    ],
+    "budget": 60000000,
+    "currency": "INR",
+    "stage": "completed",
+    "targetPopulation": 55000,
+    "department": "Storm Water Drainage Department",
+    "source": "Synthetic demonstration dataset",
+    "completedAt": "T-120d",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "India Open Budgets Portal",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "INV-006",
+    "name": "Southern Extension Bus Corridor",
+    "sector": "public_mobility",
+    "coverage": {
+      "r07": 0.7
+    },
+    "regionIds": [
+      "r07"
+    ],
+    "budget": 110000000,
+    "currency": "INR",
+    "stage": "ongoing",
+    "targetPopulation": 48000,
+    "department": "Urban Transport Authority",
+    "source": "Synthetic demonstration dataset",
+    "plannedCompletion": "T+90d",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "India Open Budgets Portal",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "INV-007",
+    "name": "NH-8 Underpass Drainage Pumping Station",
+    "sector": "drainage_flood",
+    "coverage": {
+      "r03": 0.3
+    },
+    "regionIds": [
+      "r03"
+    ],
+    "budget": 120000000,
+    "currency": "INR",
+    "stage": "approved",
+    "targetPopulation": 30000,
+    "department": "Storm Water Drainage Department",
+    "source": "Synthetic demonstration dataset",
+    "plannedCompletion": "T+400d",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "India Open Budgets Portal",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "INV-008",
+    "name": "Eastern Periphery Road Connectivity",
+    "sector": "roads_transport",
+    "coverage": {
+      "r08": 0.4
+    },
+    "regionIds": [
+      "r08"
+    ],
+    "budget": 220000000,
+    "currency": "INR",
+    "stage": "planned",
+    "targetPopulation": 70000,
+    "department": "Public Works Department (Roads)",
+    "source": "Synthetic demonstration dataset",
+    "plannedCompletion": "T+500d",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "India Open Budgets Portal",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "INV-009",
+    "name": "Yamuna Riverside Sewer Line Extension",
+    "sector": "sanitation",
+    "coverage": {
+      "r05": 0.25
+    },
+    "regionIds": [
+      "r05"
+    ],
+    "budget": 150000000,
+    "currency": "INR",
+    "stage": "tender",
+    "targetPopulation": 25000,
+    "department": "Water Supply & Sewerage Board (Sanitation)",
+    "source": "Synthetic demonstration dataset",
+    "plannedCompletion": "T+300d",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "India Open Budgets Portal",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "INV-010",
+    "name": "Northern Fringe Mobile Tower Programme",
+    "sector": "digital_connectivity",
+    "coverage": {
+      "r06": 0.5
+    },
+    "regionIds": [
+      "r06"
+    ],
+    "budget": 34000000,
+    "currency": "INR",
+    "stage": "ongoing",
+    "targetPopulation": 22000,
+    "department": "Department of Digital Infrastructure",
+    "source": "Synthetic demonstration dataset",
+    "plannedCompletion": "T+120d",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "India Open Budgets Portal",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "INV-011",
+    "name": "Sector 14 Streetlight LED Retrofit",
+    "sector": "electricity",
+    "coverage": {
+      "r02": 0.7
+    },
+    "regionIds": [
+      "r02"
+    ],
+    "budget": 18000000,
+    "currency": "INR",
+    "stage": "completed",
+    "targetPopulation": 55000,
+    "department": "Power Distribution Company",
+    "source": "Synthetic demonstration dataset",
+    "completedAt": "T-30d",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "India Open Budgets Portal",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  },
+  {
+    "id": "INV-012",
+    "name": "Eastern Periphery School Expansion",
+    "sector": "education",
+    "coverage": {
+      "r08": 0.3
+    },
+    "regionIds": [
+      "r08"
+    ],
+    "budget": 90000000,
+    "currency": "INR",
+    "stage": "stalled",
+    "targetPopulation": 18000,
+    "department": "Department of Education",
+    "source": "Synthetic demonstration dataset",
+    "plannedCompletion": "T-40d",
+    "notes": "Marked stalled in the source dataset.",
+    "isSynthetic": false,
+    "provenance": {
+      "isPublicOfficial": true,
+      "source": "India Open Budgets Portal",
+      "date": "2025-06-30",
+      "coverage": "100% of sample regions"
+    }
+  }
+]

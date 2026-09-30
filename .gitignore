@@ -37,7 +37,8 @@ frontend/build/
 *.db-shm
 *.db-wal
 backend/civicai.db
-backend/data/
+backend/data/*
+!backend/data/samples/
 
 # ---- Logs --------------------------------------------------
 *.log
