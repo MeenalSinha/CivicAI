@@ -18,7 +18,7 @@
     "areaKm2": 25,
     "isSynthetic": false,
     "provenance": {
-      "isPublicOfficial": true,
+      "status": "PUBLIC — VERIFIED",
       "source": "Census of India 2011 (Delhi NCT)",
       "date": "2011-03-31",
       "coverage": "100% of state"
@@ -43,7 +43,7 @@
     "areaKm2": 63,
     "isSynthetic": false,
     "provenance": {
-      "isPublicOfficial": true,
+      "status": "PUBLIC — VERIFIED",
       "source": "Census of India 2011 (Delhi NCT)",
       "date": "2011-03-31",
       "coverage": "100% of state"
@@ -68,7 +68,7 @@
     "areaKm2": 35,
     "isSynthetic": false,
     "provenance": {
-      "isPublicOfficial": true,
+      "status": "PUBLIC — VERIFIED",
       "source": "Census of India 2011 (Delhi NCT)",
       "date": "2011-03-31",
       "coverage": "100% of state"
@@ -93,7 +93,7 @@
     "areaKm2": 59,
     "isSynthetic": false,
     "provenance": {
-      "isPublicOfficial": true,
+      "status": "PUBLIC — VERIFIED",
       "source": "Census of India 2011 (Delhi NCT)",
       "date": "2011-03-31",
       "coverage": "100% of state"
@@ -118,7 +118,7 @@
     "areaKm2": 60,
     "isSynthetic": false,
     "provenance": {
-      "isPublicOfficial": true,
+      "status": "PUBLIC — VERIFIED",
       "source": "Census of India 2011 (Delhi NCT)",
       "date": "2011-03-31",
       "coverage": "100% of state"
@@ -143,7 +143,7 @@
     "areaKm2": 443,
     "isSynthetic": false,
     "provenance": {
-      "isPublicOfficial": true,
+      "status": "PUBLIC — VERIFIED",
       "source": "Census of India 2011 (Delhi NCT)",
       "date": "2011-03-31",
       "coverage": "100% of state"
@@ -168,7 +168,7 @@
     "areaKm2": 247,
     "isSynthetic": false,
     "provenance": {
-      "isPublicOfficial": true,
+      "status": "PUBLIC — VERIFIED",
       "source": "Census of India 2011 (Delhi NCT)",
       "date": "2011-03-31",
       "coverage": "100% of state"
@@ -193,7 +193,7 @@
     "areaKm2": 420,
     "isSynthetic": false,
     "provenance": {
-      "isPublicOfficial": true,
+      "status": "PUBLIC — VERIFIED",
       "source": "Census of India 2011 (Delhi NCT)",
       "date": "2011-03-31",
       "coverage": "100% of state"
@@ -218,7 +218,7 @@
     "areaKm2": 130,
     "isSynthetic": false,
     "provenance": {
-      "isPublicOfficial": true,
+      "status": "PUBLIC — VERIFIED",
       "source": "Census of India 2011 (Delhi NCT)",
       "date": "2011-03-31",
       "coverage": "100% of state"
@@ -242,7 +242,7 @@
     "areaKm2": 27.5,
     "isSynthetic": false,
     "provenance": {
-      "isPublicOfficial": true,
+      "status": "PUBLIC — VERIFIED",
       "source": "Census of India 2011 (Delhi NCT)",
       "date": "2011-03-31",
       "coverage": "100% of state"

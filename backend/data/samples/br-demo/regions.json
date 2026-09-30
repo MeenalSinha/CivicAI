@@ -17,12 +17,10 @@
     "population": 138000,
     "populationYear": 2025,
     "areaKm2": 17.4,
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "IBGE (Instituto Brasileiro de Geografia e Estatística)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "status": "DEMONSTRATION — SYNTHETIC",
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -42,12 +40,10 @@
     "population": 74000,
     "populationYear": 2025,
     "areaKm2": 35.2,
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "IBGE (Instituto Brasileiro de Geografia e Estatística)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "status": "DEMONSTRATION — SYNTHETIC",
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -67,12 +63,10 @@
     "population": 109000,
     "populationYear": 2025,
     "areaKm2": 12.8,
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "IBGE (Instituto Brasileiro de Geografia e Estatística)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "status": "DEMONSTRATION — SYNTHETIC",
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -93,12 +87,10 @@
     "population": 92000,
     "populationYear": 2025,
     "areaKm2": 9.5,
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "IBGE (Instituto Brasileiro de Geografia e Estatística)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "status": "DEMONSTRATION — SYNTHETIC",
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -118,12 +110,10 @@
     "population": 85000,
     "populationYear": 2025,
     "areaKm2": 10.9,
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "IBGE (Instituto Brasileiro de Geografia e Estatística)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "status": "DEMONSTRATION — SYNTHETIC",
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -143,12 +133,10 @@
     "population": 96000,
     "populationYear": 2025,
     "areaKm2": 8.2,
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "IBGE (Instituto Brasileiro de Geografia e Estatística)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "status": "DEMONSTRATION — SYNTHETIC",
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -168,12 +156,10 @@
     "population": 78000,
     "populationYear": 2025,
     "areaKm2": 6.8,
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "IBGE (Instituto Brasileiro de Geografia e Estatística)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "status": "DEMONSTRATION — SYNTHETIC",
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -193,12 +179,10 @@
     "population": 123000,
     "populationYear": 2025,
     "areaKm2": 25.6,
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "IBGE (Instituto Brasileiro de Geografia e Estatística)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "status": "DEMONSTRATION — SYNTHETIC",
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -219,12 +203,10 @@
     "population": 95000,
     "populationYear": 2025,
     "areaKm2": 9,
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "IBGE (Instituto Brasileiro de Geografia e Estatística)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "status": "DEMONSTRATION — SYNTHETIC",
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -245,12 +227,10 @@
     "population": 68000,
     "populationYear": 2025,
     "areaKm2": 4.8,
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "IBGE (Instituto Brasileiro de Geografia e Estatística)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "status": "DEMONSTRATION — SYNTHETIC",
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   }
 ]

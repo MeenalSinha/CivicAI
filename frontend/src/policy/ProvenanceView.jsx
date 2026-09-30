@@ -59,7 +59,7 @@ export default function ProvenanceView() {
                 <div className="prov-name">{s.name}</div>
                 <div style={{ fontSize: 12, color: '#6b7280' }}>ID: {s.id}</div>
               </div>
-              <div className="prov-badge public">PUBLIC / OFFICIAL</div>
+              <div className="prov-badge public">PUBLIC — VERIFIED</div>
             </div>
             <div className="prov-meta-row">
               <div className="prov-meta-item"><span className="prov-lbl">License</span> {s.license}</div>
@@ -80,7 +80,7 @@ export default function ProvenanceView() {
                 <div className="prov-name">{s.name}</div>
                 <div style={{ fontSize: 12, color: '#6b7280' }}>ID: {s.id}</div>
               </div>
-              <div className="prov-badge synthetic">DEMONSTRATION</div>
+              <div className="prov-badge synthetic">DEMONSTRATION — SYNTHETIC</div>
             </div>
             <div className="prov-meta-row">
               <div className="prov-meta-item"><span className="prov-lbl">License</span> {s.license || 'Synthetic'}</div>
@@ -93,7 +93,7 @@ export default function ProvenanceView() {
           <div className="prov-card synthetic">
             <div className="prov-card-head">
               <div><div className="prov-name">Synthetic Citizen Requests</div></div>
-              <div className="prov-badge synthetic">DEMONSTRATION</div>
+              <div className="prov-badge synthetic">DEMONSTRATION — SYNTHETIC</div>
             </div>
             <div className="prov-meta-row">
               <div className="prov-meta-item"><span className="prov-lbl">Note</span> Loaded dynamically via system streams</div>

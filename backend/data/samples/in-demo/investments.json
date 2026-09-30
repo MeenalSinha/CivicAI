@@ -16,7 +16,7 @@
     "department": "Solid Waste Management Department",
     "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": false,
+      "status": "DEMONSTRATION — SYNTHETIC",
       "source": "Synthetic demonstration dataset",
       "date": "2025-06-30",
       "coverage": "Illustrative"
@@ -40,7 +40,7 @@
     "department": "Water Supply & Sewerage Board",
     "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": false,
+      "status": "DEMONSTRATION — SYNTHETIC",
       "source": "Synthetic demonstration dataset",
       "date": "2025-06-30",
       "coverage": "Illustrative"
@@ -64,7 +64,7 @@
     "department": "Public Works Department (Roads)",
     "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": false,
+      "status": "DEMONSTRATION — SYNTHETIC",
       "source": "Synthetic demonstration dataset",
       "date": "2025-06-30",
       "coverage": "Illustrative"
@@ -88,7 +88,7 @@
     "department": "Public Works Department (Roads)",
     "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": false,
+      "status": "DEMONSTRATION — SYNTHETIC",
       "source": "Synthetic demonstration dataset",
       "date": "2025-06-30",
       "coverage": "Illustrative"
@@ -112,7 +112,7 @@
     "department": "Storm Water Drainage Department",
     "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": false,
+      "status": "DEMONSTRATION — SYNTHETIC",
       "source": "Synthetic demonstration dataset",
       "date": "2025-06-30",
       "coverage": "Illustrative"
@@ -136,7 +136,7 @@
     "department": "Urban Transport Authority",
     "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": false,
+      "status": "DEMONSTRATION — SYNTHETIC",
       "source": "Synthetic demonstration dataset",
       "date": "2025-06-30",
       "coverage": "Illustrative"
@@ -160,7 +160,7 @@
     "department": "Storm Water Drainage Department",
     "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": false,
+      "status": "DEMONSTRATION — SYNTHETIC",
       "source": "Synthetic demonstration dataset",
       "date": "2025-06-30",
       "coverage": "Illustrative"
@@ -184,7 +184,7 @@
     "department": "Public Works Department (Roads)",
     "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": false,
+      "status": "DEMONSTRATION — SYNTHETIC",
       "source": "Synthetic demonstration dataset",
       "date": "2025-06-30",
       "coverage": "Illustrative"
@@ -208,7 +208,7 @@
     "department": "Water Supply & Sewerage Board (Sanitation)",
     "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": false,
+      "status": "DEMONSTRATION — SYNTHETIC",
       "source": "Synthetic demonstration dataset",
       "date": "2025-06-30",
       "coverage": "Illustrative"
@@ -232,7 +232,7 @@
     "department": "Department of Digital Infrastructure",
     "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": false,
+      "status": "DEMONSTRATION — SYNTHETIC",
       "source": "Synthetic demonstration dataset",
       "date": "2025-06-30",
       "coverage": "Illustrative"
@@ -256,7 +256,7 @@
     "department": "Power Distribution Company",
     "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": false,
+      "status": "DEMONSTRATION — SYNTHETIC",
       "source": "Synthetic demonstration dataset",
       "date": "2025-06-30",
       "coverage": "Illustrative"
@@ -280,7 +280,7 @@
     "department": "Department of Education",
     "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": false,
+      "status": "DEMONSTRATION — SYNTHETIC",
       "source": "Synthetic demonstration dataset",
       "date": "2025-06-30",
       "coverage": "Illustrative"

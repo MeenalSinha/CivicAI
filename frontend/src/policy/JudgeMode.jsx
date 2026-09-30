@@ -210,9 +210,20 @@ export default function JudgeMode({ onSession }) {
           <h5>📋 Data Provenance & Evidence Chain</h5>
           <div className="jm-prov-row"><span className="jm-prov-key">Country instance</span><span>{COUNTRY_NAME[instCountry]} ({instCountry})</span></div>
           <div className="jm-prov-row"><span className="jm-prov-key">Classification engine</span><span>{r?.classifier || 'lexicon-rule-based'} — no black box, explainable outputs</span></div>
-          <div className="jm-prov-row"><span className="jm-prov-key">Citizen request data</span><span><span className="jm-synth-tag">⚠ Synthetic</span> Demonstration dataset — not real citizen records</span></div>
-          <div className="jm-prov-row"><span className="jm-prov-key">Infrastructure data</span><span><span className="jm-synth-tag">⚠ Synthetic</span> Illustrative sector benchmarks — not official government statistics</span></div>
-          <div className="jm-prov-row"><span className="jm-prov-key">Investment data</span><span><span className="jm-synth-tag">⚠ Synthetic</span> Illustrative public investment schemes — not real budget data</span></div>
+          
+          <div className="jm-prov-row">
+            <span className="jm-prov-key">Regional demographics</span>
+            {instCountry === 'IN' ? (
+              <span><span className="jm-synth-tag" style={{ background: '#f0fdf4', color: '#059669', borderColor: '#a7f3d0' }}>PUBLIC — VERIFIED</span> Source: Census of India 2011</span>
+            ) : (
+              <span><span className="jm-synth-tag">DEMONSTRATION — SYNTHETIC</span> Source: CivicAI Synthetic Demonstration Dataset</span>
+            )}
+          </div>
+          <div className="jm-prov-row"><span className="jm-prov-key">Citizen request data</span><span><span className="jm-synth-tag">DEMONSTRATION — SYNTHETIC</span> Demonstration dataset — not real citizen records</span></div>
+          <div className="jm-prov-row"><span className="jm-prov-key">Infrastructure coverage</span><span><span className="jm-synth-tag">DEMONSTRATION — SYNTHETIC</span> Illustrative sector benchmarks — not official statistics</span></div>
+          <div className="jm-prov-row"><span className="jm-prov-key">Investment data</span><span><span className="jm-synth-tag">DEMONSTRATION — SYNTHETIC</span> Illustrative public investment schemes — not real budget data</span></div>
+          <div className="jm-prov-row"><span className="jm-prov-key">Affected population</span><span><span className="jm-synth-tag" style={{ background: '#eff6ff', color: '#1d4ed8', borderColor: '#bfdbfe' }}>MODEL — ESTIMATED</span> Formula: cluster footprint × population density</span></div>
+
           <div className="jm-prov-row"><span className="jm-prov-key">Pipeline determinism</span><span>Fully deterministic scoring — same inputs always yield same outputs</span></div>
           <div className="jm-prov-row"><span className="jm-prov-key">Privacy protection</span><span>k-anonymity enforced on geo layer · PII redacted · submitter identity one-way hashed</span></div>
           <div className="jm-prov-row"><span className="jm-prov-key">Human review required</span><span>All priority recommendations must be reviewed before action (see Governance tab)</span></div>

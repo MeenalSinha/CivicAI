@@ -18,10 +18,8 @@
     "plannedCompletion": "T+180d",
     "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": false,
-      "source": "Synthetic demonstration dataset",
-      "date": "2025-06-30",
-      "coverage": "Illustrative"
+      "status": "DEMONSTRATION — SYNTHETIC",
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -43,10 +41,8 @@
     "plannedCompletion": "T+300d",
     "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": false,
-      "source": "Synthetic demonstration dataset",
-      "date": "2025-06-30",
-      "coverage": "Illustrative"
+      "status": "DEMONSTRATION — SYNTHETIC",
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -68,10 +64,8 @@
     "plannedCompletion": "T+90d",
     "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": false,
-      "source": "Synthetic demonstration dataset",
-      "date": "2025-06-30",
-      "coverage": "Illustrative"
+      "status": "DEMONSTRATION — SYNTHETIC",
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -93,10 +87,8 @@
     "plannedCompletion": "T+400d",
     "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": false,
-      "source": "Synthetic demonstration dataset",
-      "date": "2025-06-30",
-      "coverage": "Illustrative"
+      "status": "DEMONSTRATION — SYNTHETIC",
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -118,10 +110,8 @@
     "plannedCompletion": "T+500d",
     "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": false,
-      "source": "Synthetic demonstration dataset",
-      "date": "2025-06-30",
-      "coverage": "Illustrative"
+      "status": "DEMONSTRATION — SYNTHETIC",
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -143,10 +133,8 @@
     "plannedCompletion": "T+60d",
     "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": false,
-      "source": "Synthetic demonstration dataset",
-      "date": "2025-06-30",
-      "coverage": "Illustrative"
+      "status": "DEMONSTRATION — SYNTHETIC",
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -168,10 +156,8 @@
     "plannedCompletion": "T+360d",
     "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": false,
-      "source": "Synthetic demonstration dataset",
-      "date": "2025-06-30",
-      "coverage": "Illustrative"
+      "status": "DEMONSTRATION — SYNTHETIC",
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -193,10 +179,8 @@
     "completedAt": "T-90d",
     "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": false,
-      "source": "Synthetic demonstration dataset",
-      "date": "2025-06-30",
-      "coverage": "Illustrative"
+      "status": "DEMONSTRATION — SYNTHETIC",
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -218,10 +202,8 @@
     "completedAt": "T-45d",
     "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": false,
-      "source": "Synthetic demonstration dataset",
-      "date": "2025-06-30",
-      "coverage": "Illustrative"
+      "status": "DEMONSTRATION — SYNTHETIC",
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -243,10 +225,8 @@
     "plannedCompletion": "T+120d",
     "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": false,
-      "source": "Synthetic demonstration dataset",
-      "date": "2025-06-30",
-      "coverage": "Illustrative"
+      "status": "DEMONSTRATION — SYNTHETIC",
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   }
 ]

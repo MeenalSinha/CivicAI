@@ -21,7 +21,7 @@ const regions = [
   id, name, aliases, level: 'district', district: name, state: 'Delhi', countryCode: 'IN',
   lat, lng, radiusKm, population, populationYear: 2011, areaKm2,
   isSynthetic: false,
-  provenance: { isPublicOfficial: true, source: 'Census of India 2011 (Delhi NCT)', date: '2011-03-31', coverage: '100% of state' }
+  provenance: { status: 'PUBLIC — VERIFIED', source: 'Census of India 2011 (Delhi NCT)', date: '2011-03-31', coverage: '100% of state' }
 }));
 
 const SECTORS = {
@@ -55,14 +55,14 @@ for (const [rid, fr] of Object.entries(F)) for (const [sec, frac] of Object.entr
   assets.push({ 
     id: `A-${rid}-${sec}`, regionId: rid, sector: sec, assetType: metric, metric, value: Math.round(benchmark * frac * 100) / 100, benchmark, unit, asOf: '2025-06-30',
     isSynthetic: true,
-    provenance: { isPublicOfficial: false, source: 'CivicAI Synthetic Demonstration Dataset' }
+    provenance: { status: 'DEMONSTRATION — SYNTHETIC', source: 'CivicAI Synthetic Demonstration Dataset' }
   });
 }
 
 const inv = (id, name, sector, cov, stage, budgetCr, targetPopulation, department, extra = {}) => ({
   id, name, sector, coverage: cov, regionIds: Object.keys(cov), budget: Math.round(budgetCr * 1e7), currency: 'INR', stage, targetPopulation, department,
   isSynthetic: true,
-  provenance: { isPublicOfficial: false, source: 'Synthetic demonstration dataset', date: '2025-06-30', coverage: 'Illustrative' },
+  provenance: { status: 'DEMONSTRATION — SYNTHETIC', source: 'Synthetic demonstration dataset', date: '2025-06-30', coverage: 'Illustrative' },
   ...extra
 });
 const investments = [
