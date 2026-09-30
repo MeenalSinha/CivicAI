@@ -14,15 +14,14 @@
     "stage": "completed",
     "targetPopulation": 90000,
     "department": "Solid Waste Management Department",
-    "source": "Synthetic demonstration dataset",
-    "completedAt": "T-55d",
     "isSynthetic": true,
     "provenance": {
       "isPublicOfficial": false,
       "source": "Synthetic demonstration dataset",
       "date": "2025-06-30",
       "coverage": "Illustrative"
-    }
+    },
+    "completedAt": "T-55d"
   },
   {
     "id": "INV-002",
@@ -39,15 +38,14 @@
     "stage": "ongoing",
     "targetPopulation": 34000,
     "department": "Water Supply & Sewerage Board",
-    "source": "Synthetic demonstration dataset",
-    "plannedCompletion": "T+150d",
     "isSynthetic": true,
     "provenance": {
       "isPublicOfficial": false,
       "source": "Synthetic demonstration dataset",
       "date": "2025-06-30",
       "coverage": "Illustrative"
-    }
+    },
+    "plannedCompletion": "T+150d"
   },
   {
     "id": "INV-003",
@@ -64,15 +62,14 @@
     "stage": "ongoing",
     "targetPopulation": 60000,
     "department": "Public Works Department (Roads)",
-    "source": "Synthetic demonstration dataset",
-    "plannedCompletion": "T+60d",
     "isSynthetic": true,
     "provenance": {
       "isPublicOfficial": false,
       "source": "Synthetic demonstration dataset",
       "date": "2025-06-30",
       "coverage": "Illustrative"
-    }
+    },
+    "plannedCompletion": "T+60d"
   },
   {
     "id": "INV-004",
@@ -89,15 +86,14 @@
     "stage": "tender",
     "targetPopulation": 50000,
     "department": "Public Works Department (Roads)",
-    "source": "Synthetic demonstration dataset",
-    "plannedCompletion": "T+200d",
     "isSynthetic": true,
     "provenance": {
       "isPublicOfficial": false,
       "source": "Synthetic demonstration dataset",
       "date": "2025-06-30",
       "coverage": "Illustrative"
-    }
+    },
+    "plannedCompletion": "T+200d"
   },
   {
     "id": "INV-005",
@@ -114,15 +110,14 @@
     "stage": "completed",
     "targetPopulation": 55000,
     "department": "Storm Water Drainage Department",
-    "source": "Synthetic demonstration dataset",
-    "completedAt": "T-120d",
     "isSynthetic": true,
     "provenance": {
       "isPublicOfficial": false,
       "source": "Synthetic demonstration dataset",
       "date": "2025-06-30",
       "coverage": "Illustrative"
-    }
+    },
+    "completedAt": "T-120d"
   },
   {
     "id": "INV-006",
@@ -139,15 +134,14 @@
     "stage": "ongoing",
     "targetPopulation": 48000,
     "department": "Urban Transport Authority",
-    "source": "Synthetic demonstration dataset",
-    "plannedCompletion": "T+90d",
     "isSynthetic": true,
     "provenance": {
       "isPublicOfficial": false,
       "source": "Synthetic demonstration dataset",
       "date": "2025-06-30",
       "coverage": "Illustrative"
-    }
+    },
+    "plannedCompletion": "T+90d"
   },
   {
     "id": "INV-007",
@@ -164,15 +158,14 @@
     "stage": "approved",
     "targetPopulation": 30000,
     "department": "Storm Water Drainage Department",
-    "source": "Synthetic demonstration dataset",
-    "plannedCompletion": "T+400d",
     "isSynthetic": true,
     "provenance": {
       "isPublicOfficial": false,
       "source": "Synthetic demonstration dataset",
       "date": "2025-06-30",
       "coverage": "Illustrative"
-    }
+    },
+    "plannedCompletion": "T+400d"
   },
   {
     "id": "INV-008",
@@ -189,15 +182,14 @@
     "stage": "planned",
     "targetPopulation": 70000,
     "department": "Public Works Department (Roads)",
-    "source": "Synthetic demonstration dataset",
-    "plannedCompletion": "T+500d",
     "isSynthetic": true,
     "provenance": {
       "isPublicOfficial": false,
       "source": "Synthetic demonstration dataset",
       "date": "2025-06-30",
       "coverage": "Illustrative"
-    }
+    },
+    "plannedCompletion": "T+500d"
   },
   {
     "id": "INV-009",
@@ -214,15 +206,14 @@
     "stage": "tender",
     "targetPopulation": 25000,
     "department": "Water Supply & Sewerage Board (Sanitation)",
-    "source": "Synthetic demonstration dataset",
-    "plannedCompletion": "T+300d",
     "isSynthetic": true,
     "provenance": {
       "isPublicOfficial": false,
       "source": "Synthetic demonstration dataset",
       "date": "2025-06-30",
       "coverage": "Illustrative"
-    }
+    },
+    "plannedCompletion": "T+300d"
   },
   {
     "id": "INV-010",
@@ -239,15 +230,14 @@
     "stage": "ongoing",
     "targetPopulation": 22000,
     "department": "Department of Digital Infrastructure",
-    "source": "Synthetic demonstration dataset",
-    "plannedCompletion": "T+120d",
     "isSynthetic": true,
     "provenance": {
       "isPublicOfficial": false,
       "source": "Synthetic demonstration dataset",
       "date": "2025-06-30",
       "coverage": "Illustrative"
-    }
+    },
+    "plannedCompletion": "T+120d"
   },
   {
     "id": "INV-011",
@@ -264,15 +254,14 @@
     "stage": "completed",
     "targetPopulation": 55000,
     "department": "Power Distribution Company",
-    "source": "Synthetic demonstration dataset",
-    "completedAt": "T-30d",
     "isSynthetic": true,
     "provenance": {
       "isPublicOfficial": false,
       "source": "Synthetic demonstration dataset",
       "date": "2025-06-30",
       "coverage": "Illustrative"
-    }
+    },
+    "completedAt": "T-30d"
   },
   {
     "id": "INV-012",
@@ -289,15 +278,14 @@
     "stage": "stalled",
     "targetPopulation": 18000,
     "department": "Department of Education",
-    "source": "Synthetic demonstration dataset",
-    "plannedCompletion": "T-40d",
-    "notes": "Marked stalled in the source dataset.",
     "isSynthetic": true,
     "provenance": {
       "isPublicOfficial": false,
       "source": "Synthetic demonstration dataset",
       "date": "2025-06-30",
       "coverage": "Illustrative"
-    }
+    },
+    "plannedCompletion": "T-40d",
+    "notes": "Marked stalled in the source dataset."
   }
 ]

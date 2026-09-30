@@ -70,9 +70,9 @@ await test('all channels produce the same normalised schema', () => {
   for (const c of ['text', 'voice', 'image', 'messaging', 'api']) assert.eq(keys(c), ref, `channel ${c} schema differs`);
 });
 await test('required fields are extracted (category, subcategory, language, location, urgency, population, confidence, timestamp, channel)', () => {
-  const n = normalizeRequest({ text: 'Eastern Periphery mein hospital nahi hai, 300 parivar pareshan hain', channel: 'voice', regions });
+  const n = normalizeRequest({ text: 'East Delhi mein hospital nahi hai, 300 parivar pareshan hain', channel: 'voice', regions });
   for (const f of ['category', 'subcategory', 'description', 'language', 'locationText', 'lat', 'lng', 'regionId', 'urgency', 'populationRelevance', 'affectedInfrastructure', 'confidence', 'timestamp', 'channel']) assert.ok(n[f] !== undefined && n[f] !== null, `missing ${f}`);
-  assert.eq(n.category, 'public_healthcare'); assert.eq(n.regionId, 'r08'); assert.eq(n.statedHouseholds, 300);
+  assert.eq(n.category, 'public_healthcare'); assert.eq(n.regionId, 'r02'); assert.eq(n.statedHouseholds, 300);
 });
 await test('unresolvable location is flagged, not guessed', () => {
   const n = normalizeRequest({ text: 'Pothole on the road', channel: 'chat', regions });
@@ -80,7 +80,7 @@ await test('unresolvable location is flagged, not guessed', () => {
 });
 await test('GPS coordinates map to the correct region', () => {
   const n = normalizeRequest({ text: 'Garbage overflow', lat: 28.6301, lng: 77.3201, regions });
-  assert.eq(n.locationSource, 'gps'); assert.eq(n.regionId, 'r08');
+  assert.eq(n.locationSource, 'gps'); assert.eq(n.regionId, 'r02');
 });
 await test('taxonomy is extensible without touching engine code', () => {
   tax.extendTaxonomy({ categoryId: 'digital_identity', label: 'Digital Identity', subcategory: { id: 'kiosk', label: 'ID kiosk', keywords: { en: ['identity kiosk'] }, intervention: 'Deploy enrolment kiosks' } });
@@ -179,7 +179,7 @@ section('Infrastructure gaps, investment alignment, prioritisation');
 const demands = dev.getDemands(), gaps = dev.getGaps(), aligns = dev.getAlignments(), projects = dev.getProjects();
 await test('gap = 1 - availability and population-in-gap derives from region population', () => {
   const g = gaps.find(x => x.id === 'r08|public_healthcare');
-  assert.near(g.availability, 0.28, 0.01); assert.near(g.gap, 0.72, 0.01); assert.eq(g.populationInGap, Math.round(120000 * g.gap));
+  assert.near(g.availability, 0.28, 0.01); assert.near(g.gap, 0.72, 0.01); assert.eq(g.populationInGap, Math.round(2292958 * g.gap));
   assert.ok(g.reasoning.length >= 3, 'reasoning must be shown');
 });
 await test('category concentration (share of a region\'s requests) is computed and stored', () => {
@@ -216,7 +216,7 @@ await test('priority score is the weighted sum of shown components, and every it
   }
   assert.ok(projects.every((p, i) => i === 0 || projects[i - 1].priorityScore >= p.priorityScore), 'sorted by score');
 });
-await test('intended demo story is computed (Eastern Periphery healthcare is top priority) rather than hardcoded', () => {
+await test('intended demo story is computed (South West Delhi healthcare is top priority) rather than hardcoded', () => {
   assert.eq(projects[0].id, 'r08|public_healthcare');
   const flipped = computePriorities({ demands: demands.map(d => d.id === 'r08|public_healthcare' ? { ...d, demandScore: 5, avgUrgency: 0, growthRate: 0, persistence: 0 } : d), gaps, alignments: aligns, regions, requests: [], clusters: [], weights: DEFAULT_WEIGHTS });
   assert.ok(flipped[0].id !== 'r08|public_healthcare', 'changing inputs must change the ranking');
@@ -297,13 +297,13 @@ await test('answers come from data with tables + filters; unsupported questions 
   assert.eq(b.intent, 'unknown'); assert.includes(b.answer, 'do not have information'); assert.eq(b.table, null);
 });
 await test('"why" questions explain from the stored evidence and contain real numbers', async () => {
-  const a = await answerPolicyQuestion('Why was Eastern Periphery prioritized for healthcare?', { narrate: false });
+  const a = await answerPolicyQuestion('Why was South West Delhi prioritized for healthcare?', { narrate: false });
   assert.eq(a.intent, 'explain'); assert.includes(a.answer, 'Priority increased because'); assert.includes(a.answer, 'residents');
   assert.gte(a.table.rows.length, 8);
 });
 await test('LLM narration is discarded when it contains numbers absent from the facts', () => {
-  const facts = { answer: 'Eastern Periphery has demand score 67 and 86,400 residents affected' };
-  assert.ok(narrationIsSupported('Demand score is 67 with 86,400 residents affected.', facts, facts.answer));
+  const facts = { answer: 'South West Delhi has demand score 67 and 1,650,930 residents affected' };
+  assert.ok(narrationIsSupported('Demand score is 67 with 1,650,930 residents affected.', facts, facts.answer));
   assert.ok(!narrationIsSupported('Demand score is 67 and 250,000 residents affected.', facts, facts.answer));
 });
 await test('policy query works when AI models are unavailable', async () => {

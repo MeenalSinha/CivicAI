@@ -1,267 +1,251 @@
 [
   {
     "id": "r01",
-    "name": "Central Market Ward",
+    "name": "Central Delhi",
     "aliases": [
-      "central market",
-      "main market",
-      "market road"
+      "central",
+      "central delhi"
     ],
-    "level": "ward",
-    "district": "Demo District (synthetic)",
-    "state": "Demo NCR Region (synthetic)",
+    "level": "district",
+    "district": "Central Delhi",
+    "state": "Delhi",
     "countryCode": "IN",
-    "lat": 28.622,
-    "lng": 77.218,
-    "radiusKm": 1.9,
-    "population": 92000,
-    "populationYear": 2025,
-    "areaKm2": 6.5,
+    "lat": 28.64,
+    "lng": 77.25,
+    "radiusKm": 3,
+    "population": 582320,
+    "populationYear": 2011,
+    "areaKm2": 25,
     "isSynthetic": false,
     "provenance": {
       "isPublicOfficial": true,
-      "source": "Census of India (Projected 2025)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "source": "Census of India 2011 (Delhi NCT)",
+      "date": "2011-03-31",
+      "coverage": "100% of state"
     }
   },
   {
     "id": "r02",
-    "name": "Sector 14 Ward",
+    "name": "East Delhi",
     "aliases": [
-      "sector 14",
-      "sector-14",
-      "metro station gate 2"
+      "east",
+      "east delhi"
     ],
-    "level": "ward",
-    "district": "Demo District (synthetic)",
-    "state": "Demo NCR Region (synthetic)",
+    "level": "district",
+    "district": "East Delhi",
+    "state": "Delhi",
     "countryCode": "IN",
-    "lat": 28.61,
-    "lng": 77.2,
-    "radiusKm": 1.7,
-    "population": 78000,
-    "populationYear": 2025,
-    "areaKm2": 5.8,
+    "lat": 28.63,
+    "lng": 77.3,
+    "radiusKm": 4.5,
+    "population": 1709346,
+    "populationYear": 2011,
+    "areaKm2": 63,
     "isSynthetic": false,
     "provenance": {
       "isPublicOfficial": true,
-      "source": "Census of India (Projected 2025)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "source": "Census of India 2011 (Delhi NCT)",
+      "date": "2011-03-31",
+      "coverage": "100% of state"
     }
   },
   {
     "id": "r03",
-    "name": "NH-8 Corridor",
+    "name": "New Delhi",
     "aliases": [
-      "nh-8",
-      "nh8",
-      "nh 8",
-      "toll plaza",
-      "nh-8 underpass"
+      "new delhi",
+      "ndmc"
     ],
-    "level": "ward",
-    "district": "Demo District (synthetic)",
-    "state": "Demo NCR Region (synthetic)",
+    "level": "district",
+    "district": "New Delhi",
+    "state": "Delhi",
     "countryCode": "IN",
-    "lat": 28.592,
-    "lng": 77.185,
-    "radiusKm": 2.4,
-    "population": 61000,
-    "populationYear": 2025,
-    "areaKm2": 9.5,
+    "lat": 28.61,
+    "lng": 77.21,
+    "radiusKm": 3.3,
+    "population": 142004,
+    "populationYear": 2011,
+    "areaKm2": 35,
     "isSynthetic": false,
     "provenance": {
       "isPublicOfficial": true,
-      "source": "Census of India (Projected 2025)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "source": "Census of India 2011 (Delhi NCT)",
+      "date": "2011-03-31",
+      "coverage": "100% of state"
     }
   },
   {
     "id": "r04",
-    "name": "Lajpat Nagar Ward",
+    "name": "North Delhi",
     "aliases": [
-      "lajpat nagar",
-      "lajpat",
-      "gali no 5"
+      "north",
+      "north delhi"
     ],
-    "level": "ward",
-    "district": "Demo District (synthetic)",
-    "state": "Demo NCR Region (synthetic)",
+    "level": "district",
+    "district": "North Delhi",
+    "state": "Delhi",
     "countryCode": "IN",
-    "lat": 28.605,
-    "lng": 77.243,
-    "radiusKm": 1.6,
-    "population": 105000,
-    "populationYear": 2025,
-    "areaKm2": 5.2,
+    "lat": 28.68,
+    "lng": 77.21,
+    "radiusKm": 4.3,
+    "population": 887978,
+    "populationYear": 2011,
+    "areaKm2": 59,
     "isSynthetic": false,
     "provenance": {
       "isPublicOfficial": true,
-      "source": "Census of India (Projected 2025)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "source": "Census of India 2011 (Delhi NCT)",
+      "date": "2011-03-31",
+      "coverage": "100% of state"
     }
   },
   {
     "id": "r05",
-    "name": "Yamuna Riverside Colony",
+    "name": "North East Delhi",
     "aliases": [
-      "yamuna riverside",
-      "riverside colony",
-      "yamuna khadar",
-      "riverside"
+      "north east",
+      "ne delhi"
     ],
-    "level": "ward",
-    "district": "Demo District (synthetic)",
-    "state": "Demo NCR Region (synthetic)",
+    "level": "district",
+    "district": "North East Delhi",
+    "state": "Delhi",
     "countryCode": "IN",
-    "lat": 28.65,
-    "lng": 77.262,
-    "radiusKm": 2.2,
-    "population": 88000,
-    "populationYear": 2025,
-    "areaKm2": 7.4,
+    "lat": 28.7,
+    "lng": 77.27,
+    "radiusKm": 4.4,
+    "population": 2241624,
+    "populationYear": 2011,
+    "areaKm2": 60,
     "isSynthetic": false,
     "provenance": {
       "isPublicOfficial": true,
-      "source": "Census of India (Projected 2025)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "source": "Census of India 2011 (Delhi NCT)",
+      "date": "2011-03-31",
+      "coverage": "100% of state"
     }
   },
   {
     "id": "r06",
-    "name": "Northern Fringe",
+    "name": "North West Delhi",
     "aliases": [
-      "northern fringe",
-      "north fringe",
-      "uttari kinara"
+      "north west",
+      "nw delhi"
     ],
-    "level": "ward",
-    "district": "Demo District (synthetic)",
-    "state": "Demo NCR Region (synthetic)",
+    "level": "district",
+    "district": "North West Delhi",
+    "state": "Delhi",
     "countryCode": "IN",
-    "lat": 28.7,
-    "lng": 77.16,
-    "radiusKm": 3.6,
-    "population": 46000,
-    "populationYear": 2025,
-    "areaKm2": 18,
+    "lat": 28.73,
+    "lng": 77.14,
+    "radiusKm": 11.9,
+    "population": 3656539,
+    "populationYear": 2011,
+    "areaKm2": 443,
     "isSynthetic": false,
     "provenance": {
       "isPublicOfficial": true,
-      "source": "Census of India (Projected 2025)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "source": "Census of India 2011 (Delhi NCT)",
+      "date": "2011-03-31",
+      "coverage": "100% of state"
     }
   },
   {
     "id": "r07",
-    "name": "Southern Extension",
+    "name": "South Delhi",
     "aliases": [
-      "southern extension",
-      "south extension",
-      "south ext"
+      "south",
+      "south delhi"
     ],
-    "level": "ward",
-    "district": "Demo District (synthetic)",
-    "state": "Demo NCR Region (synthetic)",
+    "level": "district",
+    "district": "South Delhi",
+    "state": "Delhi",
     "countryCode": "IN",
-    "lat": 28.54,
-    "lng": 77.215,
-    "radiusKm": 2.1,
-    "population": 69000,
-    "populationYear": 2025,
-    "areaKm2": 8.8,
+    "lat": 28.51,
+    "lng": 77.2,
+    "radiusKm": 8.9,
+    "population": 2731929,
+    "populationYear": 2011,
+    "areaKm2": 247,
     "isSynthetic": false,
     "provenance": {
       "isPublicOfficial": true,
-      "source": "Census of India (Projected 2025)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "source": "Census of India 2011 (Delhi NCT)",
+      "date": "2011-03-31",
+      "coverage": "100% of state"
     }
   },
   {
     "id": "r08",
-    "name": "Eastern Periphery",
+    "name": "South West Delhi",
     "aliases": [
-      "eastern periphery",
-      "east periphery",
-      "purvi kinara",
-      "east delhi edge"
+      "south west",
+      "sw delhi"
     ],
-    "level": "ward",
-    "district": "Demo District (synthetic)",
-    "state": "Demo NCR Region (synthetic)",
+    "level": "district",
+    "district": "South West Delhi",
+    "state": "Delhi",
     "countryCode": "IN",
-    "lat": 28.63,
-    "lng": 77.32,
-    "radiusKm": 3.2,
-    "population": 120000,
-    "populationYear": 2025,
-    "areaKm2": 14,
+    "lat": 28.57,
+    "lng": 77.04,
+    "radiusKm": 11.6,
+    "population": 2292958,
+    "populationYear": 2011,
+    "areaKm2": 420,
     "isSynthetic": false,
     "provenance": {
       "isPublicOfficial": true,
-      "source": "Census of India (Projected 2025)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "source": "Census of India 2011 (Delhi NCT)",
+      "date": "2011-03-31",
+      "coverage": "100% of state"
     }
   },
   {
     "id": "r09",
-    "name": "Western Settlement",
+    "name": "West Delhi",
     "aliases": [
-      "western settlement",
-      "west settlement",
-      "paschim basti",
-      "western basti"
+      "west",
+      "west delhi"
     ],
-    "level": "ward",
-    "district": "Demo District (synthetic)",
-    "state": "Demo NCR Region (synthetic)",
+    "level": "district",
+    "district": "West Delhi",
+    "state": "Delhi",
     "countryCode": "IN",
-    "lat": 28.645,
-    "lng": 77.105,
-    "radiusKm": 2.3,
-    "population": 97000,
-    "populationYear": 2025,
-    "areaKm2": 8.6,
+    "lat": 28.65,
+    "lng": 77.09,
+    "radiusKm": 6.4,
+    "population": 2543243,
+    "populationYear": 2011,
+    "areaKm2": 130,
     "isSynthetic": false,
     "provenance": {
       "isPublicOfficial": true,
-      "source": "Census of India (Projected 2025)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "source": "Census of India 2011 (Delhi NCT)",
+      "date": "2011-03-31",
+      "coverage": "100% of state"
     }
   },
   {
     "id": "r10",
-    "name": "Airport Road Block",
+    "name": "Shahdara",
     "aliases": [
-      "airport road",
-      "airport block",
-      "airport road block"
+      "shahdara"
     ],
-    "level": "ward",
-    "district": "Demo District (synthetic)",
-    "state": "Demo NCR Region (synthetic)",
+    "level": "district",
+    "district": "Shahdara",
+    "state": "Delhi",
     "countryCode": "IN",
-    "lat": 28.56,
-    "lng": 77.12,
-    "radiusKm": 2.6,
-    "population": 52000,
-    "populationYear": 2025,
-    "areaKm2": 12,
+    "lat": 28.67,
+    "lng": 77.29,
+    "radiusKm": 3.5,
+    "population": 322931,
+    "populationYear": 2011,
+    "areaKm2": 27.5,
     "isSynthetic": false,
     "provenance": {
       "isPublicOfficial": true,
-      "source": "Census of India (Projected 2025)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "source": "Census of India 2011 (Delhi NCT)",
+      "date": "2011-03-31",
+      "coverage": "100% of state"
     }
   }
 ]

@@ -8,12 +8,10 @@
     "benchmark": 98,
     "unit": "%",
     "asOf": "2025-01-01",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Portal Brasileiro de Dados Abertos",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -25,12 +23,10 @@
     "benchmark": 10,
     "unit": "km/10k",
     "asOf": "2025-01-01",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Portal Brasileiro de Dados Abertos",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -42,12 +38,10 @@
     "benchmark": 5,
     "unit": "UBS/100k",
     "asOf": "2025-01-01",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Portal Brasileiro de Dados Abertos",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -59,12 +53,10 @@
     "benchmark": 90,
     "unit": "%",
     "asOf": "2025-01-01",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Portal Brasileiro de Dados Abertos",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -76,12 +68,10 @@
     "benchmark": 98,
     "unit": "%",
     "asOf": "2025-01-01",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Portal Brasileiro de Dados Abertos",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -93,12 +83,10 @@
     "benchmark": 10,
     "unit": "km/10k",
     "asOf": "2025-01-01",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Portal Brasileiro de Dados Abertos",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -110,12 +98,10 @@
     "benchmark": 5,
     "unit": "UBS/100k",
     "asOf": "2025-01-01",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Portal Brasileiro de Dados Abertos",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -127,12 +113,10 @@
     "benchmark": 95,
     "unit": "%",
     "asOf": "2025-01-01",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Portal Brasileiro de Dados Abertos",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -144,12 +128,10 @@
     "benchmark": 98,
     "unit": "%",
     "asOf": "2025-01-01",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Portal Brasileiro de Dados Abertos",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -161,12 +143,10 @@
     "benchmark": 10,
     "unit": "km/10k",
     "asOf": "2025-01-01",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Portal Brasileiro de Dados Abertos",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -178,12 +158,10 @@
     "benchmark": 5,
     "unit": "UBS/100k",
     "asOf": "2025-01-01",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Portal Brasileiro de Dados Abertos",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -195,12 +173,10 @@
     "benchmark": 90,
     "unit": "%",
     "asOf": "2025-01-01",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Portal Brasileiro de Dados Abertos",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -212,12 +188,10 @@
     "benchmark": 95,
     "unit": "%",
     "asOf": "2025-01-01",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Portal Brasileiro de Dados Abertos",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -229,12 +203,10 @@
     "benchmark": 5,
     "unit": "UBS/100k",
     "asOf": "2025-01-01",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Portal Brasileiro de Dados Abertos",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -246,12 +218,10 @@
     "benchmark": 6,
     "unit": "schools/10k",
     "asOf": "2025-01-01",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Portal Brasileiro de Dados Abertos",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -263,12 +233,10 @@
     "benchmark": 2.5,
     "unit": "routes/km2",
     "asOf": "2025-01-01",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Portal Brasileiro de Dados Abertos",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -280,12 +248,10 @@
     "benchmark": 10,
     "unit": "km/10k",
     "asOf": "2025-01-01",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Portal Brasileiro de Dados Abertos",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -297,12 +263,10 @@
     "benchmark": 2.5,
     "unit": "routes/km2",
     "asOf": "2025-01-01",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Portal Brasileiro de Dados Abertos",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -314,12 +278,10 @@
     "benchmark": 98,
     "unit": "%",
     "asOf": "2025-01-01",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Portal Brasileiro de Dados Abertos",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -331,12 +293,10 @@
     "benchmark": 90,
     "unit": "%",
     "asOf": "2025-01-01",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Portal Brasileiro de Dados Abertos",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -348,12 +308,10 @@
     "benchmark": 98,
     "unit": "%",
     "asOf": "2025-01-01",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Portal Brasileiro de Dados Abertos",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -365,12 +323,10 @@
     "benchmark": 95,
     "unit": "%",
     "asOf": "2025-01-01",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Portal Brasileiro de Dados Abertos",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -382,12 +338,10 @@
     "benchmark": 5,
     "unit": "UBS/100k",
     "asOf": "2025-01-01",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Portal Brasileiro de Dados Abertos",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -399,12 +353,10 @@
     "benchmark": 2.5,
     "unit": "routes/km2",
     "asOf": "2025-01-01",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Portal Brasileiro de Dados Abertos",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -416,12 +368,10 @@
     "benchmark": 6,
     "unit": "schools/10k",
     "asOf": "2025-01-01",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Portal Brasileiro de Dados Abertos",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -433,12 +383,10 @@
     "benchmark": 95,
     "unit": "%",
     "asOf": "2025-01-01",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Portal Brasileiro de Dados Abertos",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -450,12 +398,10 @@
     "benchmark": 90,
     "unit": "%",
     "asOf": "2025-01-01",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Portal Brasileiro de Dados Abertos",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   }
 ]

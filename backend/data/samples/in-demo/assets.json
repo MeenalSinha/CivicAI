@@ -9,12 +9,10 @@
     "benchmark": 12,
     "unit": "km per 10,000 residents",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -27,12 +25,10 @@
     "benchmark": 95,
     "unit": "% of households",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -45,12 +41,10 @@
     "benchmark": 4,
     "unit": "primary health facilities per 100,000 residents",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -63,12 +57,10 @@
     "benchmark": 95,
     "unit": "% of households served",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -81,12 +73,10 @@
     "benchmark": 80,
     "unit": "% of residents within 500 m of a bus stop",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -99,12 +89,10 @@
     "benchmark": 95,
     "unit": "% area with 4G coverage",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -117,12 +105,10 @@
     "benchmark": 90,
     "unit": "% of road length with storm drains",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -135,12 +121,10 @@
     "benchmark": 6,
     "unit": "schools per 10,000 children",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -153,12 +137,10 @@
     "benchmark": 22,
     "unit": "hours/day",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -171,12 +153,10 @@
     "benchmark": 90,
     "unit": "% of households connected",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -189,12 +169,10 @@
     "benchmark": 12,
     "unit": "km per 10,000 residents",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -207,12 +185,10 @@
     "benchmark": 95,
     "unit": "% of households",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -225,12 +201,10 @@
     "benchmark": 4,
     "unit": "primary health facilities per 100,000 residents",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -243,12 +217,10 @@
     "benchmark": 95,
     "unit": "% of households served",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -261,12 +233,10 @@
     "benchmark": 80,
     "unit": "% of residents within 500 m of a bus stop",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -279,12 +249,10 @@
     "benchmark": 95,
     "unit": "% area with 4G coverage",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -297,12 +265,10 @@
     "benchmark": 90,
     "unit": "% of road length with storm drains",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -315,12 +281,10 @@
     "benchmark": 6,
     "unit": "schools per 10,000 children",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -333,12 +297,10 @@
     "benchmark": 22,
     "unit": "hours/day",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -351,12 +313,10 @@
     "benchmark": 90,
     "unit": "% of households connected",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -369,12 +329,10 @@
     "benchmark": 12,
     "unit": "km per 10,000 residents",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -387,12 +345,10 @@
     "benchmark": 95,
     "unit": "% of households",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -405,12 +361,10 @@
     "benchmark": 4,
     "unit": "primary health facilities per 100,000 residents",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -423,12 +377,10 @@
     "benchmark": 95,
     "unit": "% of households served",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -441,12 +393,10 @@
     "benchmark": 80,
     "unit": "% of residents within 500 m of a bus stop",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -459,12 +409,10 @@
     "benchmark": 95,
     "unit": "% area with 4G coverage",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -477,12 +425,10 @@
     "benchmark": 90,
     "unit": "% of road length with storm drains",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -495,12 +441,10 @@
     "benchmark": 6,
     "unit": "schools per 10,000 children",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -513,12 +457,10 @@
     "benchmark": 22,
     "unit": "hours/day",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -531,12 +473,10 @@
     "benchmark": 90,
     "unit": "% of households connected",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -549,12 +489,10 @@
     "benchmark": 12,
     "unit": "km per 10,000 residents",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -567,12 +505,10 @@
     "benchmark": 95,
     "unit": "% of households",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -585,12 +521,10 @@
     "benchmark": 4,
     "unit": "primary health facilities per 100,000 residents",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -603,12 +537,10 @@
     "benchmark": 95,
     "unit": "% of households served",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -621,12 +553,10 @@
     "benchmark": 80,
     "unit": "% of residents within 500 m of a bus stop",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -639,12 +569,10 @@
     "benchmark": 95,
     "unit": "% area with 4G coverage",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -657,12 +585,10 @@
     "benchmark": 90,
     "unit": "% of road length with storm drains",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -675,12 +601,10 @@
     "benchmark": 6,
     "unit": "schools per 10,000 children",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -693,12 +617,10 @@
     "benchmark": 22,
     "unit": "hours/day",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -711,12 +633,10 @@
     "benchmark": 90,
     "unit": "% of households connected",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -729,12 +649,10 @@
     "benchmark": 12,
     "unit": "km per 10,000 residents",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -747,12 +665,10 @@
     "benchmark": 95,
     "unit": "% of households",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -765,12 +681,10 @@
     "benchmark": 4,
     "unit": "primary health facilities per 100,000 residents",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -783,12 +697,10 @@
     "benchmark": 95,
     "unit": "% of households served",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -801,12 +713,10 @@
     "benchmark": 80,
     "unit": "% of residents within 500 m of a bus stop",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -819,12 +729,10 @@
     "benchmark": 95,
     "unit": "% area with 4G coverage",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -837,12 +745,10 @@
     "benchmark": 90,
     "unit": "% of road length with storm drains",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -855,12 +761,10 @@
     "benchmark": 6,
     "unit": "schools per 10,000 children",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -873,12 +777,10 @@
     "benchmark": 22,
     "unit": "hours/day",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -891,12 +793,10 @@
     "benchmark": 90,
     "unit": "% of households connected",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -909,12 +809,10 @@
     "benchmark": 12,
     "unit": "km per 10,000 residents",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -927,12 +825,10 @@
     "benchmark": 95,
     "unit": "% of households",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -945,12 +841,10 @@
     "benchmark": 4,
     "unit": "primary health facilities per 100,000 residents",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -963,12 +857,10 @@
     "benchmark": 95,
     "unit": "% of households served",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -981,12 +873,10 @@
     "benchmark": 80,
     "unit": "% of residents within 500 m of a bus stop",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -999,12 +889,10 @@
     "benchmark": 95,
     "unit": "% area with 4G coverage",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -1017,12 +905,10 @@
     "benchmark": 90,
     "unit": "% of road length with storm drains",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -1035,12 +921,10 @@
     "benchmark": 6,
     "unit": "schools per 10,000 children",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -1053,12 +937,10 @@
     "benchmark": 22,
     "unit": "hours/day",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -1071,12 +953,10 @@
     "benchmark": 90,
     "unit": "% of households connected",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -1089,12 +969,10 @@
     "benchmark": 12,
     "unit": "km per 10,000 residents",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -1107,12 +985,10 @@
     "benchmark": 95,
     "unit": "% of households",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -1125,12 +1001,10 @@
     "benchmark": 4,
     "unit": "primary health facilities per 100,000 residents",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -1143,12 +1017,10 @@
     "benchmark": 95,
     "unit": "% of households served",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -1161,12 +1033,10 @@
     "benchmark": 80,
     "unit": "% of residents within 500 m of a bus stop",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -1179,12 +1049,10 @@
     "benchmark": 95,
     "unit": "% area with 4G coverage",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -1197,12 +1065,10 @@
     "benchmark": 90,
     "unit": "% of road length with storm drains",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -1215,12 +1081,10 @@
     "benchmark": 6,
     "unit": "schools per 10,000 children",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -1233,12 +1097,10 @@
     "benchmark": 22,
     "unit": "hours/day",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -1251,12 +1113,10 @@
     "benchmark": 90,
     "unit": "% of households connected",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -1269,12 +1129,10 @@
     "benchmark": 12,
     "unit": "km per 10,000 residents",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -1287,12 +1145,10 @@
     "benchmark": 95,
     "unit": "% of households",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -1305,12 +1161,10 @@
     "benchmark": 4,
     "unit": "primary health facilities per 100,000 residents",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -1323,12 +1177,10 @@
     "benchmark": 95,
     "unit": "% of households served",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -1341,12 +1193,10 @@
     "benchmark": 80,
     "unit": "% of residents within 500 m of a bus stop",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -1359,12 +1209,10 @@
     "benchmark": 95,
     "unit": "% area with 4G coverage",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -1377,12 +1225,10 @@
     "benchmark": 90,
     "unit": "% of road length with storm drains",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -1395,12 +1241,10 @@
     "benchmark": 6,
     "unit": "schools per 10,000 children",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -1413,12 +1257,10 @@
     "benchmark": 22,
     "unit": "hours/day",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -1431,12 +1273,10 @@
     "benchmark": 90,
     "unit": "% of households connected",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -1449,12 +1289,10 @@
     "benchmark": 12,
     "unit": "km per 10,000 residents",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -1467,12 +1305,10 @@
     "benchmark": 95,
     "unit": "% of households",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -1485,12 +1321,10 @@
     "benchmark": 4,
     "unit": "primary health facilities per 100,000 residents",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -1503,12 +1337,10 @@
     "benchmark": 95,
     "unit": "% of households served",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -1521,12 +1353,10 @@
     "benchmark": 80,
     "unit": "% of residents within 500 m of a bus stop",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -1539,12 +1369,10 @@
     "benchmark": 95,
     "unit": "% area with 4G coverage",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -1557,12 +1385,10 @@
     "benchmark": 90,
     "unit": "% of road length with storm drains",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -1575,12 +1401,10 @@
     "benchmark": 6,
     "unit": "schools per 10,000 children",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -1593,12 +1417,10 @@
     "benchmark": 22,
     "unit": "hours/day",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -1611,12 +1433,10 @@
     "benchmark": 90,
     "unit": "% of households connected",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -1629,12 +1449,10 @@
     "benchmark": 12,
     "unit": "km per 10,000 residents",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -1647,12 +1465,10 @@
     "benchmark": 95,
     "unit": "% of households",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -1665,12 +1481,10 @@
     "benchmark": 4,
     "unit": "primary health facilities per 100,000 residents",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -1683,12 +1497,10 @@
     "benchmark": 95,
     "unit": "% of households served",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -1701,12 +1513,10 @@
     "benchmark": 80,
     "unit": "% of residents within 500 m of a bus stop",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -1719,12 +1529,10 @@
     "benchmark": 95,
     "unit": "% area with 4G coverage",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -1737,12 +1545,10 @@
     "benchmark": 90,
     "unit": "% of road length with storm drains",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -1755,12 +1561,10 @@
     "benchmark": 6,
     "unit": "schools per 10,000 children",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -1773,12 +1577,10 @@
     "benchmark": 22,
     "unit": "hours/day",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   },
   {
@@ -1791,12 +1593,10 @@
     "benchmark": 90,
     "unit": "% of households connected",
     "asOf": "2025-06-30",
-    "isSynthetic": false,
+    "isSynthetic": true,
     "provenance": {
-      "isPublicOfficial": true,
-      "source": "Open Government Data Platform India (data.gov.in)",
-      "date": "2025-06-30",
-      "coverage": "100% of sample regions"
+      "isPublicOfficial": false,
+      "source": "CivicAI Synthetic Demonstration Dataset"
     }
   }
 ]
