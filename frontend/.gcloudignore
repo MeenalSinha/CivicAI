@@ -1,0 +1,21 @@
+.gcloudignore
+.git
+.gitignore
+
+# Ignore node_modules — Cloud Build runs npm ci inside the container
+node_modules/
+
+# Ignore local build output
+build/
+
+# Ignore local cache
+.cache/
+.npm/
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
